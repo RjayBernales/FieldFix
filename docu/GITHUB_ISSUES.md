@@ -19,3 +19,8 @@ All 13 tickets were created under the authorized account. The implementation PR 
 | FF-013 | [#14: FF-013: Slow session-creation bodies must not hold the global session lock](https://github.com/RjayBernales/FieldFix/issues/14) | Fixed/resolved in this implementation; PR closing link |
 
 Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15). Its live check/merge status is authoritative. All fixes except the separate credential-rotation action are linked for automatic closure.
+
+| UI / hosting follow-up | Ticket | Disposition |
+| --- | --- | --- |
+| FF-014 | [#16: Improve dashboard hierarchy and readability](https://github.com/RjayBernales/FieldFix/issues/16) | Redesigned with UI/UX Pro Max and Taste; validated desktop/mobile workflows |
+| FF-015 | [#17: Stable free preview](https://github.com/RjayBernales/FieldFix/issues/17) | Temporary replacement restored; durable free host remains pending account connection |
