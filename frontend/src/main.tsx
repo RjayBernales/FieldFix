@@ -106,6 +106,25 @@ const time = (s: string) =>
   });
 const age = (s?: string, now = Date.now()) =>
   s ? Math.max(0, Math.round((now - new Date(s).getTime()) / 1000)) : null;
+function Brand({ context }: { context?: string }) {
+  return (
+    <div className={"brand-lockup" + (context ? " brand-lockup--welcome" : "")}>
+      <a className="brand" href="#overview" aria-label="FieldFix home">
+        <img
+          className="brand-logo"
+          src="/brand/fieldfix-logo-v1.png"
+          width={2172}
+          height={724}
+          alt="FieldFix"
+          decoding="async"
+          fetchPriority="high"
+        />
+      </a>
+      {context && <span className="product-scope">{context}</span>}
+    </div>
+  );
+}
+
 function Icon({ name }: { name: "wave" | "arrow" | "check" | "bolt" }) {
   return (
     <svg
@@ -351,7 +370,9 @@ function EvidenceTimeline({ evidence }: { evidence: Evidence[] }) {
                         <p>
                           Evidence reference <code>{e.evidence_id}</code>
                         </p>
-                        <pre tabIndex={0}>{JSON.stringify(e.payload, null, 2)}</pre>
+                        <pre tabIndex={0}>
+                          {JSON.stringify(e.payload, null, 2)}
+                        </pre>
                       </>
                     )}
                   </td>
@@ -765,10 +786,7 @@ function App() {
         Skip to station content
       </a>
       <header className="app-header">
-        <a className="brand" href="#overview">
-          <Icon name="wave" />
-          FieldFix
-        </a>
+        <Brand />
         <button
           className="menu-toggle secondary"
           aria-expanded={menuOpen}
@@ -1086,10 +1104,7 @@ function SessionGate() {
   if (!status || !status.authenticated)
     return (
       <main className="welcome">
-        <a className="brand" href="#">
-          <Icon name="wave" />
-          FieldFix<span className="product-scope">Interactive demo</span>
-        </a>
+        <Brand context="Interactive demo" />
         <div className="welcome-layout">
           <section className="welcome-card">
             <h1>
