@@ -1366,3 +1366,12 @@ footer {
 }
 
 .investigation.awaiting_approval .proposal-heading { display: none; }
+@media (max-width: 700px) {
+  .evidence-table,
+  .evidence-table tbody { display: block; width: 100%; }
+  .evidence-table tbody tr { width: 100%; }
+  .evidence-table tbody tr[hidden] { display: none!important; }
+  .evidence-table tbody tr:has(.evidence-detail) { display: block; }
+  .evidence-table tbody td.evidence-detail { display: block; width: 100%; }
+  .evidence-table tbody th { width: auto; }
+}
