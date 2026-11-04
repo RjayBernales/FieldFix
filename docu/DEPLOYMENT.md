@@ -1,6 +1,6 @@
 # Free demo hosting
 
-Current verified preview: **https://managers-tan-wage-achievements.trycloudflare.com**
+Current verified preview: **https://flood-inf-written-automotive.trycloudflare.com**
 
 This is a **temporary Cloudflare Quick Tunnel** to the Python app, not a permanent Render deployment. It requires the preview computer and tunnel process to remain running. Cloudflare provides no uptime guarantee for Quick Tunnels, and the hostname changes if the tunnel is recreated. [Official limitations](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
 

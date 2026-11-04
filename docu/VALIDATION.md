@@ -1,8 +1,28 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T13:42:23.151647+00:00.
+Report updated: 2026-11-04T15:55:03.608708+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
+
+## Approved logo integration — 2026-11-04
+
+Tested checkout: `b060904d00fb5a07aee72f89eb731e6dd6b3c7e9`; UI implementation: `13f14da0ad0c687ecb0c0477394fd5bcb2209645`. [Actual branding report](branding-validation.json). The supplied transparent logo PNG remains byte-for-byte unchanged. A shared home-link component places it in the dashboard and demo entry screen; a matching symbol-only PNG supplies the favicon. Natural aspect ratios, reserved dimensions, accessible text and light-surface contrast are preserved. UI/UX Pro Max and Taste app-screen guidance informed the integration without changing diagnosis, approval, or verification behavior.
+
+| Check | Actual outcome |
+| --- | --- |
+| Backend / frontend | **56 tests passed in 3.88s**; strict TypeScript and Vite production build passed |
+| Offline simulator/provider harness | **4/4 passed**, zero live requests; current fingerprint includes public assets and HTML |
+| Taste source and demo-entry render inspection | **0 failures, 0 warnings**, rendered at 1440 / 768 / 390px |
+| Authenticated dashboard geometry | Logo loaded at **320 / 390 / 768 / 1440px**, always 3:1; home target at least 52px high; no header overlap or document overflow |
+| Navigation | Logo home link returned Investigations to Overview; mobile Menu remained usable |
+| Accessibility | Desktop and mobile **0 automatic violations, 29 passes** each; existing SVG contrast category remains manual (5.88:1) |
+| Asset delivery | Both PNGs returned **HTTP 200 / image/png** with source-identical bytes, locally and over HTTPS |
+| Public workflow | New isolated mock session investigated, approved, reached **3/3 post-repair samples**, and logged out successfully |
+| Review package | Fixed omitted frontend/public coverage; ZIP includes logo, favicon and brand guide byte-for-byte, with local secrets/planning excluded |
+
+Screenshots: [desktop dashboard](evidence/branding/dashboard-desktop.png), [mobile dashboard](evidence/branding/dashboard-mobile.png), [desktop entry](evidence/branding/welcome-desktop.png), [mobile entry](evidence/branding/welcome-mobile.png).
+
+No additional genuine Meta inference was run for branding. Station data and online inference remain synthetic/mock. The previous tunnel again expired while its process was running; this replacement temporary URL was verified and is documented in README/DEPLOYMENT.md. This does not resolve stable hosting issue #17. The approved original and matching favicon remain transparent raster PNGs, not vector files. Prior genuine Meta evidence remains historical and separately attributed.
 
 ## Approved dashboard layout — 2026-11-04
 
@@ -50,7 +70,7 @@ The previous Quick Tunnel expired despite its process still running (DNS failure
 ## Tested code and delivery
 
 - Local genuine-Meta runtime/dependency commit: `2be09e836d7eab6a2263780d85e968a9ad5f3728` on `dev/fieldfix-mvp`.
-- Local genuine-Meta runtime source SHA-256: `c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b`; [manifest](source-manifest.json). This fingerprint is distinct from a Git SHA.
+- Local genuine-Meta runtime source SHA-256: `c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b`; historical fingerprint recorded in [live-final.json](live-final.json). The [current manifest](source-manifest.json) includes subsequent UI, packaging, and branding changes; it is not the historical Meta snapshot. A fingerprint is distinct from a Git SHA.
 - The genuine-Meta suite/browser evidence uses that exact earlier commit. Free-hosting/session support was subsequently added and tested at `2b905d4d1e6ed806818b61ce40e3c84a020b749f`; no paid inference was rerun for the mock-only public layer. The public-runtime snapshot used SHA-256 `5b50887ebc34e1fa0402da82867f955568de1503539752b611b04a0f83c11ab3`. Subsequent CI/packaging changes are identified by the current source manifest.
 - Local commits use `RjayBernales <rainieljevson0@gmail.com>` as author and committer. Original remote history was restored through approved read-only sync; no unrelated history was replaced.
 - GitHub delivery is authorized. All thirteen issues were created and verified; confirmed links are in GITHUB_ISSUES.md. Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15); its check/merge state is authoritative. Publishing and labels were verified; final merge/check results are included in the handoff. The earlier README-only PR #1 is not the implementation PR.
