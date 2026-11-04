@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "fingerprint": "232e5e99d9f4d8fd0344cbce64cbb1727f8d8d0ce4d11138966ac78932b7ac17",
+  "fingerprint": "b72a458fae02459c331208842d2e2c2943e2708fcb973cdb00b3cbd4a533eee9",
   "files": {
     ".dockerignore": "54e4ea4bffb22089c19047aa44cc96caca57573a3137ece051c96085a8839aef",
     ".env.example": "5a06c7b8a940ebbee191b8d2e1953170cd098498dc6f999ee91cd6c8f7a379d6",
@@ -29,7 +29,7 @@
     "render.yaml": "63456c52625e684c030385cfb5df2692b6b9c5ae3f74fe8c7497c0e3be45060b",
     "requirements.lock": "37d769737138c45944b01ee377d78d067e639ef91d379bae9951cf8eb4ae97ed",
     "scripts/package_submission.py": "18089a8e4ec3739c66638afb90cda968e547f3920d947edf9ce64353b41db01e",
-    "scripts/secret_scan.py": "68fab78e1a90d25850db69791feaaf4a0bd3f79a44c9c34443c3197a35dd583e",
+    "scripts/secret_scan.py": "1a24eaf584518eb190ee9f3f6886c6a53f83ddcc6c2797629a718de709880cbc",
     "scripts/validate_live.py": "a20aa1d557d170bd367f6a1b6e0f2ba402811ee0e746ac093b325f263414d853",
     "scripts/validate_offline.py": "2c9aa34f7583a8025627ecc414b4330e5e9716d3ddd540b02b4651617cd339d0",
     "scripts/verify.sh": "db58ff52b5236ac9e960764da872188340448113f7633195a635a27f122970ea"

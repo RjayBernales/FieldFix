@@ -1,6 +1,6 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T06:18:57.506849+00:00.
+Report updated: 2026-11-04T08:20:59.598458+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
 
@@ -10,7 +10,7 @@ Report updated: 2026-11-04T06:18:57.506849+00:00.
 - Local genuine-Meta runtime source SHA-256: `c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b`; [manifest](source-manifest.json). This fingerprint is distinct from a Git SHA.
 - The genuine-Meta suite/browser evidence uses that exact earlier commit. Free-hosting/session support was subsequently added and tested at `2b905d4d1e6ed806818b61ce40e3c84a020b749f`; no paid inference was rerun for the mock-only public layer. The public-runtime snapshot used SHA-256 `5b50887ebc34e1fa0402da82867f955568de1503539752b611b04a0f83c11ab3`. Subsequent CI/packaging changes are identified by the current source manifest.
 - Local commits use `RjayBernales <rainieljevson0@gmail.com>` as author and committer. Original remote history was restored through approved read-only sync; no unrelated history was replaced.
-- GitHub delivery is authorized. All thirteen issues were created and verified; confirmed links are in GITHUB_ISSUES.md. PR/merge results are added only after confirmation. The earlier README-only PR #1 is not the implementation PR.
+- GitHub delivery is authorized. All thirteen issues were created and verified; confirmed links are in GITHUB_ISSUES.md. Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15); its check/merge state is authoritative. Publishing and labels were verified; final merge/check results are included in the handoff. The earlier README-only PR #1 is not the implementation PR.
 
 ## Environment and limits
 
@@ -111,4 +111,6 @@ The Docker image built and ran as UID 10001, served the static app and session A
 
 This is an account-free Cloudflare Quick Tunnel, not permanent hosting: it requires the preview computer/tunnel to stay running, and has no uptime guarantee. No Render service/account was connected or created; a **free-only** blueprint is prepared. No paid service was created. These limits are visible in the README and guide. The public factory refuses Meta/key configuration rather than silently falling back.
 
-GitHub automation: `.github/workflows/verify.yml` pins verified official action commits, installs locked dependencies, runs the backend/frontend/secret checks, and builds the Docker image. It makes no live Meta calls. Actual remote run results are recorded after publishing. No branch protections or visibility settings were changed.
+GitHub automation: `.github/workflows/verify.yml` pins verified official action commits, installs locked dependencies, runs the backend/frontend/secret checks, and builds the Docker image. It makes no live Meta calls. Both initial remote runs for `bc994b4d55cc7e30bfd99bbf924211ae292d0b22` passed: [push verification](https://github.com/RjayBernales/FieldFix/actions/runs/41798177349) and [PR verification](https://github.com/RjayBernales/FieldFix/actions/runs/41798304777). The final documentation/secret-detector update is checked again on the PR before merging. No branch protections or visibility settings were changed.
+
+Secret-detector regression: the real scanner was exercised in a separate benign fixture directory, then with a synthetic unquoted Meta-format key. It passed the benign tree, rejected the unsafe example, and did not echo the synthetic value. No real key was used in the regression.

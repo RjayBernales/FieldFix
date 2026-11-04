@@ -18,4 +18,4 @@ All 13 tickets were created under the authorized account. The implementation PR 
 | FF-012 | [#13: FF-012: A public demo needs isolated, bounded visitor sessions](https://github.com/RjayBernales/FieldFix/issues/13) | Fixed/resolved in this implementation; PR closing link |
 | FF-013 | [#14: FF-013: Slow session-creation bodies must not hold the global session lock](https://github.com/RjayBernales/FieldFix/issues/14) | Fixed/resolved in this implementation; PR closing link |
 
-Implementation PR: publishing is in progress; the confirmed URL is added before merge.
+Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15). Its live check/merge status is authoritative. All fixes except the separate credential-rotation action are linked for automatic closure.

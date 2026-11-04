@@ -1,7 +1,7 @@
 {
-  "at": "2026-11-04T08:12:48.408384+00:00",
-  "tested_commit": "2b905d4d1e6ed806818b61ce40e3c84a020b749f",
-  "source_fingerprint": "232e5e99d9f4d8fd0344cbce64cbb1727f8d8d0ce4d11138966ac78932b7ac17",
+  "at": "2026-11-04T08:21:01.575874+00:00",
+  "tested_commit": "3fa0dab3239cc365b52bc67354f5e6dce1c5492a",
+  "source_fingerprint": "b72a458fae02459c331208842d2e2c2943e2708fcb973cdb00b3cbd4a533eee9",
   "provider": "mock",
   "model": "deterministic-offline-fixture",
   "station_data": "synthetic",
@@ -17,7 +17,7 @@
       "tool_calls": 6,
       "evidence": [
         {
-          "evidence_id": "ev_0c98a879aa7740d4",
+          "evidence_id": "ev_cd6a042a4e23405a",
           "tool_name": "get_station_status",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -28,7 +28,7 @@
           }
         },
         {
-          "evidence_id": "ev_92531fc7834a46ef",
+          "evidence_id": "ev_4a436a41801c4eb6",
           "tool_name": "get_local_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -84,7 +84,7 @@
           }
         },
         {
-          "evidence_id": "ev_b03aafc728a84df0",
+          "evidence_id": "ev_79706882bac14ef1",
           "tool_name": "get_received_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -131,7 +131,7 @@
           }
         },
         {
-          "evidence_id": "ev_b9194744664b47ab",
+          "evidence_id": "ev_974771db12834b70",
           "tool_name": "get_device_logs",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -146,7 +146,7 @@
           }
         },
         {
-          "evidence_id": "ev_8cc031866e254d7a",
+          "evidence_id": "ev_cb18802d00754e5c",
           "tool_name": "get_transport_config",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -158,22 +158,22 @@
           }
         },
         {
-          "evidence_id": "ev_5eea2b6b250c47b3",
+          "evidence_id": "ev_60122d9f68e34b40",
           "tool_name": "propose_subscription_update",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
           "status": "ok",
           "payload": {
-            "id": "prop_a5cc4821110345dd",
-            "incident_id": "inc_79e91505c50c48db",
+            "id": "prop_7085029ae8de400e",
+            "incident_id": "inc_de1e7627c25742ef",
             "station_id": "station-01",
             "version": 2,
             "before": "custom/site-1/turbidity-old",
             "after": "custom/site-1/turbidity",
             "evidence_ids": [
-              "ev_92531fc7834a46ef",
-              "ev_b03aafc728a84df0",
-              "ev_8cc031866e254d7a"
+              "ev_4a436a41801c4eb6",
+              "ev_79706882bac14ef1",
+              "ev_cb18802d00754e5c"
             ],
             "expires_at": "2026-11-04T01:02:00+00:00",
             "status": "pending"
@@ -181,16 +181,16 @@
         }
       ],
       "proposal": {
-        "id": "prop_a5cc4821110345dd",
-        "incident_id": "inc_79e91505c50c48db",
+        "id": "prop_7085029ae8de400e",
+        "incident_id": "inc_de1e7627c25742ef",
         "station_id": "station-01",
         "version": 2,
         "before": "custom/site-1/turbidity-old",
         "after": "custom/site-1/turbidity",
         "evidence_ids": [
-          "ev_92531fc7834a46ef",
-          "ev_b03aafc728a84df0",
-          "ev_8cc031866e254d7a"
+          "ev_4a436a41801c4eb6",
+          "ev_79706882bac14ef1",
+          "ev_cb18802d00754e5c"
         ],
         "expires_at": "2026-11-04T01:02:00+00:00",
         "status": "pending"
@@ -207,13 +207,13 @@
       "scenario": "healthy",
       "result": "pass",
       "state": "unresolved",
-      "finding": "No fault found in collected evidence; no repair proposed. ev_09c3a66c88b244f3 ev_0d618fc99142493e ev_8e9c0f132a524080 ev_77e80f5c2d10409f ev_f2320ea35b9440d0",
+      "finding": "No fault found in collected evidence; no repair proposed. ev_0546d3ee45a4413b ev_5232bc4f3dc54913 ev_75a188a1b7a8412e ev_48cf0b70cc3a4f39 ev_f1ff146e45c04eee",
       "unchanged_before_approval": true,
       "model_turns": 2,
       "tool_calls": 5,
       "evidence": [
         {
-          "evidence_id": "ev_09c3a66c88b244f3",
+          "evidence_id": "ev_0546d3ee45a4413b",
           "tool_name": "get_station_status",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -224,7 +224,7 @@
           }
         },
         {
-          "evidence_id": "ev_0d618fc99142493e",
+          "evidence_id": "ev_5232bc4f3dc54913",
           "tool_name": "get_local_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -280,7 +280,7 @@
           }
         },
         {
-          "evidence_id": "ev_8e9c0f132a524080",
+          "evidence_id": "ev_75a188a1b7a8412e",
           "tool_name": "get_received_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -336,7 +336,7 @@
           }
         },
         {
-          "evidence_id": "ev_77e80f5c2d10409f",
+          "evidence_id": "ev_48cf0b70cc3a4f39",
           "tool_name": "get_device_logs",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -351,7 +351,7 @@
           }
         },
         {
-          "evidence_id": "ev_f2320ea35b9440d0",
+          "evidence_id": "ev_f1ff146e45c04eee",
           "tool_name": "get_transport_config",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -370,13 +370,13 @@
       "scenario": "sensor_failure",
       "result": "pass",
       "state": "unresolved",
-      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_e49f490b8f964725 ev_0b7e44ab66ab4cdf ev_b399ea2a26fe4d7b ev_dde8b7e3f02b4c56 ev_e1d1f12b0ed24232",
+      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_1000aaa0239748bd ev_3ee6a4588b6b4aaa ev_39b1f9ee66c84e00 ev_9664847a3ba64b26 ev_ee0b4f8cba1d4b2a",
       "unchanged_before_approval": true,
       "model_turns": 2,
       "tool_calls": 5,
       "evidence": [
         {
-          "evidence_id": "ev_e49f490b8f964725",
+          "evidence_id": "ev_1000aaa0239748bd",
           "tool_name": "get_station_status",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -387,7 +387,7 @@
           }
         },
         {
-          "evidence_id": "ev_0b7e44ab66ab4cdf",
+          "evidence_id": "ev_3ee6a4588b6b4aaa",
           "tool_name": "get_local_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -397,7 +397,7 @@
           }
         },
         {
-          "evidence_id": "ev_b399ea2a26fe4d7b",
+          "evidence_id": "ev_39b1f9ee66c84e00",
           "tool_name": "get_received_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -444,7 +444,7 @@
           }
         },
         {
-          "evidence_id": "ev_dde8b7e3f02b4c56",
+          "evidence_id": "ev_9664847a3ba64b26",
           "tool_name": "get_device_logs",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -459,7 +459,7 @@
           }
         },
         {
-          "evidence_id": "ev_e1d1f12b0ed24232",
+          "evidence_id": "ev_ee0b4f8cba1d4b2a",
           "tool_name": "get_transport_config",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -478,13 +478,13 @@
       "scenario": "unavailable",
       "result": "pass",
       "state": "unresolved",
-      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_c69a643008f54e3b ev_fa1e26dfacaa465f ev_49e682d3d56947a5 ev_27db23dfa5434702 ev_1611e953868d4b10",
+      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_0ddb1c2168164d9b ev_113b5439fc2740e5 ev_49fa6f9d806b4f02 ev_28da6e8d3d444f1a ev_893a5d913d744539",
       "unchanged_before_approval": true,
       "model_turns": 2,
       "tool_calls": 5,
       "evidence": [
         {
-          "evidence_id": "ev_c69a643008f54e3b",
+          "evidence_id": "ev_0ddb1c2168164d9b",
           "tool_name": "get_station_status",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -495,7 +495,7 @@
           }
         },
         {
-          "evidence_id": "ev_fa1e26dfacaa465f",
+          "evidence_id": "ev_113b5439fc2740e5",
           "tool_name": "get_local_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -505,7 +505,7 @@
           }
         },
         {
-          "evidence_id": "ev_49e682d3d56947a5",
+          "evidence_id": "ev_49fa6f9d806b4f02",
           "tool_name": "get_received_samples",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -515,7 +515,7 @@
           }
         },
         {
-          "evidence_id": "ev_27db23dfa5434702",
+          "evidence_id": "ev_28da6e8d3d444f1a",
           "tool_name": "get_device_logs",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
@@ -530,7 +530,7 @@
           }
         },
         {
-          "evidence_id": "ev_1611e953868d4b10",
+          "evidence_id": "ev_893a5d913d744539",
           "tool_name": "get_transport_config",
           "station_id": "station-01",
           "observed_at": "2026-11-04T01:00:00+00:00",
