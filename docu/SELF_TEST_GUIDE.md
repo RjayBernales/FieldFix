@@ -19,17 +19,19 @@ On the local version, follow README setup/start commands and open http://127.0.0
 | Dashboard reading | The latest sample actually delivered to the dashboard, with its original sampling age |
 | Local device reading | The device continues sampling independently of dashboard delivery |
 | Chart | Dashed local acquisition versus solid delivered readings; shaded intervals indicate stale dashboard data |
-| Diagnostic evidence | The actual structured results used in this investigation, with evidence IDs |
-| Station investigation | Finding, exact repair proposal, approval/rejection, and recovery progress |
+| Diagnostic activity | The actual structured results used in this investigation, with evidence IDs |
+| Investigation | Finding, exact repair proposal, approval/rejection, and recovery progress |
 | Simulator controls | Deliberately configure a simulated fault; these controls are not agent tools |
 
-The **Acquisition → Topic delivery → Dashboard** strip summarizes observed freshness. It flags delayed delivery; the diagnostic evidence establishes its cause. On a phone, the investigation and approval panel appears first.
+The top navigation opens **Overview**, **Investigations**, and **Simulator**. On a phone, use **Menu**. Investigation history is below the overview grid and at the top of Investigations. The activity list initially shows five results; **View all** reveals the rest.
+
+The **Acquisition → Topic delivery → Dashboard** strip summarizes observed freshness. It flags delayed delivery; the diagnostic evidence establishes its cause. On a phone, station readings appear before the investigation/approval panel, telemetry, and diagnostic activity list.
 
 NTU is the displayed turbidity unit. FieldFix does not turn these readings into environmental safety advice.
 
 ## 2. Create the primary fault
 
-1. At the bottom, choose **Transport mismatch** and click **Reset demo**.
+1. Expand **Simulator controls** at the bottom (or open the **Simulator** view), choose **Transport mismatch**, and click **Reset demo**. Return to **Overview** if needed.
 2. Confirm the previous investigation view clears to **New investigation**.
 3. Wait about 6–10 seconds. The **local device reading** should keep changing, while the **dashboard reading** remains old and shows **stale**.
 4. The chart should show the difference between continued acquisition and broken delivery.
@@ -39,8 +41,8 @@ What is happening: the simulator generates a sample every two seconds, but its p
 ## 3. Investigate and inspect the evidence
 
 1. Leave the question as “Why are dashboard readings stale?” or enter a short technician observation.
-2. Click **Investigate station** once. The button disables while it is running.
-3. Expand several tool rows in **Diagnostic evidence**:
+2. Click the header’s **Investigate station** button, or edit the observation and click **Start investigation** in the Investigation panel. While a run is active, the header action opens its review panel.
+3. Expand several **+** buttons in **Diagnostic activity**:
    - **Station status**: heartbeat/connection.
    - **Local samples**: recent sampling timestamps and sequences.
    - **Received samples**: older delivered readings.

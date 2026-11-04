@@ -1,0 +1,223 @@
+{
+  "at": "2026-11-04T13:40:57.034308+00:00",
+  "tested_ui_commit": "932aaad85b55b1ded02b5b96d20f51feb9c8780c",
+  "provider": "mock",
+  "station_data": "synthetic",
+  "live_requests": 0,
+  "source_sha256": {
+    "frontend/index.html": "25885cee16dc7394022a0d8b1e4622025712c2d46a2408bff18986ae01e6d9b1",
+    "frontend/src/main.tsx": "8663aa7f53fd0c3b7e9a0bf952f30ff41613608f6641006113b099e4a81949ac",
+    "frontend/src/style.css": "94e7ae6f2bb94c903fd2b113bafc98f5b509616c6e46e7a5562f547ff2e62e84"
+  },
+  "layout": {
+    "reference": "LPMAS local public Monitor home-page source; rendered fieldfix checked at1440/768/390",
+    "columns": "65/35 desktop; readings/investigation/telemetry/activity on mobile",
+    "views": [
+      "Overview",
+      "Investigations",
+      "Simulator"
+    ],
+    "simulator": "collapsed by default",
+    "activity": "first5results plus view-all; fullwidth mobile rows and expandable keyboard-scrollable JSON"
+  },
+  "checks": {
+    "backend": {
+      "passed": 56,
+      "seconds": 10.22
+    },
+    "frontend": {
+      "result": "pass",
+      "vite": "8.3.5",
+      "js_kb": 207.45,
+      "js_gzip_kb": 65.1,
+      "css_kb": 18.95,
+      "css_gzip_kb": 4.64
+    },
+    "taste_source_lint": {
+      "fail": 0,
+      "warn": 0
+    },
+    "taste_rendered_inspector": {
+      "fail": 0,
+      "warn": 0,
+      "widths": [
+        1440,
+        768,
+        390
+      ]
+    },
+    "axe": {
+      "desktop": {
+        "axe_version": "4.12.1",
+        "counts": {
+          "inapplicable": 34,
+          "incomplete": 1,
+          "passes": 26,
+          "violations": 0
+        },
+        "manual_checks": [
+          {
+            "id": "color-contrast",
+            "node_count": 8
+          }
+        ]
+      },
+      "mobile_expanded_payload": {
+        "axe_version": "4.12.1",
+        "counts": {
+          "inapplicable": 33,
+          "incomplete": 1,
+          "passes": 27,
+          "violations": 0
+        },
+        "manual_checks": [
+          {
+            "id": "color-contrast",
+            "node_count": 9
+          }
+        ]
+      }
+    },
+    "manual_svg_text_contrast": "5.88:1 (#59685f on white)",
+    "browser": {
+      "history_navigation": {
+        "finding": "unresolvedProposal expired without approval. No configuration was changed.6 tool calls2 model turnsMock fixture",
+        "view": "investigations"
+      },
+      "healthy": {
+        "finding": "unresolvedNo fault found in collected evidence; no repair proposed. ev_5ba980213d4e48e1 ev_32d39eaf239c458e ev_27d03b5c0a9346f2 ev_bd4a829348484d52 ev_e47d19b52ea947e15 tool calls2 model turnsMock fixture",
+        "proposal": false
+      },
+      "rejected": {
+        "delivery": "Device samplingDelivery staleUpdated 09:23:22 PMPause updates",
+        "finding": "unresolvedTechnician rejected the proposal. No configuration was changed.6 tool calls2 model turnsMock fixture"
+      },
+      "mobile_evidence": {
+        "overflow": false,
+        "payload": "{\n  \"publish_topic\": \"stations/river-01/turbidity\",\n  \"subscription_topic\": \"stations/river-01/turbidity-old\",\n  \"version\": 6\n}"
+      },
+      "mobile_menu_navigation": true,
+      "paused": {
+        "disabled": true,
+        "notice": "Updates paused at 09:23:31 PM. Readings and freshness are frozen. Resume before investigating."
+      }
+    },
+    "mobile_geometry": {
+      "focusablePayload": 0,
+      "overflow": false,
+      "rowWidths": [
+        324,
+        324,
+        324,
+        324,
+        324
+      ]
+    },
+    "keyboard_payload": {
+      "tab_index": 0,
+      "tab_reached": "PRE",
+      "page_overflow": false
+    },
+    "mobile_empty_state": {
+      "width_px": 324,
+      "page_overflow": false,
+      "simulator_collapsed": true
+    },
+    "local_approved_recovery": "resolved with3/3distinct post-repair samples,2modelturns6tools",
+    "public_https": {
+      "assets": [
+        "https://managers-tan-wage-achievements.trycloudflare.com/assets/index-juCK0OVL.js"
+      ],
+      "finding": "resolvedRecovery verified: three distinct post-repair samples received; latest sample is fresh.6 tool calls2 model turnsMock fixture3 / 3 post-repair samples",
+      "overflow": false,
+      "provider": "Simulated station \u00b7 mock inference",
+      "verification": "3 / 3 post-repair samples"
+    },
+    "public_logout": "returned to Start my demo session",
+    "docker": {
+      "result": "build and healthz smoke passed",
+      "image_id": "e58f3df17589",
+      "uid": 10001
+    },
+    "local_records": [
+      {
+        "id": "inc_fa3c4411b526458d",
+        "state": "unresolved",
+        "provider": "mock",
+        "finding": "Proposal expired without approval. No configuration was changed.",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "verification": null
+      },
+      {
+        "id": "inc_d0a7ee5a0ea24a6e",
+        "state": "unresolved",
+        "provider": "mock",
+        "finding": "No fault found in collected evidence; no repair proposed. ev_e47e9e69df304f5a ev_5d0b5eb089db478f ev_b171d6dd12314d4d ev_7aef73bb97c640b4 ev_d1df99a766c84cb5",
+        "model_turns": 2,
+        "tool_calls": 5,
+        "verification": null
+      },
+      {
+        "id": "inc_b97ebf23d3694504",
+        "state": "unresolved",
+        "provider": "mock",
+        "finding": "Technician rejected the proposal. No configuration was changed.",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "verification": null
+      },
+      {
+        "id": "inc_6178f1b0a29d4ddd",
+        "state": "unresolved",
+        "provider": "mock",
+        "finding": "No fault found in collected evidence; no repair proposed. ev_5ba980213d4e48e1 ev_32d39eaf239c458e ev_27d03b5c0a9346f2 ev_bd4a829348484d52 ev_e47d19b52ea947e1",
+        "model_turns": 2,
+        "tool_calls": 5,
+        "verification": null
+      },
+      {
+        "id": "inc_714ce9681c594ba5",
+        "state": "resolved",
+        "provider": "mock",
+        "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "verification": {
+          "recovered": true,
+          "count": 3,
+          "required": 3,
+          "latest_fresh": true,
+          "reason": "Three distinct post-repair samples and latest freshness required."
+        }
+      },
+      {
+        "id": "inc_2400bc6b05284328",
+        "state": "unresolved",
+        "provider": "mock",
+        "finding": "Proposal expired without approval. No configuration was changed.",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "verification": null
+      }
+    ]
+  },
+  "preview": {
+    "url": "https://managers-tan-wage-achievements.trycloudflare.com",
+    "hosting": "temporary Cloudflare Quick Tunnel",
+    "inference": "mock only"
+  },
+  "failures_fixed_or_retained": [
+    "The first mobile table collapsed to~80px despite no page overflow. Fixed to324px rows with separated status/timestamps, then visually checked.",
+    "Expanded JSON initially failed scrollable-region-focusable. Fixed with tabindex0; Tab reached PRE and expanded-state axe passed.",
+    "An earlier public approval attempt timed out after extended screenshot review and did not produce a verification record; a fresh promptly approved final session reached3/3. No failed attempt is counted as recovery.",
+    "An early long-running local QA proposal expired without approval and correctly became unresolved; original record retained."
+  ],
+  "limitations": [
+    "All station data and transport are synthetic; mock results do not establish Meta performance.",
+    "No additional genuine Meta calls were made for this frontend-only change. Earlier actual Meta results remain separately attributed; prior cumulative budget16/30.",
+    "SVG text contrast is manually checked because axe cannot determine its background.",
+    "Long findings, proposal references or JSON may require scrolling inside their bounded review areas.",
+    "Temporary URL can expire and requires this host/tunnel; stable free hosting still needs an account connection."
+  ]
+}
