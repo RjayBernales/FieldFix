@@ -1,32 +1,78 @@
-# FieldFix
+<p align="center">
+  <img src="docu/images/fieldfix-readme-logo.svg" alt="FieldFix logo" width="360" />
+</p>
 
-**Temporary preview (verified 2026-11-04 UTC; may expire):** [Free interactive preview](https://nor-terminology-families-serve.trycloudflare.com) · [Hands-on self-test guide](docu/SELF_TEST_GUIDE.md)
+<h1 align="center">FieldFix</h1>
 
-The dashboard follows the approved LPMAS-inspired layout: telemetry on the left, compact readings and delivery status on the right, with diagnostic activity and repair review below. Overview, Investigations, and Simulator are separate views; simulator controls start collapsed. [See the dashboard](docu/evidence/branding/dashboard-desktop.png) and [current layout checks](docu/dashboard-v2-validation.json).
+<p align="center"><strong>Evidence before action. Verified recovery after repair.</strong></p>
 
-The approved FieldFix logo is integrated into the app header, demo entry screen, and browser favicon. [Brand assets and usage](frontend/public/brand/README.md) · [Branding validation](docu/branding-validation.json).
+<p align="center">
+  AI-assisted troubleshooting for technicians maintaining environmental monitoring stations.<br />
+  Find where delivery stops, approve one exact change, and prove that fresh data returns.
+</p>
 
-The preview uses isolated **mock inference** sessions and requires no API key. It is temporary and works while the preview host/tunnel is running. [Hosting details and limits](docu/DEPLOYMENT.md).
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.11 or newer" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI backend" />
+  <img src="https://img.shields.io/badge/React-TypeScript-149ECA?style=flat-square&amp;logo=react&amp;logoColor=white" alt="React and TypeScript" />
+  <img src="https://img.shields.io/badge/Meta-Muse-0866FF?style=flat-square&amp;logo=meta&amp;logoColor=white" alt="Meta Muse live inference adapter" />
+  <img src="https://img.shields.io/badge/Station-Software_simulator-D99B43?style=flat-square" alt="Software station simulator" />
+</p>
 
-Evidence-led troubleshooting for technicians maintaining environmental monitoring stations.
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="docu/SELF_TEST_GUIDE.md">Try it yourself</a> ·
+  <a href="docu/VALIDATION.md">Validation evidence</a> ·
+  <a href="docu/DEMO_SCRIPT.md">Demo script</a> ·
+  <a href="docu/DEPLOYMENT.md">Hosting guide</a>
+</p>
 
-FieldFix separates a frozen dashboard from a device that is still sampling. It collects diagnostic evidence, proposes an exact subscription-topic correction, waits for technician approval, and verifies recovery from fresh post-repair samples.
+<p align="center">
+  <img src="docu/evidence/branding/dashboard-desktop.png" alt="FieldFix dashboard showing station telemetry, local and delivered readings, diagnostic activity, and technician repair review" width="100%" />
+</p>
 
-**Implemented and validated local MVP: 56 backend tests, three live Meta repair cases, a live healthy baseline, and a live browser approval/recovery workflow passed.** See [actual validation results](docu/VALIDATION.md) and the [specification audit](docu/AUDIT.md). This is a software station simulator, not a field deployment or environmental safety system.
+<p align="center"><em>Actual application capture. Station readings and transport are simulated; the provider badge identifies the inference mode.</em></p>
 
-## What you can run
+## Why FieldFix?
 
-- A station that generates synthetic turbidity samples every two seconds, independently of inference.
-- An in-process topic router that delivers samples only when publishing and subscription topics match. This is simulated transport, not an MQTT broker.
-- Typed diagnostic tools, evidence references, a bounded tool loop, and a server-only Meta API adapter.
-- A separate, explicitly labeled deterministic mock provider for offline contracts and UI development. There is no automatic fallback from Meta to mock.
-- Exact repair proposals with expiration, configuration version checks, atomic approval, rejection, and replay protection.
-- A recovery verifier requiring three distinct post-repair samples with newer sequences and a latest sample no more than six seconds old. A write alone cannot resolve an incident.
-- A dashboard with freshness, telemetry, evidence timeline, proposal diff, approval/rejection, progress, cancellation, history, and separate development controls.
+A frozen dashboard is a symptom. The device may still be collecting data while delivery has broken somewhere along the path. Replacing a sensor without checking that path can target the wrong problem.
 
-Healthy operation, sensor-read failure, and unavailable diagnostic evidence are included as secondary simulator cases. Offline and browser mock checks cover them; the two secondary faults have not been validated with a live model.
+FieldFix compares local and delivered samples, reads station status and logs, and checks publishing and subscription topics. It turns those observations into an evidence-backed proposal, keeps the technician in control of the exact change, and verifies recovery independently of the model.
 
-## Setup
+**This is a working simulated-station MVP, not a field deployment or environmental safety system.** The [recorded audit](docu/VALIDATION.md) reports 56 deterministic backend tests, three genuine Meta repair cases, a genuine healthy baseline, and a genuine browser approval/recovery workflow. Mocked tests and live inference results are documented separately; these small demonstrations do not establish model accuracy.
+
+## Features
+
+- **Independent station simulation.** Synthetic turbidity samples arrive every two seconds, independently of inference, so acquisition and delivery can be investigated separately.
+- **Topic-based delivery.** An in-process router delivers samples only when publishing and subscription topics match. This is simulated transport, not a real MQTT broker.
+- **Evidence-backed diagnosis.** Typed tools expose station status, original local and received samples, logs, and transport configuration with evidence references and timestamps.
+- **Bounded Meta tool use.** A server-only live provider runs a limited diagnostic loop. The model receives operational evidence rather than simulator labels or expected answers.
+- **Exact technician approval.** Each repair proposal binds the station, before/after topic, configuration version, and expiry. Approval, rejection, and replay protection are enforced on the server.
+- **Recovery that must be proved.** Resolution requires three distinct post-repair samples, newer sequences, and a latest sample no more than six seconds old. A configuration write alone cannot resolve an incident.
+- **A dashboard built for investigation.** Telemetry, freshness, diagnostic activity, evidence inspection, proposal diffs, verification progress, cancellation, and history sit in separate Overview, Investigations, and Simulator views.
+- **An explicit offline mode.** The deterministic mock provider supports offline contracts and UI development. Its badge stays visible, and live failures never fall back silently to mock inference.
+
+Healthy operation, sensor-read failure, and unavailable diagnostic evidence are secondary simulator cases. Offline and mock browser checks cover them; the two secondary faults have not been validated with a live model.
+
+## How it works
+
+| Step | What happens |
+| --- | --- |
+| **1. Observe** | Compare the last delivered reading with current local samples and their original timestamps. |
+| **2. Investigate** | The diagnostic agent selects typed tools; FieldFix records structured observations and evidence references. |
+| **3. Review** | Inspect the proposed subscription-topic correction and its exact before/after values. Configuration stays unchanged. |
+| **4. Approve** | A technician approves that specific, unexpired proposal against the current configuration version. |
+| **5. Verify** | The deterministic verifier waits for three distinct fresh samples. Only verified recovery resolves the incident. |
+
+For a guided walkthrough, open the [hands-on self-test guide](docu/SELF_TEST_GUIDE.md).
+
+## Demo and preview
+
+Run the application locally using the commands below. The optional public preview uses isolated **mock inference** sessions and requires no API key. Account-free tunnel links expire when the host or tunnel stops, so they are not permanent hosting. See [hosting instructions and limits](docu/DEPLOYMENT.md).
+
+The [three-minute demo script](docu/DEMO_SCRIPT.md), [actual validation report](docu/VALIDATION.md), and [specification audit](docu/AUDIT.md) explain the demonstrated behavior and remaining submission criteria. [Brand assets](frontend/public/brand/README.md) document the approved system logo used here and in the application.
+
+## Quick start
 
 Requirements: Python 3.12 recommended (project supports 3.11+), Node.js 20.19+ or 22.12+, npm, and [uv](https://docs.astral.sh/uv/). Tested here with Python 3.12.13, Node 26.9.0, and npm 12.0.2 on Linux x64. Other operating systems remain untested.
 
@@ -36,7 +82,7 @@ From the project root:
 uv venv --python 3.12
 uv pip sync requirements.lock
 npm --prefix frontend ci --ignore-scripts
-cp .env.example .env
+test -e .env || cp .env.example .env
 ```
 
 Keep `.env` private. If it already exists, edit it rather than replacing it. The example intentionally contains no API key. `requirements.lock` pins all backend and test dependencies; `frontend/package-lock.json` locks frontend dependencies. No application installation scripts are needed.
