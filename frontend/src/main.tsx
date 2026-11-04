@@ -1067,7 +1067,7 @@ function SessionGate() {
       setStatus(await r.json());
     } catch {
       setError(
-        "The server is starting or unavailable. Free hosting may take a little time to wake up.",
+        "The FieldFix server is starting or unavailable. Check the backend, then retry. Free hosting may need time to wake up.",
       );
     }
   }
@@ -1117,10 +1117,15 @@ function SessionGate() {
               approve the exact change, and watch fresh samples return.
             </p>
             <div className="welcome-disclosure">
-              <strong>Simulated station · mock inference</strong>
+              <strong>
+                {status?.hosted_demo
+                  ? "Simulated station · mock inference"
+                  : "Simulated station · checking inference mode"}
+              </strong>
               <p>
-                This free demo makes no Meta API calls. Genuine Meta validation
-                is documented in the repository.
+                {status?.hosted_demo
+                  ? "This free demo makes no Meta API calls. Genuine Meta validation is documented in the repository."
+                  : "Connect to the server to confirm its configured inference mode. No investigation has started on this screen."}
               </p>
             </div>
             {error && (
@@ -1155,8 +1160,9 @@ function SessionGate() {
               Read the hands-on testing guide ↗
             </a>
             <small>
-              An isolated session, private to this browser, expires after 30
-              minutes. Do not enter secrets or personal data.
+              {status?.hosted_demo
+                ? "An isolated session, private to this browser, expires after 30 minutes. Do not enter secrets or personal data."
+                : "Do not enter secrets or personal data. Hosted session details appear after the server responds."}
             </small>
           </section>
           <aside className="welcome-process" aria-label="Demo workflow">
