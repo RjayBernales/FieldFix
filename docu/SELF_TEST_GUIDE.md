@@ -23,7 +23,7 @@ On the local version, follow README setup/start commands and open http://127.0.0
 | Investigation | Finding, exact repair proposal, approval/rejection, and recovery progress |
 | Simulator controls | Deliberately configure a simulated fault; these controls are not agent tools |
 
-The top navigation opens **Overview**, **Investigations**, and **Simulator**. On a phone, use **Menu**. Investigation history is below the overview grid and at the top of Investigations. The activity list initially shows five results; **View all** reveals the rest.
+Click the **FieldFix logo** to return to Overview. The top navigation opens **Overview**, **Investigations**, and **Simulator**. On a phone, use **Menu**. Investigation history is below the overview grid and at the top of Investigations. The activity list initially shows five results; **View all** reveals the rest.
 
 The **Acquisition → Topic delivery → Dashboard** strip summarizes observed freshness. It flags delayed delivery; the diagnostic evidence establishes its cause. On a phone, station readings appear before the investigation/approval panel, telemetry, and diagnostic activity list.
 
@@ -96,7 +96,7 @@ The free online fixture reports these safe outcomes deterministically. Actual ho
 
 The online free demo is intentionally mock-only. To reproduce the real model path, configure a valid **replacement** key in your ignored local `.env`, set `FIELDFIX_PROVIDER=meta`, and restart the local backend using README instructions. Never put a key in `.env.example`, the browser, screenshots, or chat.
 
-You should then see **Simulated station · live Meta inference** and the configured model. Repeat the same fault/approval/recovery steps. Requests consume the persistent budget; inspect `/health` or the UI budget display before testing. Previous validation used 16 of the original 30 reserved requests. Review usage before increasing the limit. No automatic mock fallback occurs after a provider error.
+You should then see **Simulated station · live Meta inference** and the configured model. Repeat the same fault/approval/recovery steps. Requests consume the persistent budget; inspect `/health` or the UI budget display before testing. The latest specification audit brought this local database to 26 of 30 reserved requests; the API health response is authoritative. Review usage before increasing the limit. No automatic mock fallback occurs after a provider error.
 
 ## What to capture for a useful bug report
 

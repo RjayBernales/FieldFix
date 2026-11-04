@@ -1,0 +1,166 @@
+{
+  "at": "2026-11-04T15:55:03.599233+00:00",
+  "tested_commit": "b060904d00fb5a07aee72f89eb731e6dd6b3c7e9",
+  "ui_integration_commit": "13f14da0ad0c687ecb0c0477394fd5bcb2209645",
+  "provider": "mock",
+  "station_data": "synthetic",
+  "live_requests": 0,
+  "original_logo_preserved": true,
+  "assets": {
+    "fieldfix-logo-v1.png": {
+      "sha256": "4479e6af266d35ac86c6e08c9f7aa34d20263b1b7980de00470ebf85e28da536",
+      "bytes": 463443,
+      "https_status": 200,
+      "content_type": "image/png"
+    },
+    "fieldfix-mark-v1.png": {
+      "sha256": "fa62b4948208c33d8d8134fcb2617929c8b747012fe42630fb8c93810330c991",
+      "bytes": 366751,
+      "https_status": 200,
+      "content_type": "image/png"
+    }
+  },
+  "checks": {
+    "backend": {
+      "passed": 56,
+      "seconds": 3.88
+    },
+    "frontend": "strict TypeScript and Vite production build passed",
+    "offline": {
+      "passed": 4,
+      "total": 4,
+      "live_requests": 0
+    },
+    "source_fingerprint": "0aa0bc7c3395313df63e3996b344c24bf0abc10fc4c3952b2d7b0573e8a3e28d",
+    "taste_source_lint": {
+      "fail": 0,
+      "warn": 0
+    },
+    "taste_welcome_render_inspector": {
+      "fail": 0,
+      "warn": 0,
+      "widths": [
+        1440,
+        768,
+        390
+      ]
+    },
+    "dashboard_responsive": [
+      {
+        "accessibleName": "FieldFix home",
+        "height": 52,
+        "homeTarget": 52,
+        "loaded": true,
+        "menuAfterLogo": true,
+        "navAfterLogo": true,
+        "navVisible": false,
+        "overflow": false,
+        "viewport": 320,
+        "width": 156
+      },
+      {
+        "accessibleName": "FieldFix home",
+        "height": 52,
+        "homeTarget": 52,
+        "loaded": true,
+        "menuAfterLogo": true,
+        "navAfterLogo": true,
+        "navVisible": false,
+        "overflow": false,
+        "viewport": 390,
+        "width": 156
+      },
+      {
+        "accessibleName": "FieldFix home",
+        "height": 56,
+        "homeTarget": 56,
+        "loaded": true,
+        "menuAfterLogo": true,
+        "navAfterLogo": true,
+        "navVisible": true,
+        "overflow": false,
+        "viewport": 768,
+        "width": 168
+      },
+      {
+        "accessibleName": "FieldFix home",
+        "height": 56,
+        "homeTarget": 56,
+        "loaded": true,
+        "menuAfterLogo": true,
+        "navAfterLogo": true,
+        "navVisible": true,
+        "overflow": false,
+        "viewport": 1440,
+        "width": 168
+      }
+    ],
+    "welcome_mobile": {
+      "favicon": "/brand/fieldfix-mark-v1.png",
+      "homeLabel": "FieldFix home",
+      "logo": {
+        "alt": "FieldFix",
+        "height": 64,
+        "loaded": true,
+        "width": 192
+      },
+      "overflow": false
+    },
+    "home_navigation": {
+      "homeTargetHeight": 52,
+      "logoHeight": 52,
+      "logoLoaded": true,
+      "logoWidth": 156,
+      "overflow": false,
+      "view": "overview"
+    },
+    "axe": {
+      "mobile": {
+        "counts": {
+          "inapplicable": 31,
+          "incomplete": 1,
+          "passes": 29,
+          "violations": 0
+        },
+        "incomplete": [
+          "color-contrast"
+        ]
+      },
+      "desktop": {
+        "counts": {
+          "inapplicable": 31,
+          "incomplete": 1,
+          "passes": 29,
+          "violations": 0
+        },
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    },
+    "svg_contrast_manual": "Existing chart label color #59685f on white:5.88:1; SVG background could not be inferred by axe.",
+    "public_workflow": {
+      "favicon": "https://flood-inf-written-automotive.trycloudflare.com/brand/fieldfix-mark-v1.png",
+      "logoLoaded": true,
+      "overflow": false,
+      "provider": "Simulated station \u00b7 mock inference",
+      "verification": "3 / 3 post-repair samples"
+    },
+    "public_logout": "returned to Start my demo session",
+    "package": "ZIP includes both PNGs and brand guide byte-for-byte; excludes local secrets/planning; static files and HTML are fingerprinted"
+  },
+  "design": "UI/UX Pro Max: meaningful alt/home name, reserved image dimensions, natural proportions and44px targets. Taste: consistent product mark, quiet header, existing approved layout and palette preserved.",
+  "preview": {
+    "url": "https://flood-inf-written-automotive.trycloudflare.com",
+    "hosting": "temporary Cloudflare Quick Tunnel",
+    "inference": "mock only"
+  },
+  "limitations": [
+    "No new live Meta inference was run. Earlier genuine results remain separately attributed.",
+    "Original transparent raster PNGs retained without lossy conversion; these assets are not SVGs.",
+    "Both logos target the existing light app surfaces.",
+    "The original supplied logo is unchanged; the matching favicon was prepared with built-in image generation.",
+    "Temporary tunnel expired again during review; replacement was verified, but stable hosting remains open in issue17.",
+    "Registry branch checks and merge status are recorded by GitHub delivery; no real-world station deployment is claimed."
+  ]
+}

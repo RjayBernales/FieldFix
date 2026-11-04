@@ -1,8 +1,10 @@
 # FieldFix
 
-**Open the app:** [Free interactive preview](https://managers-tan-wage-achievements.trycloudflare.com) · [Hands-on self-test guide](docu/SELF_TEST_GUIDE.md)
+**Temporary preview (verified 2026-11-04 UTC; may expire):** [Free interactive preview](https://nor-terminology-families-serve.trycloudflare.com) · [Hands-on self-test guide](docu/SELF_TEST_GUIDE.md)
 
-The dashboard follows the approved LPMAS-inspired layout: telemetry on the left, compact readings and delivery status on the right, with diagnostic activity and repair review below. Overview, Investigations, and Simulator are separate views; simulator controls start collapsed. [See the dashboard](docu/dashboard-v2-desktop.png) and [current layout checks](docu/dashboard-v2-validation.json).
+The dashboard follows the approved LPMAS-inspired layout: telemetry on the left, compact readings and delivery status on the right, with diagnostic activity and repair review below. Overview, Investigations, and Simulator are separate views; simulator controls start collapsed. [See the dashboard](docu/evidence/branding/dashboard-desktop.png) and [current layout checks](docu/dashboard-v2-validation.json).
+
+The approved FieldFix logo is integrated into the app header, demo entry screen, and browser favicon. [Brand assets and usage](frontend/public/brand/README.md) · [Branding validation](docu/branding-validation.json).
 
 The preview uses isolated **mock inference** sessions and requires no API key. It is temporary and works while the preview host/tunnel is running. [Hosting details and limits](docu/DEPLOYMENT.md).
 
@@ -10,7 +12,7 @@ Evidence-led troubleshooting for technicians maintaining environmental monitorin
 
 FieldFix separates a frozen dashboard from a device that is still sampling. It collects diagnostic evidence, proposes an exact subscription-topic correction, waits for technician approval, and verifies recovery from fresh post-repair samples.
 
-**Implemented and validated local MVP: 56 backend tests, three live Meta repair cases, a live healthy baseline, and a live browser approval/recovery workflow passed.** See [actual validation results](docu/VALIDATION.md). This is a software station simulator, not a field deployment or environmental safety system.
+**Implemented and validated local MVP: 56 backend tests, three live Meta repair cases, a live healthy baseline, and a live browser approval/recovery workflow passed.** See [actual validation results](docu/VALIDATION.md) and the [specification audit](docu/AUDIT.md). This is a software station simulator, not a field deployment or environmental safety system.
 
 ## What you can run
 

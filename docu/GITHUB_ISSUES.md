@@ -28,3 +28,9 @@ Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15). Its 
 | FF-016 | [#19: Implement the approved LPMAS-inspired dashboard layout](https://github.com/RjayBernales/FieldFix/issues/19) | Implemented; browser, responsive, accessibility and build evidence recorded in dashboard-v2-validation.json |
 
 | FF-017 | [#20: Keep mobile evidence rows and expanded payload accessible](https://github.com/RjayBernales/FieldFix/issues/20) | Fixed row geometry and keyboard scrolling; final expanded-state mobile axe has zero violations |
+
+| FF-018 | [#22: Integrate approved FieldFix branding](https://github.com/RjayBernales/FieldFix/issues/22) | Shared accessible/responsive logo and matching favicon implemented; actual evidence in branding-validation.json |
+| FF-019 | [#23: Include static branding in review and verification](https://github.com/RjayBernales/FieldFix/issues/23) | ZIP, fingerprint and scanner now include frontend/public; HTML fingerprint/scanner coverage added |
+
+| FF-020 | [#25: Include verification shell scripts in the submission archive](https://github.com/RjayBernales/FieldFix/issues/25) | Fixed .sh allowlist; extracted package frozen install, 56 tests, build and scan passed |
+| FF-021 | [#26: Confirm server mode before inference/session claims](https://github.com/RjayBernales/FieldFix/issues/26) | Unknown/startup-error state now neutral; intercepted session probe and real Meta reconnection verified |

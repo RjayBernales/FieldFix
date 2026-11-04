@@ -97,26 +97,34 @@ pre {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
-.brand {
+.brand-lockup {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 23px;
-  font-weight: 700;
-  letter-spacing: -0.9px;
+  gap: 20px;
+  flex-shrink: 0;
 }
-.brand > svg {
-  color: var(--accent);
-  width: 28px;
-  height: 28px;
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 4px;
+}
+.brand-logo {
+  display: block;
+  width: 168px;
+  height: 56px;
+  object-fit: contain;
+}
+.brand-lockup--welcome .brand-logo {
+  width: 216px;
+  height: 72px;
 }
 .product-scope {
   font-size: 13px;
   color: var(--muted);
   font-weight: 400;
   letter-spacing: 0;
-  margin-left: 14px;
-  padding-left: 24px;
+  padding-left: 20px;
   border-left: 1px solid #bccbc2;
 }
 .workspace-nav {
@@ -906,7 +914,7 @@ footer {
   margin: auto;
 }
 .welcome-layout {
-  margin-top: 56px;
+  margin-top: 36px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   background: white;
@@ -1089,8 +1097,9 @@ footer {
     flex-wrap: wrap;
     gap: 6px 16px;
   }
-  .brand {
-    font-size: 22px;
+  .brand-logo {
+    width: 156px;
+    height: 52px;
   }
   .menu-toggle {
     display: inline-flex !important;
@@ -1114,7 +1123,7 @@ footer {
     order: 3;
     width: 100%;
     max-width: none;
-    margin: 0 0 0 38px;
+    margin: 0 0 0 8px;
   }
   .workspace {
     padding: 20px 16px;
@@ -1297,8 +1306,18 @@ footer {
   }
   .product-scope {
     font-size: 13px;
-    margin-left: 4px;
-    padding-left: 12px;
+    padding-left: 0;
+    border-left: 0;
+    margin-left: 10px;
+  }
+  .brand-lockup--welcome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .brand-lockup--welcome .brand-logo {
+    width: 192px;
+    height: 64px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1365,13 +1384,29 @@ footer {
   width: 44px;
 }
 
-.investigation.awaiting_approval .proposal-heading { display: none; }
+.investigation.awaiting_approval .proposal-heading {
+  display: none;
+}
 @media (max-width: 700px) {
   .evidence-table,
-  .evidence-table tbody { display: block; width: 100%; }
-  .evidence-table tbody tr { width: 100%; }
-  .evidence-table tbody tr[hidden] { display: none!important; }
-  .evidence-table tbody tr:has(.evidence-detail) { display: block; }
-  .evidence-table tbody td.evidence-detail { display: block; width: 100%; }
-  .evidence-table tbody th { width: auto; }
+  .evidence-table tbody {
+    display: block;
+    width: 100%;
+  }
+  .evidence-table tbody tr {
+    width: 100%;
+  }
+  .evidence-table tbody tr[hidden] {
+    display: none !important;
+  }
+  .evidence-table tbody tr:has(.evidence-detail) {
+    display: block;
+  }
+  .evidence-table tbody td.evidence-detail {
+    display: block;
+    width: 100%;
+  }
+  .evidence-table tbody th {
+    width: auto;
+  }
 }
