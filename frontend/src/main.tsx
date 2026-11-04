@@ -351,7 +351,7 @@ function EvidenceTimeline({ evidence }: { evidence: Evidence[] }) {
                         <p>
                           Evidence reference <code>{e.evidence_id}</code>
                         </p>
-                        <pre>{JSON.stringify(e.payload, null, 2)}</pre>
+                        <pre tabIndex={0}>{JSON.stringify(e.payload, null, 2)}</pre>
                       </>
                     )}
                   </td>
