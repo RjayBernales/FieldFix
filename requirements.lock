@@ -2,8 +2,9 @@ annotated-doc==0.0.4
     # via fastapi
 annotated-types==0.8.0
     # via pydantic
-anyio==4.12.1
+anyio==4.16.0
     # via
+    #   fieldfix (pyproject.toml)
     #   httpx
     #   starlette
 certifi==2026.10.19
