@@ -1,16 +1,16 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T05:41:11.006421+00:00.
+Report updated: 2026-11-04T06:18:57.506849+00:00.
 
-**Local simulated-station MVP passed its primary offline, live Meta, and browser workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
+**The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
 
 ## Tested code and delivery
 
-- Runtime and dependency commit: `2be09e836d7eab6a2263780d85e968a9ad5f3728` on `dev/fieldfix-mvp`.
-- Runtime source SHA-256: `c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b`; [manifest](source-manifest.json). This fingerprint is distinct from a Git SHA.
-- The live suite and final live browser workflow ran against this commit. Subsequent documentation/evidence commits do not change runtime files.
+- Local genuine-Meta runtime/dependency commit: `2be09e836d7eab6a2263780d85e968a9ad5f3728` on `dev/fieldfix-mvp`.
+- Local genuine-Meta runtime source SHA-256: `c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b`; [manifest](source-manifest.json). This fingerprint is distinct from a Git SHA.
+- The genuine-Meta suite/browser evidence uses that exact earlier commit. Free-hosting/session support was subsequently added and tested at `2b905d4d1e6ed806818b61ce40e3c84a020b749f`; no paid inference was rerun for the mock-only public layer. The public-runtime snapshot used SHA-256 `5b50887ebc34e1fa0402da82867f955568de1503539752b611b04a0f83c11ab3`. Subsequent CI/packaging changes are identified by the current source manifest.
 - Local commits use `RjayBernales <rainieljevson0@gmail.com>` as author and committer. Original remote history was restored through approved read-only sync; no unrelated history was replaced.
-- Implementation PR: **not opened**; merge: **not performed**. Push, issue creation, labels, PR creation, and merging still require approval. The earlier README-only PR #1 is not the implementation PR.
+- GitHub delivery is authorized. All thirteen issues were created and verified; confirmed links are in GITHUB_ISSUES.md. PR/merge results are added only after confirmation. The earlier README-only PR #1 is not the implementation PR.
 
 ## Environment and limits
 
@@ -24,7 +24,7 @@ Provider/model: **mock / deterministic-offline-fixture**. Test station data is s
 
 | Check | Actual outcome |
 | --- | --- |
-| Backend suite after dependency/security fixes | **48 passed**, 2.69 seconds in the recorded rerun |
+| Backend suite after dependency/security fixes | **56 passed**, 4.24 seconds after free-hosting additions; fresh checkout: 56 passed in 6.69 seconds |
 | Deterministic offline harness | **4/4 passed**, zero live requests; [offline-results.json](offline-results.json) |
 | Simulator/router | Local sampling continues independently while delivery is broken; matching topics resume actual simulated delivery |
 | Approval | Rejection/no approval, wrong station, expiry, stale version, reset/restart invalidation, replay and concurrent decisions checked |
@@ -76,7 +76,7 @@ At capture, the shared persistent budget showed **16/30 reserved live attempts**
 
 | Check | Actual result / boundary |
 | --- | --- |
-| TypeScript + Vite 8 production build | **Passed**; 15 modules, JS 197.68 kB / 62.96 kB gzip, CSS 12.43 kB / 3.57 kB gzip |
+| TypeScript + Vite 8 production build | **Passed**; 15 modules, JS 200.60 kB / 63.81 kB gzip, CSS 13.57 kB / 3.82 kB gzip |
 | Real mock browser workflows | Rejection, approval/recovery, healthy/no-repair, acquisition failure, unavailable evidence, pause/resume, reset/history and provider labels passed |
 | Real live Meta browser workflow | **Passed** through the running FastAPI API; proposal, approval, sample delivery and recovery observed |
 | Responsive inspection | 375×812, 768×1024 and 1440×1000; no page-level horizontal overflow; screenshots inspected |
@@ -87,7 +87,7 @@ At capture, the shared persistent budget showed **16/30 reserved live attempts**
 | Source/browser-assets secret scan | Passed pattern and configured-key checks before packaging; no key value is printed or committed |
 | npm advisory audit | Initial high/moderate Vite/esbuild findings fixed by Vite 8.3.5; final **0 known findings** |
 | Python advisory audit | Two AnyIO 4.12.1 findings fixed with 4.16.0; final **0 known findings** |
-| Clean setup | Earlier cached clean export passed; final fresh Git checkout verification is the next local delivery check and will be recorded below |
+| Clean setup | **Passed** in a new detached Git worktree: documented installs, empty example env, 56 tests, build, and secret scan. [checkout-results.json](checkout-results.json) |
 
 [Dependency audit evidence](dependency-audit.json), [browser checklist and limitations](BROWSER_CHECKLIST.md), and sanitized [screenshots](evidence/) are tracked. Registry/a11y scans are bounded checks, not security or accessibility certification. Other OS/browser/device combinations, zoom/reduced-motion visual checks, live secondary faults, and hardware integration remain untested.
 
@@ -97,6 +97,18 @@ The key initially configured in .env.example was moved to mode-0600 ignored .env
 
 The build pack, conversations, local AGENTS instructions, private auth/configuration, and planning remain excluded via the actual local Git metadata's info/exclude. Runtime prompt/tool definitions, source, tests, simulator, dependency locks, README/.env.example, and sanitized validation evidence are tracked.
 
-Next delivery steps: finish fresh-checkout verification and diff review; obtain approval to create the issue tickets, push dev/fieldfix-mvp, and open/label the implementation PR targeting main. Request separate merge approval after required checks and no unresolved blocking issues. Do not force-push, bypass protections, change visibility, submit the competition entry, or upload a video.
+The participant authorized hands-off GitHub delivery through merge after checks/review. Use only the authorized account; never infer a successful push/PR/merge from a failed API response. Do not force-push, bypass protections, change visibility, submit the competition entry, or upload a video.
 
 The local `.data/fieldfix-review.zip` is generated from an explicit allowlist, checked against the configured key, and includes source/tests/setup/runtime prompts and sanitized evidence. It excludes .env, SQLite, Git/auth metadata, private build pack, caches and dependency directories. It has not been uploaded.
+
+## Free public preview and hands-on guide
+
+[Open the verified temporary app](https://interests-codes-arabic-instructor.trycloudflare.com) · [SELF_TEST_GUIDE.md](SELF_TEST_GUIDE.md) · [DEPLOYMENT.md](DEPLOYMENT.md). The online site runs the actual Python simulator/API/approval/verifier and compiled frontend, with **mock inference only** and no Meta key.
+
+Public HTTPS tests passed session creation, investigation/proposal/approval/recovery, separate-visitor history and proposal isolation, origin checks, and independent logout. The public-page axe audit had zero automated violations (the same documented SVG manual-review category remains incomplete). Actual evidence: [public-preview-results.json](public-preview-results.json), [welcome](evidence/public-welcome.png), [recovery](evidence/public-recovered.png).
+
+The Docker image built and ran as UID 10001, served the static app and session API, and contained no .env or Meta key. New tests check expiry cleanup, quotas/body limits, mock-only startup, and slow session-body handling without holding the global lock.
+
+This is an account-free Cloudflare Quick Tunnel, not permanent hosting: it requires the preview computer/tunnel to stay running, and has no uptime guarantee. No Render service/account was connected or created; a **free-only** blueprint is prepared. No paid service was created. These limits are visible in the README and guide. The public factory refuses Meta/key configuration rather than silently falling back.
+
+GitHub automation: `.github/workflows/verify.yml` pins verified official action commits, installs locked dependencies, runs the backend/frontend/secret checks, and builds the Docker image. It makes no live Meta calls. Actual remote run results are recorded after publishing. No branch protections or visibility settings were changed.

@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-11-04T06:18:57.500931+00:00",
+  "tested_commit": "2b905d4d1e6ed806818b61ce40e3c84a020b749f",
+  "kind": "fresh detached Git worktree",
+  "commands": [
+    "uv venv --python 3.12",
+    "uv pip sync requirements.lock",
+    "npm --prefix frontend ci --ignore-scripts",
+    "cp .env.example .env",
+    "bash scripts/verify.sh"
+  ],
+  "backend_tests": {
+    "passed": 56,
+    "elapsed_seconds": 6.69
+  },
+  "frontend": {
+    "typecheck": "passed",
+    "build": "passed",
+    "vite": "8.3.5",
+    "modules": 15,
+    "js_kb": 200.6,
+    "js_gzip_kb": 63.81,
+    "css_kb": 13.57,
+    "css_gzip_kb": 3.82
+  },
+  "secrets": "passed",
+  "registry_install": "normal registry resolution with cache; no reconstructed wheel source",
+  "paid_requests": 0,
+  "limitations": [
+    "Linux x86_64 only.",
+    "Fresh setup used an empty example key and mock inference."
+  ]
+}

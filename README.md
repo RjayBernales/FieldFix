@@ -1,10 +1,14 @@
 # FieldFix
 
+**Open the app:** [Free interactive preview](https://interests-codes-arabic-instructor.trycloudflare.com) · [Hands-on self-test guide](docu/SELF_TEST_GUIDE.md)
+
+The preview uses isolated **mock inference** sessions and requires no API key. It is temporary and works while the preview host/tunnel is running. [Hosting details and limits](docu/DEPLOYMENT.md).
+
 Evidence-led troubleshooting for technicians maintaining environmental monitoring stations.
 
 FieldFix separates a frozen dashboard from a device that is still sampling. It collects diagnostic evidence, proposes an exact subscription-topic correction, waits for technician approval, and verifies recovery from fresh post-repair samples.
 
-**Implemented and validated local MVP: 48 backend tests, three live Meta repair cases, a live healthy baseline, and a live browser approval/recovery workflow passed.** See [actual validation results](docu/VALIDATION.md). This is a software station simulator, not a field deployment or environmental safety system.
+**Implemented and validated local MVP: 56 backend tests, three live Meta repair cases, a live healthy baseline, and a live browser approval/recovery workflow passed.** See [actual validation results](docu/VALIDATION.md). This is a software station simulator, not a field deployment or environmental safety system.
 
 ## What you can run
 
@@ -45,7 +49,7 @@ Start the dashboard in terminal 2:
 npm --prefix frontend run dev
 ```
 
-Open **http://127.0.0.1:5173**. The Vite server proxies `/api` to the backend. Keep exactly **one backend worker**. Both services are local-only; no public hosting or access-control system is supplied. These launch commands were exercised locally after execution access was enabled; both mock and live Meta browser workflows were checked.
+Open **http://127.0.0.1:5173**. The Vite server proxies `/api` to the backend. Keep exactly **one backend worker**. The ordinary factory is local-only. The separate free-hosting factory adds isolated visitor sessions and explicitly mock-only online operation; see DEPLOYMENT.md. These launch commands were exercised locally after execution access was enabled; both mock and live Meta browser workflows were checked.
 
 ## Mock and live modes
 
@@ -119,7 +123,8 @@ React dashboard → FastAPI approval and incident API → SQLite
 | `backend/app/core.py`, `storage.py` | Station simulation, transactions, state transitions, proposal approval, recovery |
 | `backend/app/tools/` | Typed allowlist and model-facing evidence boundary |
 | `backend/app/agent/` | Runtime system prompt, separate mock fixture, live provider, bounded agent loop |
-| `backend/app/main.py` | Local-only API, background jobs, cancellation, development controls |
+| `backend/app/main.py` | Local API, background jobs, cancellation, development controls |
+| `backend/app/hosted.py` | Isolated cookie-authorized free public mock sessions and limits |
 | `frontend/src/` | Dashboard and responsive styles |
 | `backend/tests/` | Simulator, security, state, recovery, agent and API regression tests |
 | `docu/` | Sanitized validation, issue drafts, demo script, submission checklist |

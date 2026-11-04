@@ -1,15 +1,15 @@
-# Development issue tickets awaiting GitHub approval
+# Development issue tickets for the implementation PR
 
-These are local ticket drafts, not published GitHub issues. Only approved authentication and read-only repository sync have occurred; no implementation push, issue creation, PR, or merge has occurred. Routine corrections are grouped by root cause.
+The participant approved publishing these sanitized development tickets and the implementation PR. All thirteen tickets are now created; confirmed links are in GITHUB_ISSUES.md. Routine corrections are grouped by root cause.
 
 ## FF-001 — Local execution restrictions initially blocked live and browser verification
 
 Suggested label: `bug` (environment/validation blocker)
 
-- Reproduction: dependency downloads fail DNS lookup; uvicorn cannot bind 127.0.0.1:8000; Node HTTP listen returns EPERM; agent-browser daemon cannot start. The project .git directory is an empty, read-only mount.
-- Impact: genuine Meta inference and a browser end-to-end check cannot be completed in this runtime; the mounted .git cannot be initialized. The original /tmp Git metadata also did not survive the next execution turn.
-- Mitigation: offline cached dependency installation, an isolated persistent `.local/git` with local-only exclusions and the agreed author/committer settings (no refs yet), HTTPX ASGI API tests, and a reproducible live harness. No protections or permissions were bypassed.
-- Verification: see VALIDATION.md. Resolved after the participant enabled full access: live and browser checks subsequently passed, and approved read-only GitHub sync restored original history. Credentials are now accessible in ignored .env, but network access remains blocked; no key value is recorded.
+- Reproduction: dependency downloads originally failed DNS lookup; uvicorn could not bind 127.0.0.1:8000; Node HTTP listen returned EPERM; agent-browser could not start. The project .git was an empty read-only mount.
+- Impact: genuine inference, browser checks, and original Git history were initially blocked. The original /tmp Git metadata also did not survive the next execution turn.
+- Mitigation: offline cached dependency installation, an isolated persistent `.local/git` with local-only exclusions and the agreed author/committer settings; original refs were subsequently fetched, HTTPX ASGI API tests, and a reproducible live harness. No protections or permissions were bypassed.
+- Verification: see VALIDATION.md. Resolved after the participant enabled full access: live and browser checks subsequently passed, and approved read-only GitHub sync restored original history. No key value is included in the issue.
 
 ## FF-002 — Offline frontend install omitted Rollup native optional dependencies
 
@@ -26,7 +26,7 @@ Suggested label: `bug`
 
 - Reproduction: Starlette TestClient hung entering its AnyIO thread portal; faulthandler showed the blocking portal startup.
 - Fix: run API integration tests through HTTPX ASGITransport with the real application lifespan, and use async route handlers for short local SQLite operations. This fits the single-worker MVP and avoids thread handoff for each endpoint.
-- Verification: 39 backend tests passed after the change. The real network/browser path remains a separate pending check.
+- Verification: 39 tests initially passed after the change; the final suite has 56 passing tests, and real local/public browser workflows passed.
 
 ## FF-004 — Keep credentials out of the tracked environment example
 
@@ -53,8 +53,6 @@ Suggested label: `bug`
 - Reproduction: generic connection/protocol failure text could not distinguish transport failures from malformed responses, and usage metadata was accepted wholesale.
 - Fix: retain an explicit failure category, HTTP status when returned, returned model ID, and only numeric prompt/completion/total token counts. Hidden reasoning is excluded from replay and persistence.
 - Verification: mocked HTTP tests assert the documented developer role/token parameter, proper tool-result replay, actual returned-model field, and absence of raw provider extras and hidden reasoning in persisted/replayed data. This remains mocked protocol evidence, not live validation.
-
-Read-only history sync update: participant approval was received, and a fresh GitHub device sign-in was attempted. OAuth token polling failed DNS resolution after participant authorization. No new credential was confirmed, no source was overwritten, and no remote mutation occurred. Additional approval is not the blocker for that sync; working network access is required.
 
 ## FF-007 — Hosted inference latency invalidated otherwise valid repair proposals
 
@@ -97,4 +95,19 @@ Suggested label: `bug`. Fixed locally.
 - Fix: require AnyIO >=4.14.2,<5 and resolve the lock to 4.16.0.
 - Verification: all 48 backend tests, live Meta scenarios, and final browser live workflow passed. Final pip-audit reports zero known findings. No exploitation is claimed.
 
-Status summary: FF-001/002/003/005–011 are fixed or environment-resolved and have validation evidence. FF-004 repository hygiene is fixed; participant key rotation remains an external action. All tickets remain unpublished until GitHub approval.
+
+## FF-012 — A public demo needs isolated, bounded visitor sessions
+
+Suggested label: `enhancement`. Implemented and validated locally/publicly.
+
+- Trigger: the participant requested a free online demo link; exposing the shared local-only station would either be rejected by its loopback guard or allow visitors to interfere with one another.
+- Change: add a separate free-hosting factory with opaque-cookie authorization, same-origin checks, independent SQLite stations, expiry/logout cleanup, resource quotas, static asset serving, and a strict mock-only/no-key startup guard. Add a non-root Docker image and a free-only Render blueprint.
+- Verification: session/cross-user/origin/expiry/quota/body/key-refusal tests, container startup checks, and public HTTPS browser/API isolation tests passed. The temporary URL and its uptime limits are documented in DEPLOYMENT.md.
+
+## FF-013 — Slow session-creation bodies must not hold the global session lock
+
+Suggested label: `bug`. Fixed before public preview.
+
+- Code-review finding: streaming a new session's body while holding the global session lock could delay unrelated visitors.
+- Fix: bound the body and its read timeout before acquiring the lock; bound authorized request handling, and defer cleanup while an already-authorized request is active.
+- Verification: regression sends a stalled body under an injected short deadline and confirms timeout with no held lock or created station. Other session-isolation tests remain passing. No real user attack or outage is claimed.
