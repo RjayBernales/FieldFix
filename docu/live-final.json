@@ -1,0 +1,936 @@
+{
+  "at": "2026-11-04T05:33:30.259513+00:00",
+  "tested_commit": "2be09e836d7eab6a2263780d85e968a9ad5f3728",
+  "source_fingerprint": "c4f20693561652dff25d931e7ad74278351b373eca230c047353abb2d49bca8b",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "station_data": "synthetic software station",
+  "runs": [
+    {
+      "scenario": "mismatch",
+      "incident_id": "inc_430e1b9d8f3745c4",
+      "result": "pass",
+      "state": "resolved",
+      "state_before_approval": "awaiting_approval",
+      "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+      "elapsed_seconds": 12.98,
+      "model_turns": 2,
+      "tool_calls": 6,
+      "inference": [
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "276c0ee1-a187-4e06-9510-1780496b8858",
+          "usage": {
+            "completion_tokens": 366,
+            "prompt_tokens": 1463,
+            "total_tokens": 1829
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 3716
+        },
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "49013e32-f832-439c-9e31-fc0fce953913",
+          "usage": {
+            "completion_tokens": 440,
+            "prompt_tokens": 3172,
+            "total_tokens": 3612
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 4535
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev_d55222ac9a3940b9",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:34.067913+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T05:33:33.122529+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_688117c888594247",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:34.078309+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 420,
+                "sampled_at": "2026-11-04T05:33:14.299451+00:00",
+                "received_at": "2026-11-04T05:33:14.299451+00:00",
+                "value": 17.6,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 421,
+                "sampled_at": "2026-11-04T05:33:16.300031+00:00",
+                "received_at": "2026-11-04T05:33:16.300031+00:00",
+                "value": 18.43,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 422,
+                "sampled_at": "2026-11-04T05:33:18.300189+00:00",
+                "received_at": "2026-11-04T05:33:18.300189+00:00",
+                "value": 19.0,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 423,
+                "sampled_at": "2026-11-04T05:33:20.300319+00:00",
+                "received_at": "2026-11-04T05:33:20.300319+00:00",
+                "value": 19.23,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 424,
+                "sampled_at": "2026-11-04T05:33:30.301789+00:00",
+                "received_at": null,
+                "value": 19.11,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 425,
+                "sampled_at": "2026-11-04T05:33:33.122529+00:00",
+                "received_at": null,
+                "value": 18.68,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_b774d75057804b73",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:34.089203+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 420,
+                "sampled_at": "2026-11-04T05:33:14.299451+00:00",
+                "received_at": "2026-11-04T05:33:14.299451+00:00",
+                "value": 17.6,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 421,
+                "sampled_at": "2026-11-04T05:33:16.300031+00:00",
+                "received_at": "2026-11-04T05:33:16.300031+00:00",
+                "value": 18.43,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 422,
+                "sampled_at": "2026-11-04T05:33:18.300189+00:00",
+                "received_at": "2026-11-04T05:33:18.300189+00:00",
+                "value": 19.0,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 423,
+                "sampled_at": "2026-11-04T05:33:20.300319+00:00",
+                "received_at": "2026-11-04T05:33:20.300319+00:00",
+                "value": 19.23,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_764661173afd4ae9",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:34.100039+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "stations/validation-1/turbidity",
+            "subscription_topic": "stations/validation-1/turbidity-old",
+            "version": 12
+          }
+        },
+        {
+          "evidence_id": "ev_e3883e64b26b4cc0",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:34.112242+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T05:33:30.301624+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_192f56b3a4334ef3",
+          "tool_name": "propose_subscription_update",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:38.681166+00:00",
+          "status": "ok",
+          "payload": {
+            "id": "prop_27b6b21e47fe4ee5",
+            "incident_id": "inc_430e1b9d8f3745c4",
+            "station_id": "station-01",
+            "version": 12,
+            "before": "stations/validation-1/turbidity-old",
+            "after": "stations/validation-1/turbidity",
+            "evidence_ids": [
+              "ev_764661173afd4ae9",
+              "ev_688117c888594247",
+              "ev_b774d75057804b73"
+            ],
+            "expires_at": "2026-11-04T05:35:38.670112+00:00",
+            "status": "pending"
+          }
+        }
+      ],
+      "proposal": {
+        "id": "prop_27b6b21e47fe4ee5",
+        "incident_id": "inc_430e1b9d8f3745c4",
+        "station_id": "station-01",
+        "version": 12,
+        "before": "stations/validation-1/turbidity-old",
+        "after": "stations/validation-1/turbidity",
+        "evidence_ids": [
+          "ev_764661173afd4ae9",
+          "ev_688117c888594247",
+          "ev_b774d75057804b73"
+        ],
+        "expires_at": "2026-11-04T05:35:38.670112+00:00",
+        "status": "pending"
+      },
+      "verification": {
+        "recovered": true,
+        "count": 3,
+        "required": 3,
+        "latest_fresh": true,
+        "reason": "Three distinct post-repair samples and latest freshness required."
+      }
+    },
+    {
+      "scenario": "mismatch",
+      "incident_id": "inc_893603f8e9a84aa9",
+      "result": "pass",
+      "state": "resolved",
+      "state_before_approval": "awaiting_approval",
+      "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+      "elapsed_seconds": 14.19,
+      "model_turns": 2,
+      "tool_calls": 6,
+      "inference": [
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "55d98d11-6a0e-4582-b29c-7cb96ec15b0d",
+          "usage": {
+            "completion_tokens": 389,
+            "prompt_tokens": 1463,
+            "total_tokens": 1852
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 3636
+        },
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "7e51c8ca-20dc-454f-bbdf-6b533403c6a1",
+          "usage": {
+            "completion_tokens": 488,
+            "prompt_tokens": 3179,
+            "total_tokens": 3667
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 5334
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev_df9e4c73b8944b84",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:46.979144+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T05:33:45.179182+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_cfc5a43176294717",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:46.993155+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 431,
+                "sampled_at": "2026-11-04T05:33:27.312905+00:00",
+                "received_at": "2026-11-04T05:33:27.312905+00:00",
+                "value": 16.12,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 432,
+                "sampled_at": "2026-11-04T05:33:29.313132+00:00",
+                "received_at": "2026-11-04T05:33:29.313132+00:00",
+                "value": 16.53,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 433,
+                "sampled_at": "2026-11-04T05:33:31.313289+00:00",
+                "received_at": "2026-11-04T05:33:31.313289+00:00",
+                "value": 17.14,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 434,
+                "sampled_at": "2026-11-04T05:33:33.313499+00:00",
+                "received_at": "2026-11-04T05:33:33.313499+00:00",
+                "value": 17.85,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 435,
+                "sampled_at": "2026-11-04T05:33:43.313741+00:00",
+                "received_at": null,
+                "value": 18.5,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 436,
+                "sampled_at": "2026-11-04T05:33:45.179182+00:00",
+                "received_at": null,
+                "value": 18.98,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_301bed1bba244c2f",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:47.006705+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 431,
+                "sampled_at": "2026-11-04T05:33:27.312905+00:00",
+                "received_at": "2026-11-04T05:33:27.312905+00:00",
+                "value": 16.12,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 432,
+                "sampled_at": "2026-11-04T05:33:29.313132+00:00",
+                "received_at": "2026-11-04T05:33:29.313132+00:00",
+                "value": 16.53,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 433,
+                "sampled_at": "2026-11-04T05:33:31.313289+00:00",
+                "received_at": "2026-11-04T05:33:31.313289+00:00",
+                "value": 17.14,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 434,
+                "sampled_at": "2026-11-04T05:33:33.313499+00:00",
+                "received_at": "2026-11-04T05:33:33.313499+00:00",
+                "value": 17.85,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_e5ec156c810441ee",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:47.020776+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "stations/validation-2/turbidity",
+            "subscription_topic": "stations/validation-2/turbidity-old",
+            "version": 14
+          }
+        },
+        {
+          "evidence_id": "ev_275b7a7d01c043a2",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:47.031131+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T05:33:43.313685+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_30920515d8d44fa0",
+          "tool_name": "propose_subscription_update",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:33:52.403245+00:00",
+          "status": "ok",
+          "payload": {
+            "id": "prop_534776551b4b41b3",
+            "incident_id": "inc_893603f8e9a84aa9",
+            "station_id": "station-01",
+            "version": 14,
+            "before": "stations/validation-2/turbidity-old",
+            "after": "stations/validation-2/turbidity",
+            "evidence_ids": [
+              "ev_e5ec156c810441ee",
+              "ev_cfc5a43176294717",
+              "ev_301bed1bba244c2f"
+            ],
+            "expires_at": "2026-11-04T05:35:52.393726+00:00",
+            "status": "pending"
+          }
+        }
+      ],
+      "proposal": {
+        "id": "prop_534776551b4b41b3",
+        "incident_id": "inc_893603f8e9a84aa9",
+        "station_id": "station-01",
+        "version": 14,
+        "before": "stations/validation-2/turbidity-old",
+        "after": "stations/validation-2/turbidity",
+        "evidence_ids": [
+          "ev_e5ec156c810441ee",
+          "ev_cfc5a43176294717",
+          "ev_301bed1bba244c2f"
+        ],
+        "expires_at": "2026-11-04T05:35:52.393726+00:00",
+        "status": "pending"
+      },
+      "verification": {
+        "recovered": true,
+        "count": 3,
+        "required": 3,
+        "latest_fresh": true,
+        "reason": "Three distinct post-repair samples and latest freshness required."
+      }
+    },
+    {
+      "scenario": "mismatch",
+      "incident_id": "inc_981d3205908840e8",
+      "result": "pass",
+      "state": "resolved",
+      "state_before_approval": "awaiting_approval",
+      "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+      "elapsed_seconds": 12.61,
+      "model_turns": 2,
+      "tool_calls": 6,
+      "inference": [
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "b8131bd2-f382-4c69-a573-0dd949bfc827",
+          "usage": {
+            "completion_tokens": 353,
+            "prompt_tokens": 1463,
+            "total_tokens": 1816
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 3620
+        },
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "cbc26373-5f2e-477f-8bff-ab2bbf11081c",
+          "usage": {
+            "completion_tokens": 473,
+            "prompt_tokens": 3178,
+            "total_tokens": 3651
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 4256
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev_a3cbbd33bd4e4e80",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:01.171766+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T05:33:59.266904+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_aba02e183e1749ec",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:01.200560+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 443,
+                "sampled_at": "2026-11-04T05:33:41.510141+00:00",
+                "received_at": "2026-11-04T05:33:41.510141+00:00",
+                "value": 14.91,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 444,
+                "sampled_at": "2026-11-04T05:33:43.510424+00:00",
+                "received_at": "2026-11-04T05:33:43.510424+00:00",
+                "value": 14.3,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 445,
+                "sampled_at": "2026-11-04T05:33:45.510588+00:00",
+                "received_at": "2026-11-04T05:33:45.510588+00:00",
+                "value": 14.04,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 446,
+                "sampled_at": "2026-11-04T05:33:47.511106+00:00",
+                "received_at": "2026-11-04T05:33:47.511106+00:00",
+                "value": 14.16,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 447,
+                "sampled_at": "2026-11-04T05:33:57.511726+00:00",
+                "received_at": null,
+                "value": 14.63,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 448,
+                "sampled_at": "2026-11-04T05:33:59.266904+00:00",
+                "received_at": null,
+                "value": 15.39,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_b273e28350e74c95",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:01.227539+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 443,
+                "sampled_at": "2026-11-04T05:33:41.510141+00:00",
+                "received_at": "2026-11-04T05:33:41.510141+00:00",
+                "value": 14.91,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 444,
+                "sampled_at": "2026-11-04T05:33:43.510424+00:00",
+                "received_at": "2026-11-04T05:33:43.510424+00:00",
+                "value": 14.3,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 445,
+                "sampled_at": "2026-11-04T05:33:45.510588+00:00",
+                "received_at": "2026-11-04T05:33:45.510588+00:00",
+                "value": 14.04,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 446,
+                "sampled_at": "2026-11-04T05:33:47.511106+00:00",
+                "received_at": "2026-11-04T05:33:47.511106+00:00",
+                "value": 14.16,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_9406a0cd0b944930",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:01.247228+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "stations/validation-3/turbidity",
+            "subscription_topic": "stations/validation-3/turbidity-old",
+            "version": 16
+          }
+        },
+        {
+          "evidence_id": "ev_627b56faa1564de5",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:01.261256+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T05:33:57.511581+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_ef6add75a16e4fef",
+          "tool_name": "propose_subscription_update",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:05.552780+00:00",
+          "status": "ok",
+          "payload": {
+            "id": "prop_b23706ede4134468",
+            "incident_id": "inc_981d3205908840e8",
+            "station_id": "station-01",
+            "version": 16,
+            "before": "stations/validation-3/turbidity-old",
+            "after": "stations/validation-3/turbidity",
+            "evidence_ids": [
+              "ev_9406a0cd0b944930",
+              "ev_aba02e183e1749ec",
+              "ev_b273e28350e74c95"
+            ],
+            "expires_at": "2026-11-04T05:36:05.549471+00:00",
+            "status": "pending"
+          }
+        }
+      ],
+      "proposal": {
+        "id": "prop_b23706ede4134468",
+        "incident_id": "inc_981d3205908840e8",
+        "station_id": "station-01",
+        "version": 16,
+        "before": "stations/validation-3/turbidity-old",
+        "after": "stations/validation-3/turbidity",
+        "evidence_ids": [
+          "ev_9406a0cd0b944930",
+          "ev_aba02e183e1749ec",
+          "ev_b273e28350e74c95"
+        ],
+        "expires_at": "2026-11-04T05:36:05.549471+00:00",
+        "status": "pending"
+      },
+      "verification": {
+        "recovered": true,
+        "count": 3,
+        "required": 3,
+        "latest_fresh": true,
+        "reason": "Three distinct post-repair samples and latest freshness required."
+      }
+    },
+    {
+      "scenario": "healthy",
+      "incident_id": "inc_e9c07e2ead524e89",
+      "result": "pass",
+      "state": "unresolved",
+      "state_before_approval": "unresolved",
+      "finding": "No fault found - healthy operation.\n\nEvidence:\n- Station connected and heartbeat fresh (ev_2038cb9376ad42a5)\n- Local acquisition fresh: seq 454-459 through 2026-11-04T05:34:11.703067+00:00, quality ok (ev_d539aee4334c400c)\n- Delivered samples match local samples exactly on sequence, timestamp, and value (ev_64f094a5b1764829 vs ev_d539aee4334c400c)\n- Transport publishing equals subscription: `stations/validation-4/turbidity`, version 18 (ev_d260d235b47d4851)\n- Device log shows normal connected sampling (ev_089c994740314bff)\n\nNo subscription correction proposed. No repair applied.\n",
+      "elapsed_seconds": 7.44,
+      "model_turns": 2,
+      "tool_calls": 5,
+      "inference": [
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "3e5e341f-73ef-424a-b01a-d57ecc55b2d8",
+          "usage": {
+            "completion_tokens": 369,
+            "prompt_tokens": 1463,
+            "total_tokens": 1832
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 3324
+        },
+        {
+          "provider": "meta",
+          "model": "muse-spark-1.3",
+          "returned_model": "muse-spark-1.3",
+          "request_id": "7cdaed63-8bc5-4312-b1d1-23857cc5aa77",
+          "usage": {
+            "completion_tokens": 337,
+            "prompt_tokens": 3387,
+            "total_tokens": 3724
+          },
+          "outcome": "ok",
+          "failure_kind": null,
+          "latency_ms": 3934
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ev_2038cb9376ad42a5",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:13.513592+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T05:34:11.703067+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_d539aee4334c400c",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:13.540278+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 454,
+                "sampled_at": "2026-11-04T05:33:54.136255+00:00",
+                "received_at": "2026-11-04T05:33:54.136255+00:00",
+                "value": 18.5,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 455,
+                "sampled_at": "2026-11-04T05:33:56.136731+00:00",
+                "received_at": "2026-11-04T05:33:56.136731+00:00",
+                "value": 18.08,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 456,
+                "sampled_at": "2026-11-04T05:33:58.137089+00:00",
+                "received_at": "2026-11-04T05:33:58.137089+00:00",
+                "value": 17.48,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 457,
+                "sampled_at": "2026-11-04T05:34:00.137482+00:00",
+                "received_at": "2026-11-04T05:34:00.137482+00:00",
+                "value": 16.83,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 458,
+                "sampled_at": "2026-11-04T05:34:10.137835+00:00",
+                "received_at": "2026-11-04T05:34:10.137835+00:00",
+                "value": 16.26,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 459,
+                "sampled_at": "2026-11-04T05:34:11.703067+00:00",
+                "received_at": "2026-11-04T05:34:11.703067+00:00",
+                "value": 15.91,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_64f094a5b1764829",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:13.570640+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 454,
+                "sampled_at": "2026-11-04T05:33:54.136255+00:00",
+                "received_at": "2026-11-04T05:33:54.136255+00:00",
+                "value": 18.5,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 455,
+                "sampled_at": "2026-11-04T05:33:56.136731+00:00",
+                "received_at": "2026-11-04T05:33:56.136731+00:00",
+                "value": 18.08,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 456,
+                "sampled_at": "2026-11-04T05:33:58.137089+00:00",
+                "received_at": "2026-11-04T05:33:58.137089+00:00",
+                "value": 17.48,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 457,
+                "sampled_at": "2026-11-04T05:34:00.137482+00:00",
+                "received_at": "2026-11-04T05:34:00.137482+00:00",
+                "value": 16.83,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 458,
+                "sampled_at": "2026-11-04T05:34:10.137835+00:00",
+                "received_at": "2026-11-04T05:34:10.137835+00:00",
+                "value": 16.26,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 459,
+                "sampled_at": "2026-11-04T05:34:11.703067+00:00",
+                "received_at": "2026-11-04T05:34:11.703067+00:00",
+                "value": 15.91,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_d260d235b47d4851",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:13.602132+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "stations/validation-4/turbidity",
+            "subscription_topic": "stations/validation-4/turbidity",
+            "version": 18
+          }
+        },
+        {
+          "evidence_id": "ev_089c994740314bff",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T05:34:13.622532+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T05:34:10.137776+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        }
+      ],
+      "proposal": null,
+      "verification": null
+    }
+  ],
+  "gate": "passed",
+  "limitations": []
+}

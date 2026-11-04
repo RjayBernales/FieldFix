@@ -1,0 +1,46 @@
+{
+  "recorded_at": "2026-11-04T05:37:24.361998+00:00",
+  "tested_commit": "2be09e836d7eab6a2263780d85e968a9ad5f3728",
+  "npm_before": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 1,
+    "critical": 0,
+    "total": 2
+  },
+  "npm_after": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "python_before": [
+    {
+      "name": "anyio",
+      "version": "4.12.1",
+      "advisories": [
+        {
+          "id": "PYSEC-2026-4025",
+          "fix_versions": [
+            "4.14.2"
+          ]
+        },
+        {
+          "id": "PYSEC-2026-4024",
+          "fix_versions": [
+            "4.14.2"
+          ]
+        }
+      ]
+    }
+  ],
+  "python_after_vulnerabilities": 0,
+  "fixes": {
+    "vite": "8.3.5",
+    "anyio": "4.16.0"
+  },
+  "limitations": "Registry advisory snapshot; does not prove absence of every vulnerability."
+}

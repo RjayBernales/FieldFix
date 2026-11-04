@@ -1,0 +1,1243 @@
+{
+  "recorded_at": "2026-11-04T05:37:24.361998+00:00",
+  "tested_commit": "2be09e836d7eab6a2263780d85e968a9ad5f3728",
+  "station_data": "synthetic",
+  "browser": "HeadlessChrome 151.0.0.0 on Linux x86_64",
+  "viewports": [
+    {
+      "width": 375,
+      "height": 812,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "horizontal_overflow": false
+    }
+  ],
+  "checks": {
+    "reset_clears_old_selection": true,
+    "pause_notice_and_investigation_disabled": true,
+    "resume_updates": true,
+    "keyboard_skip_link_focuses_main": true,
+    "backend_outage_message": true,
+    "outage_message_clears_after_recovery": true,
+    "api_key_absent_from_browser_har": true,
+    "har_requests": 23
+  },
+  "accessibility": {
+    "axe_version": "4.12.1",
+    "tags": [
+      "wcag2a",
+      "wcag2aa"
+    ],
+    "counts": {
+      "desktop": {
+        "inapplicable": 33,
+        "incomplete": 1,
+        "passes": 27,
+        "violations": 0
+      },
+      "mobile": {
+        "inapplicable": 33,
+        "incomplete": 1,
+        "passes": 27,
+        "violations": 0
+      },
+      "live_final": {
+        "inapplicable": 33,
+        "incomplete": 1,
+        "passes": 27,
+        "violations": 0
+      }
+    },
+    "incomplete": "SVG labels require manual contrast review",
+    "svg_text_contrast": {
+      "normal_panel": 6.38,
+      "stale_interval": 5.36
+    }
+  },
+  "workflows": [
+    {
+      "scenario": "mismatch",
+      "provider": "mock",
+      "action": "reject",
+      "incident": {
+        "id": "inc_b8adc164c7314326",
+        "station_id": "station-01",
+        "state": "unresolved",
+        "provider": "mock",
+        "created_at": "2026-11-04T05:23:38.265670+00:00",
+        "updated_at": "2026-11-04T05:24:01.325994+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "Technician rejected the proposal. No configuration was changed.",
+        "proposal_id": "prop_62d25ea1e5354aea",
+        "repair_at": null,
+        "pre_repair_sequence": null,
+        "verification": null,
+        "model_turns": 2,
+        "tool_calls": 6,
+        "evidence": [
+          {
+            "evidence_id": "ev_958743df656449a6",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.279901+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:23:37.577926+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_c383bbf308d3432e",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.302863+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 138,
+                  "sampled_at": "2026-11-04T05:23:16.713556+00:00",
+                  "received_at": "2026-11-04T05:23:16.713556+00:00",
+                  "value": 19.44,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 139,
+                  "sampled_at": "2026-11-04T05:23:18.713748+00:00",
+                  "received_at": "2026-11-04T05:23:18.713748+00:00",
+                  "value": 19.22,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 140,
+                  "sampled_at": "2026-11-04T05:23:20.713895+00:00",
+                  "received_at": "2026-11-04T05:23:20.713895+00:00",
+                  "value": 18.66,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 141,
+                  "sampled_at": "2026-11-04T05:23:22.714027+00:00",
+                  "received_at": "2026-11-04T05:23:22.714027+00:00",
+                  "value": 17.82,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 142,
+                  "sampled_at": "2026-11-04T05:23:32.714298+00:00",
+                  "received_at": null,
+                  "value": 16.83,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 143,
+                  "sampled_at": "2026-11-04T05:23:33.523755+00:00",
+                  "received_at": null,
+                  "value": 15.83,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 144,
+                  "sampled_at": "2026-11-04T05:23:35.535952+00:00",
+                  "received_at": null,
+                  "value": 14.97,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 145,
+                  "sampled_at": "2026-11-04T05:23:37.577926+00:00",
+                  "received_at": null,
+                  "value": 14.38,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_5df9d6f91cf247c7",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.318442+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 138,
+                  "sampled_at": "2026-11-04T05:23:16.713556+00:00",
+                  "received_at": "2026-11-04T05:23:16.713556+00:00",
+                  "value": 19.44,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 139,
+                  "sampled_at": "2026-11-04T05:23:18.713748+00:00",
+                  "received_at": "2026-11-04T05:23:18.713748+00:00",
+                  "value": 19.22,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 140,
+                  "sampled_at": "2026-11-04T05:23:20.713895+00:00",
+                  "received_at": "2026-11-04T05:23:20.713895+00:00",
+                  "value": 18.66,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 141,
+                  "sampled_at": "2026-11-04T05:23:22.714027+00:00",
+                  "received_at": "2026-11-04T05:23:22.714027+00:00",
+                  "value": 17.82,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_27f0577cdf3e4f6f",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.328044+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:23:32.714241+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_371985f2e5f44225",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.338841+00:00",
+            "status": "ok",
+            "payload": {
+              "publish_topic": "stations/river-01/turbidity",
+              "subscription_topic": "stations/river-01/turbidity-old",
+              "version": 6
+            }
+          },
+          {
+            "evidence_id": "ev_aeca9e11a0ca40b8",
+            "tool_name": "propose_subscription_update",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:23:38.365176+00:00",
+            "status": "ok",
+            "payload": {
+              "id": "prop_62d25ea1e5354aea",
+              "incident_id": "inc_b8adc164c7314326",
+              "station_id": "station-01",
+              "version": 6,
+              "before": "stations/river-01/turbidity-old",
+              "after": "stations/river-01/turbidity",
+              "evidence_ids": [
+                "ev_c383bbf308d3432e",
+                "ev_5df9d6f91cf247c7",
+                "ev_371985f2e5f44225"
+              ],
+              "expires_at": "2026-11-04T05:25:38.361655+00:00",
+              "status": "pending"
+            }
+          }
+        ],
+        "proposal": {
+          "id": "prop_62d25ea1e5354aea",
+          "incident_id": "inc_b8adc164c7314326",
+          "station_id": "station-01",
+          "version": 6,
+          "before": "stations/river-01/turbidity-old",
+          "after": "stations/river-01/turbidity",
+          "evidence_ids": [
+            "ev_c383bbf308d3432e",
+            "ev_5df9d6f91cf247c7",
+            "ev_371985f2e5f44225"
+          ],
+          "expires_at": "2026-11-04T05:25:38.361655+00:00",
+          "status": "rejected"
+        },
+        "inference": []
+      }
+    },
+    {
+      "scenario": "mismatch",
+      "provider": "mock",
+      "action": "approve",
+      "incident": {
+        "id": "inc_4d4f9b73a21a4b50",
+        "station_id": "station-01",
+        "state": "resolved",
+        "provider": "mock",
+        "created_at": "2026-11-04T05:24:22.063851+00:00",
+        "updated_at": "2026-11-04T05:24:36.188685+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+        "proposal_id": "prop_bc6dce579ab74eeb",
+        "repair_at": 1793769870.5617907,
+        "pre_repair_sequence": 168,
+        "verification": {
+          "recovered": true,
+          "count": 3,
+          "required": 3,
+          "latest_fresh": true,
+          "reason": "Three distinct post-repair samples and latest freshness required."
+        },
+        "model_turns": 2,
+        "tool_calls": 6,
+        "evidence": [
+          {
+            "evidence_id": "ev_182eb38ae4094cc2",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.080305+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:24:21.793753+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_9c4f35f5795245d4",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.095662+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 165,
+                  "sampled_at": "2026-11-04T05:23:59.787410+00:00",
+                  "received_at": "2026-11-04T05:23:59.787410+00:00",
+                  "value": 18.37,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 166,
+                  "sampled_at": "2026-11-04T05:24:01.787643+00:00",
+                  "received_at": "2026-11-04T05:24:01.787643+00:00",
+                  "value": 19.13,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 167,
+                  "sampled_at": "2026-11-04T05:24:03.787773+00:00",
+                  "received_at": "2026-11-04T05:24:03.787773+00:00",
+                  "value": 19.66,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 168,
+                  "sampled_at": "2026-11-04T05:24:05.787934+00:00",
+                  "received_at": "2026-11-04T05:24:05.787934+00:00",
+                  "value": 19.86,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 169,
+                  "sampled_at": "2026-11-04T05:24:15.788370+00:00",
+                  "received_at": null,
+                  "value": 19.68,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 170,
+                  "sampled_at": "2026-11-04T05:24:17.777461+00:00",
+                  "received_at": null,
+                  "value": 19.15,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 171,
+                  "sampled_at": "2026-11-04T05:24:19.785303+00:00",
+                  "received_at": null,
+                  "value": 18.32,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 172,
+                  "sampled_at": "2026-11-04T05:24:21.793753+00:00",
+                  "received_at": null,
+                  "value": 17.34,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_590d4de203744c88",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.104377+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 165,
+                  "sampled_at": "2026-11-04T05:23:59.787410+00:00",
+                  "received_at": "2026-11-04T05:23:59.787410+00:00",
+                  "value": 18.37,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 166,
+                  "sampled_at": "2026-11-04T05:24:01.787643+00:00",
+                  "received_at": "2026-11-04T05:24:01.787643+00:00",
+                  "value": 19.13,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 167,
+                  "sampled_at": "2026-11-04T05:24:03.787773+00:00",
+                  "received_at": "2026-11-04T05:24:03.787773+00:00",
+                  "value": 19.66,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 168,
+                  "sampled_at": "2026-11-04T05:24:05.787934+00:00",
+                  "received_at": "2026-11-04T05:24:05.787934+00:00",
+                  "value": 19.86,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_e190e303da8249d3",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.116677+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:24:15.788273+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_a2e365783fc84942",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.126648+00:00",
+            "status": "ok",
+            "payload": {
+              "publish_topic": "stations/river-01/turbidity",
+              "subscription_topic": "stations/river-01/turbidity-old",
+              "version": 7
+            }
+          },
+          {
+            "evidence_id": "ev_ef151cb68c1b469e",
+            "tool_name": "propose_subscription_update",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:24:22.151884+00:00",
+            "status": "ok",
+            "payload": {
+              "id": "prop_bc6dce579ab74eeb",
+              "incident_id": "inc_4d4f9b73a21a4b50",
+              "station_id": "station-01",
+              "version": 7,
+              "before": "stations/river-01/turbidity-old",
+              "after": "stations/river-01/turbidity",
+              "evidence_ids": [
+                "ev_9c4f35f5795245d4",
+                "ev_590d4de203744c88",
+                "ev_a2e365783fc84942"
+              ],
+              "expires_at": "2026-11-04T05:26:22.147418+00:00",
+              "status": "pending"
+            }
+          }
+        ],
+        "proposal": {
+          "id": "prop_bc6dce579ab74eeb",
+          "incident_id": "inc_4d4f9b73a21a4b50",
+          "station_id": "station-01",
+          "version": 7,
+          "before": "stations/river-01/turbidity-old",
+          "after": "stations/river-01/turbidity",
+          "evidence_ids": [
+            "ev_9c4f35f5795245d4",
+            "ev_590d4de203744c88",
+            "ev_a2e365783fc84942"
+          ],
+          "expires_at": "2026-11-04T05:26:22.147418+00:00",
+          "status": "approved"
+        },
+        "inference": []
+      }
+    },
+    {
+      "scenario": "healthy",
+      "provider": "mock",
+      "action": "observe",
+      "incident": {
+        "id": "inc_ab00bcd3272849c7",
+        "station_id": "station-01",
+        "state": "unresolved",
+        "provider": "mock",
+        "created_at": "2026-11-04T05:25:54.614277+00:00",
+        "updated_at": "2026-11-04T05:25:54.703733+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "No fault found in collected evidence; no repair proposed. ev_1ed9917b68a142b4 ev_093b85a2fa75419a ev_d3c63c880dc44a6d ev_08ec782c847142b8 ev_ab4c16c63f34413c",
+        "proposal_id": null,
+        "repair_at": null,
+        "pre_repair_sequence": null,
+        "verification": null,
+        "model_turns": 2,
+        "tool_calls": 5,
+        "evidence": [
+          {
+            "evidence_id": "ev_1ed9917b68a142b4",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:25:54.625444+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:25:54.244822+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_093b85a2fa75419a",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:25:54.640911+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 215,
+                  "sampled_at": "2026-11-04T05:25:30.435078+00:00",
+                  "received_at": "2026-11-04T05:25:30.435078+00:00",
+                  "value": 17.44,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 216,
+                  "sampled_at": "2026-11-04T05:25:32.435283+00:00",
+                  "received_at": "2026-11-04T05:25:32.435283+00:00",
+                  "value": 16.77,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 217,
+                  "sampled_at": "2026-11-04T05:25:34.435491+00:00",
+                  "received_at": "2026-11-04T05:25:34.435491+00:00",
+                  "value": 16.01,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 218,
+                  "sampled_at": "2026-11-04T05:25:36.435651+00:00",
+                  "received_at": "2026-11-04T05:25:36.435651+00:00",
+                  "value": 15.29,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 219,
+                  "sampled_at": "2026-11-04T05:25:46.436005+00:00",
+                  "received_at": "2026-11-04T05:25:46.436005+00:00",
+                  "value": 14.75,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 220,
+                  "sampled_at": "2026-11-04T05:25:48.220131+00:00",
+                  "received_at": "2026-11-04T05:25:48.220131+00:00",
+                  "value": 14.5,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 221,
+                  "sampled_at": "2026-11-04T05:25:50.229162+00:00",
+                  "received_at": "2026-11-04T05:25:50.229162+00:00",
+                  "value": 14.61,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 222,
+                  "sampled_at": "2026-11-04T05:25:52.235627+00:00",
+                  "received_at": "2026-11-04T05:25:52.235627+00:00",
+                  "value": 15.08,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 223,
+                  "sampled_at": "2026-11-04T05:25:54.244822+00:00",
+                  "received_at": "2026-11-04T05:25:54.244822+00:00",
+                  "value": 15.85,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_d3c63c880dc44a6d",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:25:54.661665+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 215,
+                  "sampled_at": "2026-11-04T05:25:30.435078+00:00",
+                  "received_at": "2026-11-04T05:25:30.435078+00:00",
+                  "value": 17.44,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 216,
+                  "sampled_at": "2026-11-04T05:25:32.435283+00:00",
+                  "received_at": "2026-11-04T05:25:32.435283+00:00",
+                  "value": 16.77,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 217,
+                  "sampled_at": "2026-11-04T05:25:34.435491+00:00",
+                  "received_at": "2026-11-04T05:25:34.435491+00:00",
+                  "value": 16.01,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 218,
+                  "sampled_at": "2026-11-04T05:25:36.435651+00:00",
+                  "received_at": "2026-11-04T05:25:36.435651+00:00",
+                  "value": 15.29,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 219,
+                  "sampled_at": "2026-11-04T05:25:46.436005+00:00",
+                  "received_at": "2026-11-04T05:25:46.436005+00:00",
+                  "value": 14.75,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 220,
+                  "sampled_at": "2026-11-04T05:25:48.220131+00:00",
+                  "received_at": "2026-11-04T05:25:48.220131+00:00",
+                  "value": 14.5,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 221,
+                  "sampled_at": "2026-11-04T05:25:50.229162+00:00",
+                  "received_at": "2026-11-04T05:25:50.229162+00:00",
+                  "value": 14.61,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 222,
+                  "sampled_at": "2026-11-04T05:25:52.235627+00:00",
+                  "received_at": "2026-11-04T05:25:52.235627+00:00",
+                  "value": 15.08,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 223,
+                  "sampled_at": "2026-11-04T05:25:54.244822+00:00",
+                  "received_at": "2026-11-04T05:25:54.244822+00:00",
+                  "value": 15.85,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_08ec782c847142b8",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:25:54.674620+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:25:46.435938+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_ab4c16c63f34413c",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:25:54.687427+00:00",
+            "status": "ok",
+            "payload": {
+              "publish_topic": "stations/river-01/turbidity",
+              "subscription_topic": "stations/river-01/turbidity",
+              "version": 9
+            }
+          }
+        ],
+        "proposal": null,
+        "inference": []
+      }
+    },
+    {
+      "scenario": "sensor_failure",
+      "provider": "mock",
+      "action": "observe",
+      "incident": {
+        "id": "inc_8168586dd45e4b64",
+        "station_id": "station-01",
+        "state": "unresolved",
+        "provider": "mock",
+        "created_at": "2026-11-04T05:27:33.670121+00:00",
+        "updated_at": "2026-11-04T05:27:33.782708+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_388f850f19274817 ev_2752e8f7dc134c18 ev_5cca6fcdce3a4ac5 ev_f5d571bf6e984005 ev_ecb69c0877524340",
+        "proposal_id": null,
+        "repair_at": null,
+        "pre_repair_sequence": null,
+        "verification": null,
+        "model_turns": 2,
+        "tool_calls": 5,
+        "evidence": [
+          {
+            "evidence_id": "ev_388f850f19274817",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:33.693533+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:27:32.976187+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_2752e8f7dc134c18",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:33.706009+00:00",
+            "status": "error",
+            "payload": {
+              "error": "Local acquisition read failed. Physical inspection required."
+            }
+          },
+          {
+            "evidence_id": "ev_5cca6fcdce3a4ac5",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:33.718646+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 273,
+                  "sampled_at": "2026-11-04T05:27:16.973933+00:00",
+                  "received_at": "2026-11-04T05:27:16.973933+00:00",
+                  "value": 18.97,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 274,
+                  "sampled_at": "2026-11-04T05:27:18.974112+00:00",
+                  "received_at": "2026-11-04T05:27:18.974112+00:00",
+                  "value": 18.61,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 275,
+                  "sampled_at": "2026-11-04T05:27:20.974245+00:00",
+                  "received_at": "2026-11-04T05:27:20.974245+00:00",
+                  "value": 17.94,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 276,
+                  "sampled_at": "2026-11-04T05:27:22.975796+00:00",
+                  "received_at": "2026-11-04T05:27:22.975796+00:00",
+                  "value": 17.06,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_f5d571bf6e984005",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:33.734486+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:27:32.976053+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_ecb69c0877524340",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:33.759527+00:00",
+            "status": "ok",
+            "payload": {
+              "publish_topic": "stations/river-01/turbidity",
+              "subscription_topic": "stations/river-01/turbidity",
+              "version": 10
+            }
+          }
+        ],
+        "proposal": null,
+        "inference": []
+      }
+    },
+    {
+      "scenario": "unavailable",
+      "provider": "mock",
+      "action": "observe",
+      "incident": {
+        "id": "inc_716ae26179dc464f",
+        "station_id": "station-01",
+        "state": "unresolved",
+        "provider": "mock",
+        "created_at": "2026-11-04T05:27:42.585680+00:00",
+        "updated_at": "2026-11-04T05:27:42.695029+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_7b86831ab5ce474e ev_d42cbb2adae542c6 ev_33423e541cc54a77 ev_606eeca0a0b54e94 ev_169e4db5329342ae",
+        "proposal_id": null,
+        "repair_at": null,
+        "pre_repair_sequence": null,
+        "verification": null,
+        "model_turns": 2,
+        "tool_calls": 5,
+        "evidence": [
+          {
+            "evidence_id": "ev_7b86831ab5ce474e",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:42.612368+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:27:42.143888+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_d42cbb2adae542c6",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:42.626823+00:00",
+            "status": "unavailable",
+            "payload": {
+              "error": "Diagnostic access unavailable."
+            }
+          },
+          {
+            "evidence_id": "ev_33423e541cc54a77",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:42.648842+00:00",
+            "status": "unavailable",
+            "payload": {
+              "error": "Diagnostic access unavailable."
+            }
+          },
+          {
+            "evidence_id": "ev_606eeca0a0b54e94",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:42.660270+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:27:42.143860+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_169e4db5329342ae",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:27:42.673361+00:00",
+            "status": "unavailable",
+            "payload": {
+              "error": "Diagnostic access unavailable."
+            }
+          }
+        ],
+        "proposal": null,
+        "inference": []
+      }
+    },
+    {
+      "scenario": "mismatch",
+      "provider": "meta",
+      "action": "approve",
+      "incident": {
+        "id": "inc_7a5b0a81d1b9460b",
+        "station_id": "station-01",
+        "state": "resolved",
+        "provider": "meta",
+        "created_at": "2026-11-04T05:35:26.824311+00:00",
+        "updated_at": "2026-11-04T05:35:52.239407+00:00",
+        "question": "Why are dashboard readings stale?",
+        "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+        "proposal_id": "prop_b16196f46041455f",
+        "repair_at": 1793770547.6598542,
+        "pre_repair_sequence": 469,
+        "verification": {
+          "recovered": true,
+          "count": 3,
+          "required": 3,
+          "latest_fresh": true,
+          "reason": "Three distinct post-repair samples and latest freshness required."
+        },
+        "model_turns": 2,
+        "tool_calls": 6,
+        "evidence": [
+          {
+            "evidence_id": "ev_fa7021a9755947da",
+            "tool_name": "get_station_status",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:31.114951+00:00",
+            "status": "ok",
+            "payload": {
+              "connected": true,
+              "last_heartbeat": "2026-11-04T05:35:30.021870+00:00"
+            }
+          },
+          {
+            "evidence_id": "ev_791278b972e94171",
+            "tool_name": "get_local_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:31.125846+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 466,
+                  "sampled_at": "2026-11-04T05:35:10.416789+00:00",
+                  "received_at": "2026-11-04T05:35:10.416789+00:00",
+                  "value": 19.46,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 467,
+                  "sampled_at": "2026-11-04T05:35:12.416963+00:00",
+                  "received_at": "2026-11-04T05:35:12.416963+00:00",
+                  "value": 19.68,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 468,
+                  "sampled_at": "2026-11-04T05:35:14.417113+00:00",
+                  "received_at": "2026-11-04T05:35:14.417113+00:00",
+                  "value": 19.53,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 469,
+                  "sampled_at": "2026-11-04T05:35:16.417240+00:00",
+                  "received_at": "2026-11-04T05:35:16.417240+00:00",
+                  "value": 19.03,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 470,
+                  "sampled_at": "2026-11-04T05:35:26.417666+00:00",
+                  "received_at": null,
+                  "value": 18.23,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 471,
+                  "sampled_at": "2026-11-04T05:35:28.013400+00:00",
+                  "received_at": null,
+                  "value": 17.25,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 472,
+                  "sampled_at": "2026-11-04T05:35:30.021870+00:00",
+                  "received_at": null,
+                  "value": 16.23,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_832308b7f1b046ec",
+            "tool_name": "get_received_samples",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:31.139910+00:00",
+            "status": "ok",
+            "payload": {
+              "samples": [
+                {
+                  "station_id": "station-01",
+                  "sequence": 466,
+                  "sampled_at": "2026-11-04T05:35:10.416789+00:00",
+                  "received_at": "2026-11-04T05:35:10.416789+00:00",
+                  "value": 19.46,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 467,
+                  "sampled_at": "2026-11-04T05:35:12.416963+00:00",
+                  "received_at": "2026-11-04T05:35:12.416963+00:00",
+                  "value": 19.68,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 468,
+                  "sampled_at": "2026-11-04T05:35:14.417113+00:00",
+                  "received_at": "2026-11-04T05:35:14.417113+00:00",
+                  "value": 19.53,
+                  "unit": "NTU",
+                  "quality": "ok"
+                },
+                {
+                  "station_id": "station-01",
+                  "sequence": 469,
+                  "sampled_at": "2026-11-04T05:35:16.417240+00:00",
+                  "received_at": "2026-11-04T05:35:16.417240+00:00",
+                  "value": 19.03,
+                  "unit": "NTU",
+                  "quality": "ok"
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_0eb735d48f0f4d3c",
+            "tool_name": "get_transport_config",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:31.151881+00:00",
+            "status": "ok",
+            "payload": {
+              "publish_topic": "stations/river-01/turbidity",
+              "subscription_topic": "stations/river-01/turbidity-old",
+              "version": 19
+            }
+          },
+          {
+            "evidence_id": "ev_81188e80972b43e7",
+            "tool_name": "get_device_logs",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:31.161413+00:00",
+            "status": "ok",
+            "payload": {
+              "events": [
+                {
+                  "observed_at": "2026-11-04T05:35:26.417459+00:00",
+                  "message": "Station connected; sampling interval 2 seconds."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "ev_772558bd78614bf2",
+            "tool_name": "propose_subscription_update",
+            "station_id": "station-01",
+            "observed_at": "2026-11-04T05:35:34.601888+00:00",
+            "status": "ok",
+            "payload": {
+              "id": "prop_b16196f46041455f",
+              "incident_id": "inc_7a5b0a81d1b9460b",
+              "station_id": "station-01",
+              "version": 19,
+              "before": "stations/river-01/turbidity-old",
+              "after": "stations/river-01/turbidity",
+              "evidence_ids": [
+                "ev_0eb735d48f0f4d3c",
+                "ev_791278b972e94171",
+                "ev_832308b7f1b046ec"
+              ],
+              "expires_at": "2026-11-04T05:37:34.596855+00:00",
+              "status": "pending"
+            }
+          }
+        ],
+        "proposal": {
+          "id": "prop_b16196f46041455f",
+          "incident_id": "inc_7a5b0a81d1b9460b",
+          "station_id": "station-01",
+          "version": 19,
+          "before": "stations/river-01/turbidity-old",
+          "after": "stations/river-01/turbidity",
+          "evidence_ids": [
+            "ev_0eb735d48f0f4d3c",
+            "ev_791278b972e94171",
+            "ev_832308b7f1b046ec"
+          ],
+          "expires_at": "2026-11-04T05:37:34.596855+00:00",
+          "status": "approved"
+        },
+        "inference": [
+          {
+            "provider": "meta",
+            "model": "muse-spark-1.3",
+            "returned_model": "muse-spark-1.3",
+            "request_id": "7e85ff14-7db0-4622-8c8a-df425b09aa1c",
+            "usage": {
+              "completion_tokens": 436,
+              "prompt_tokens": 1450,
+              "total_tokens": 1886
+            },
+            "outcome": "ok",
+            "failure_kind": null,
+            "latency_ms": 4269
+          },
+          {
+            "provider": "meta",
+            "model": "muse-spark-1.3",
+            "returned_model": "muse-spark-1.3",
+            "request_id": "2b93daf3-37ba-4d8f-b195-4c97a716b055",
+            "usage": {
+              "completion_tokens": 364,
+              "prompt_tokens": 3236,
+              "total_tokens": 3600
+            },
+            "outcome": "ok",
+            "failure_kind": null,
+            "latency_ms": 3407
+          }
+        ]
+      }
+    }
+  ],
+  "live_request_budget": {
+    "used": 16,
+    "limit": 30
+  },
+  "limitations": [
+    "Software station and topic router only.",
+    "Desktop headless Chromium; no real mobile devices or full screen-reader audit.",
+    "No field deployment or environmental safety assessment."
+  ]
+}
