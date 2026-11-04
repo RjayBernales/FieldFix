@@ -1,8 +1,29 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T08:20:59.598458+00:00.
+Report updated: 2026-11-04T13:42:23.151647+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
+
+## Approved dashboard layout — 2026-11-04
+
+Tested UI runtime: `932aaad85b55b1ded02b5b96d20f51feb9c8780c`. [Current sanitized report](dashboard-v2-validation.json), [desktop screenshot](dashboard-v2-desktop.png), [mobile screenshot](dashboard-v2-mobile.png). The participant approved the text proposal before implementation. LPMAS's local public Monitor source supplied the chart/KPI/activity structure; FieldFix preserves its own synthetic data, real simulator delivery behavior, diagnostic evidence, exact approval, and deterministic verification.
+
+Implemented: 65/35 desktop grid, compact telemetry, four grouped readings, observed delivery path, diagnostic activity table, bounded repair review, working Overview/Investigations/Simulator views, mobile menu, history, and collapsed simulator controls. The telemetry SVG measures its available width/height so axes remain readable and the plot fills its column. Payloads render only when expanded and support keyboard scrolling. No runtime prompts, diagnostic tools, provider logic, or request budget were changed.
+
+| Check | Actual result |
+| --- | --- |
+| Backend regression suite | **56 passed in 10.22s** |
+| Strict TypeScript / Vite production build | **Passed**; JS 207.45 kB / 65.10 kB gzip; CSS 18.95 kB / 4.64 kB gzip |
+| Taste source + production inspector | **0 failures, 0 warnings**, 1440 / 768 / 390px; rendered screens visually inspected |
+| Local browser | Approved mismatch → **resolved, 3/3 samples**; rejection → **unresolved, unchanged configuration, stale delivery**; healthy → **no repair**; history/navigation/reset/pause/resume passed |
+| Mobile geometry | **324px evidence rows** at 390px viewport; status/time separated; expanded payload and empty state have **no document overflow** |
+| Accessibility | Desktop **0 violations, 26 passes**; final mobile expanded payload **0 violations, 27 passes**. Tab reaches the JSON scroller. SVG contrast remains one manual check: **5.88:1**. |
+| Public HTTPS, final runtime | Fresh isolated session; investigate, approve promptly, **resolved with 3/3 samples**, no phone-width overflow, logout returned to session entry. Served asset: `index-juCK0OVL.js`. |
+| Container | Final image `e58f3df17589` built; healthz passed; **UID 10001** |
+
+Two real UI failures were fixed before publication: mobile table rows collapsed despite a passing overflow-only check, and expanded JSON initially lacked keyboard scrolling. The final screenshots, geometry and expanded-state axe audit verify the fixes. An earlier public approval attempt during extended screenshot review produced no verification record; the fresh final session passed. An expired local proposal remained unresolved without a write. Failures are retained rather than counted as successful recoveries.
+
+These are **mock inference / synthetic station** results. **No new genuine Meta inference was run** for this frontend change; the earlier separately attributed live evidence and 16/30 cumulative usage remain unchanged. Long references/findings/JSON can require bounded panel scrolling. The current README URL is still a temporary mock-only preview; stable free hosting and credential rotation remain separate owner follow-ups. No field deployment, video upload, or competition submission is claimed.
 
 ## Frontend redesign — 2026-11-04
 

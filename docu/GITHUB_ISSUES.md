@@ -24,3 +24,7 @@ Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15). Its 
 | --- | --- | --- |
 | FF-014 | [#16: Improve dashboard hierarchy and readability](https://github.com/RjayBernales/FieldFix/issues/16) | Redesigned with UI/UX Pro Max and Taste; validated desktop/mobile workflows |
 | FF-015 | [#17: Stable free preview](https://github.com/RjayBernales/FieldFix/issues/17) | Temporary replacement restored; durable free host remains pending account connection |
+
+| FF-016 | [#19: Implement the approved LPMAS-inspired dashboard layout](https://github.com/RjayBernales/FieldFix/issues/19) | Implemented; browser, responsive, accessibility and build evidence recorded in dashboard-v2-validation.json |
+
+| FF-017 | [#20: Keep mobile evidence rows and expanded payload accessible](https://github.com/RjayBernales/FieldFix/issues/20) | Fixed row geometry and keyboard scrolling; final expanded-state mobile axe has zero violations |
