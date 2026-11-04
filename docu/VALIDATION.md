@@ -4,6 +4,28 @@ Report updated: 2026-11-04T08:20:59.598458+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
 
+## Frontend redesign — 2026-11-04
+
+UI runtime tested at `5e5688422912f4a5d505b90047fe19a71341e3a0`. [Sanitized UI report](ui-validation.json) includes hashes of the three changed frontend files. This change preserves the backend/provider implementation and its earlier genuine Meta evidence; **no additional live inference was run or claimed**, and the configured cumulative Meta usage remains 16/30 from prior validation.
+
+UI/UX Pro Max informed hierarchy, accessibility, touch targets, and React behavior. Taste v2.1.5 supplied the **Framed sheet** direction (seed 1584232623): existing green/DM Sans identity, flat white workspace, observed acquisition/delivery path, and evidence beside the repair decision. A top frame replaces the dealt sidebar because this app has one working screen rather than several destinations. Existing custom SVG telemetry was retained and given timestamped axes; no invented readings or business metrics were introduced. All readings remain synthetic.
+
+| Check | Actual result |
+| --- | --- |
+| Backend regression suite | **56 passed in 12.04s** |
+| Strict TypeScript + production build | **Passed**, Vite 8.3.5; JS 203.05 kB / 64.16 kB gzip, CSS 15.62 kB / 4.10 kB gzip |
+| Taste source lint | **0 failures, 0 warnings** |
+| Taste production browser inspector | **0 failures, 0 warnings**, 1440 / 768 / 390px; screenshots visually reviewed |
+| Mobile axe WCAG 2 A/AA | **0 violations**, 26 passes, 1 incomplete SVG text-contrast check; manual #59685f on white = **5.88:1**. Two initially incomplete ARIA group labels were fixed and rechecked. |
+| Local production browser workflow | Mismatch approved → **resolved, 3/3 samples**; rejection → **unresolved, unchanged configuration, stale delivery**; healthy → **no fault, no proposal**; pause/resume/reset/history preserved |
+| Public HTTPS production browser workflow | Started isolated session, investigated, approved exact proposal, **resolved with 3/3 samples**, resized to 390px without horizontal overflow, ended session |
+| Docker | Built successfully; `/healthz` passed and image ran as **UID 10001** |
+| Secret scan / diff | Pattern scan passed; diff reviewed, no secrets or private planning files staged |
+
+Screenshots: [desktop proposal](ui-desktop-proposal.png), [mobile proposal](ui-mobile-proposal.png), [hosted welcome](ui-welcome.png). These show **mock inference**, not Meta output. The first browser attempt on port 5174 hit the expected local-origin 403 restriction; the workflow passed on documented port 5173. A rejection text wait used “declined” while the application says “rejected”; direct DOM and stored incident checks confirmed the correct unresolved result.
+
+The previous Quick Tunnel expired despite its process still running (DNS failure / tunnel unauthorized). A replacement temporary URL is in README and DEPLOYMENT.md and passed the full HTTPS workflow. This does **not** resolve [#17](https://github.com/RjayBernales/FieldFix/issues/17): stable free hosting still needs an available hosting-account connection. No service was purchased, no account terms accepted, and no permanent URL is claimed.
+
 ## Tested code and delivery
 
 - Local genuine-Meta runtime/dependency commit: `2be09e836d7eab6a2263780d85e968a9ad5f3728` on `dev/fieldfix-mvp`.

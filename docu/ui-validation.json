@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-04T10:24:13.522317+00:00",
+  "tested_ui_commit": "5e5688422912f4a5d505b90047fe19a71341e3a0",
+  "source_sha256": {
+    "frontend/index.html": "213974c75d1f9db62cbfae4abb00ef9ded4ca0e26e7ff2dd816c5b7bbc15c460",
+    "frontend/src/main.tsx": "cd85ffa9759c989fb28eebaab2895f8d74f05372e406f575fc1c088e597d957d",
+    "frontend/src/style.css": "f519b7e40e5a68711c35a55980fe82f4a2b49ac00c9f8073614c020ba0c5a3cf"
+  },
+  "provider": "mock",
+  "station_data": "synthetic",
+  "live_requests": 0,
+  "checks": {
+    "backend": {
+      "passed": 56,
+      "seconds": 12.04
+    },
+    "frontend": "TypeScript and Vite production build passed",
+    "docker": "build and /healthz passed; uid=10001",
+    "taste_source_lint": {
+      "fail": 0,
+      "warn": 0
+    },
+    "taste_production_inspector": {
+      "widths": [
+        1440,
+        768,
+        390
+      ],
+      "fail": 0,
+      "warn": 0
+    },
+    "axe_mobile": {
+      "version": "4.12.1",
+      "counts": {
+        "inapplicable": 34,
+        "incomplete": 1,
+        "passes": 26,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodeCount": 8
+        }
+      ]
+    },
+    "browser": [
+      "local mismatch: exact repair approval reached resolved with 3/3 post-repair samples",
+      "local healthy: no fault found, no proposal, terminal unresolved",
+      "local rejection: no configuration changed, delivery stayed stale",
+      "pause/resume: visible frozen timestamp",
+      "reset: cleared selected investigation",
+      "390px: no document horizontal overflow",
+      "public HTTPS: start session, investigate, approve, 3/3 resolved, phone resize, end session"
+    ],
+    "local_records": [
+      {
+        "id": "inc_7db607e7fdba4c75",
+        "state": "unresolved",
+        "provider": "mock",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "finding": "Technician rejected the proposal. No configuration was changed.",
+        "verification": null
+      },
+      {
+        "id": "inc_18d89e44f59a4003",
+        "state": "unresolved",
+        "provider": "mock",
+        "model_turns": 2,
+        "tool_calls": 5,
+        "finding": "No fault found in collected evidence; no repair proposed. ev_99ddbed7e7a64d40 ev_f86852d79e284fed ev_6629904be5b847c7 ev_f34d6c8749e04f08 ev_5377126db6c741a3",
+        "verification": null
+      },
+      {
+        "id": "inc_a8af4d83d3864e58",
+        "state": "resolved",
+        "provider": "mock",
+        "model_turns": 2,
+        "tool_calls": 6,
+        "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+        "verification": {
+          "recovered": true,
+          "count": 3,
+          "required": 3,
+          "latest_fresh": true,
+          "reason": "Three distinct post-repair samples and latest freshness required."
+        }
+      }
+    ]
+  },
+  "preview": {
+    "url": "https://classic-saved-determines-differential.trycloudflare.com",
+    "type": "temporary Cloudflare Quick Tunnel",
+    "public_inference": "mock only",
+    "healthz": "passed",
+    "stable_free_host": "not deployed; Render account connection unavailable"
+  },
+  "limitations": [
+    "No new live Meta inference was run for this frontend-only change. Earlier genuine results remain separately attributed.",
+    "Axe SVG text contrast needs manual review: text #59685f on white; computed ratio recorded in VALIDATION.md.",
+    "An initial browser attempt used unsupported local origin port 5174 and received the expected 403; retested on documented port5173.",
+    "One rejection wait used the word declined instead of actual rejected; DOM and stored record confirmed the correct outcome.",
+    "Temporary preview can expire even while its tunnel process is running; issue17 stays open."
+  ]
+}

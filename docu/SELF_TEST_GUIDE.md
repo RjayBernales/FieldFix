@@ -19,9 +19,11 @@ On the local version, follow README setup/start commands and open http://127.0.0
 | Dashboard reading | The latest sample actually delivered to the dashboard, with its original sampling age |
 | Local device reading | The device continues sampling independently of dashboard delivery |
 | Chart | Dashed local acquisition versus solid delivered readings; shaded intervals indicate stale dashboard data |
-| Evidence timeline | The actual structured results used in this investigation, with evidence IDs |
-| Assistant | Finding, exact repair proposal, approval/rejection, and recovery progress |
-| Development controls | Deliberately configure a simulated fault; these controls are not agent tools |
+| Diagnostic evidence | The actual structured results used in this investigation, with evidence IDs |
+| Station investigation | Finding, exact repair proposal, approval/rejection, and recovery progress |
+| Simulator controls | Deliberately configure a simulated fault; these controls are not agent tools |
+
+The **Acquisition → Topic delivery → Dashboard** strip summarizes observed freshness. It flags delayed delivery; the diagnostic evidence establishes its cause. On a phone, the investigation and approval panel appears first.
 
 NTU is the displayed turbidity unit. FieldFix does not turn these readings into environmental safety advice.
 
@@ -38,12 +40,12 @@ What is happening: the simulator generates a sample every two seconds, but its p
 
 1. Leave the question as “Why are dashboard readings stale?” or enter a short technician observation.
 2. Click **Investigate station** once. The button disables while it is running.
-3. Expand several **Inspect result** rows in the evidence timeline:
+3. Expand several tool rows in **Diagnostic evidence**:
    - **Station status**: heartbeat/connection.
    - **Local samples**: recent sampling timestamps and sequences.
    - **Received samples**: older delivered readings.
    - **Transport config**: publishing topic, subscription topic, and configuration version.
-4. Read the proposal's exact **Before** and **After** topics. It should correct the subscription to the observed publishing topic and cite supporting evidence.
+4. Read the proposal's exact **Current subscription** and **Proposed subscription** topics. It should correct the subscription to the observed publishing topic and cite supporting evidence.
 
 In mock mode, tool selection is a deterministic offline fixture. In local Meta mode, the hosted model chooses the tools through real API calls. Neither mode receives hidden simulator fault labels in its diagnostic tool inputs.
 

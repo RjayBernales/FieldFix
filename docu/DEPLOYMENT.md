@@ -1,8 +1,10 @@
 # Free demo hosting
 
-Current verified preview: **https://interests-codes-arabic-instructor.trycloudflare.com**
+Current verified preview: **https://classic-saved-determines-differential.trycloudflare.com**
 
 This is a **temporary Cloudflare Quick Tunnel** to the Python app, not a permanent Render deployment. It requires the preview computer and tunnel process to remain running. Cloudflare provides no uptime guarantee for Quick Tunnels, and the hostname changes if the tunnel is recreated. [Official limitations](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
+
+The original Quick Tunnel expired while its process was still running. This replacement was verified on 2026-11-04 with session startup, diagnosis, approval, 3/3 recovery, and logout. It is a temporary preview; [#17](https://github.com/RjayBernales/FieldFix/issues/17) remains open for a stable free host.
 
 The URL serves the actual FastAPI backend and compiled React dashboard. Online inference is explicitly **mock-only**, with no Meta key and a zero live-request limit. The separate genuine Meta validation is recorded in VALIDATION.md. It is never represented as an online Meta run or a real field deployment.
 
