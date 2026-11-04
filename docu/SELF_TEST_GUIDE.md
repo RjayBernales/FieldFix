@@ -96,7 +96,7 @@ The free online fixture reports these safe outcomes deterministically. Actual ho
 
 The online free demo is intentionally mock-only. To reproduce the real model path, configure a valid **replacement** key in your ignored local `.env`, set `FIELDFIX_PROVIDER=meta`, and restart the local backend using README instructions. Never put a key in `.env.example`, the browser, screenshots, or chat.
 
-You should then see **Simulated station · live Meta inference** and the configured model. Repeat the same fault/approval/recovery steps. Requests consume the persistent budget; inspect `/health` or the UI budget display before testing. Previous validation used 16 of the original 30 reserved requests. Review usage before increasing the limit. No automatic mock fallback occurs after a provider error.
+You should then see **Simulated station · live Meta inference** and the configured model. Repeat the same fault/approval/recovery steps. Requests consume the persistent budget; inspect `/health` or the UI budget display before testing. The latest specification audit brought this local database to 26 of 30 reserved requests; the API health response is authoritative. Review usage before increasing the limit. No automatic mock fallback occurs after a provider error.
 
 ## What to capture for a useful bug report
 

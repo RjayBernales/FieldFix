@@ -1,5 +1,9 @@
 # Submission checklist
 
+## Latest specification audit
+
+[Full matrix](AUDIT.md): 56 backend tests, build, fresh-package setup, mock browser regressions, three fresh genuine Meta repairs plus healthy and a genuine Meta browser repair passed. Local live usage is 26/30. PR #24 updated-head checks/merge remain to be verified. Stable free hosting and key rotation remain incomplete owner gates.
+
 ## Live demonstration gates
 
 - [ ] Rotate the credential that appeared in tool output; configure its replacement only in ignored .env or local environment.

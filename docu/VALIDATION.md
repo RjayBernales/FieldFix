@@ -1,8 +1,24 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T15:55:03.608708+00:00.
+Report updated: 2026-11-04T17:13:13.843062+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
+
+## Specification audit — 2026-11-04 UTC
+
+Tested runtime: `08a076e39abb9451c331649449884b1025cff046`; the browser tested these exact frontend bytes immediately before the commit. The fresh genuine suite began at `3e85fde6f3051bc9fb422102781de22d5c7e5e8d`; its recorded fingerprint identifies that snapshot. Backend/model code did not change during this audit. [Criteria matrix and remaining gates](AUDIT.md), [sanitized browser evidence](audit-browser-results.json), [new genuine Meta suite](audit-live-results.json).
+
+- Backend: **56 passed in 6.06s** after fixes; strict TypeScript/Vite production build passed. Offline simulator/mock harness: **4/4**, **zero live requests**.
+- Genuine Meta (`muse-spark-1.3`): **three varied mismatch cases + healthy baseline passed**, eight real API responses; **19,169 prompt + 3,243 completion = 22,412 tokens**. Each mismatch required two model turns/six tools and recovered with 3/3 samples (17.09 / 16.15 / 16.12 seconds). Healthy required two turns/five tools, no proposal (10.17 seconds). No monetary cost was returned.
+- Additional genuine Meta browser: two real responses, six tools, exact approval and **resolved with 3/3** samples. Request budget **16 → 26 / 30** including the suite; no budget increase or additional live requests planned. All station/transport data is synthetic.
+- Mock browser: approval/recovery, rejection, healthy, sensor failure, unavailable evidence, reset invalidation, pause/resume and intercepted API outage/recovery passed. Initial automation used unsupported selector syntax and mismatched wait text; corrected commands were rerun against the intended states. The interrupted extra mismatch was reset without a write; it is retained in the evidence rather than counted as a completed scenario.
+- Current public replacement: HTTPS mock session → investigate → exact approval → **3/3 recovery** → logout passed, with logo loaded; zero live requests. The hostname remains temporary.
+- Browser security: the 265-request raw HAR (local/untracked) contains no configured API key; browser made **zero direct Meta requests**. Only sanitized outcomes are tracked.
+- Accessibility: mock desktop/mobile **0 violations / 47 passes**; genuine Meta desktop **0 violations / 48 passes**. One SVG contrast category remains incomplete; earlier manual contrast results remain separate. Mobile 390px has no document overflow; screenshots visually inspected. This is not comprehensive accessibility certification.
+- Found/fixed: review ZIP omitted `scripts/verify.sh` ([#25](https://github.com/RjayBernales/FieldFix/issues/25)); include `.sh`. A fresh extracted package installed frozen Python/npm dependencies and passed 56 tests (7.68s), build and scan. Final extracted source/branding bytes matched the checkout; a second frozen install and 56 tests (7.93s) passed.
+- Found/fixed: an unknown/unreachable session probe claimed mock mode before server confirmation ([#26](https://github.com/RjayBernales/FieldFix/issues/26)). It now shows checking mode, with no premature no-Meta or 30-minute-session claim. Browser interception regression passed, then reconnecting showed live Meta mode.
+
+Remaining gates: owner confirmation of credential rotation, stable free hosting account connection, updated PR checks/merge, video recording, organizer eligibility/deadline/form verification and manual submission. The current temporary public URL is mock-only. No video uploaded, competition entry submitted, or real-world deployment claimed.
 
 ## Approved logo integration — 2026-11-04
 
