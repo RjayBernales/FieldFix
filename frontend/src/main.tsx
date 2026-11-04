@@ -15,6 +15,7 @@ async function api<T>(path:string,body?:unknown):Promise<T>{
  catch{throw new Error('Cannot reach the FieldFix backend. Check that it is running, then retry.')}
  let data:unknown
  try{data=await r.json()}catch{throw new Error('The backend is unavailable or returned an invalid response. Check the backend server.')}
+ if(r.status===401)window.dispatchEvent(new Event('fieldfix-session-expired'))
  if(!r.ok){const detail=(data as {detail?:unknown})?.detail;throw new Error(typeof detail==='string'?detail:`Request rejected (HTTP ${r.status}).`)}
  return data as T
 }
@@ -80,4 +81,14 @@ function App(){
  <footer><span>FieldFix · Evidence before action.</span><span>Simulated station. No field deployment or safety assessment.</span></footer></main></div></>
 }
 
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>)
+type SessionStatus={hosted_demo:boolean;authenticated:boolean;expires_in?:number}
+function SessionGate(){
+ const [status,setStatus]=useState<SessionStatus|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false)
+ async function check(){setError('');try{const r=await fetch('/api/session',{signal:AbortSignal.timeout(12000)});if(r.status===404){setStatus({hosted_demo:false,authenticated:true});return}if(!r.ok)throw new Error('Cannot reach the demo server. Retry after it wakes up.');setStatus(await r.json())}catch{setError('The server is starting or unavailable. Free hosting may take a little time to wake up.')}}
+ useEffect(()=>{void check();const expired=()=>setStatus({hosted_demo:true,authenticated:false});window.addEventListener('fieldfix-session-expired',expired);return()=>window.removeEventListener('fieldfix-session-expired',expired)},[])
+ async function start(){setBusy(true);setError('');try{setStatus(await api<SessionStatus>('/session',{}))}catch(e){setError((e as Error).message)}finally{setBusy(false)}}
+ async function end(){setBusy(true);try{await api('/session/end',{});setStatus({hosted_demo:true,authenticated:false})}catch(e){setError((e as Error).message)}finally{setBusy(false)}}
+ if(!status||!status.authenticated)return <main className="welcome"><a className="brand welcome-brand" href="#"><span className="brand-icon"><Icon name="wave"/></span>FieldFix.</a><section className="welcome-card"><span className="eyebrow">FREE INTERACTIVE DEMO</span><h1>Try a station recovery.</h1><p>Start an isolated software station, inspect its evidence, and approve a repair. Your session is private to this browser and expires after 30 minutes.</p><div className="welcome-disclosure"><strong>Simulated station · mock inference</strong><p>This free hosted demo makes no Meta API calls. Genuine Meta validation results are documented in the repository. No real field station is connected.</p></div>{error&&<p className="error" role="alert">{error}</p>}{status?<button className="primary" disabled={busy} onClick={()=>void start()}>{busy?'Starting…':'Start my demo session'}<Icon name="arrow"/></button>:<button className="primary" onClick={()=>void check()}>{error?'Retry connection':'Connecting to server…'}</button>}<a className="guide-link" href="https://github.com/RjayBernales/FieldFix/blob/dev/fieldfix-mvp/docu/SELF_TEST_GUIDE.md" target="_blank" rel="noreferrer">Read the hands-on testing guide ↗</a><small>Temporary sessions and data reset when the free service restarts. Do not enter secrets or personal data.</small></section></main>
+ return <>{status.hosted_demo&&<div className="hosted-banner"><span>Free online demo · mock inference · isolated temporary station</span><button disabled={busy} onClick={()=>void end()}>End my session</button></div>}{error&&<div className="error" role="alert">{error}</div>}<App/></>
+}
+createRoot(document.getElementById('root')!).render(<React.StrictMode><SessionGate/></React.StrictMode>)

@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 paths=[p for directory in ('backend','frontend/src','scripts','docu','rules') for p in (ROOT/directory).rglob('*')
        if p.is_file() and '__pycache__' not in p.parts and p.suffix in {'.py','.txt','.tsx','.ts','.css','.json','.md','.png'}]
 paths += [ROOT/p for p in ('README.md','.gitignore','.env.example','pyproject.toml','requirements.lock',
-          'frontend/index.html','frontend/package.json','frontend/package-lock.json','frontend/tsconfig.json','frontend/vite.config.ts')]
+          'Dockerfile','.dockerignore','render.yaml','frontend/index.html','frontend/package.json','frontend/package-lock.json','frontend/tsconfig.json','frontend/vite.config.ts')]
 key=dotenv_values(ROOT/'.env').get('MODEL_API_KEY')
 for path in paths:
     if key and len(key)>8 and key.encode() in path.read_bytes():

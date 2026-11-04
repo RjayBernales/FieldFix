@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fieldfix-demo
+    runtime: docker
+    plan: free
+    branch: dev/fieldfix-mvp
+    autoDeployTrigger: "off"
+    healthCheckPath: /healthz
+    envVars:
+      - key: FIELDFIX_PROVIDER
+        value: mock
+      - key: FIELDFIX_HOSTED_DATA_DIR
+        value: /app/.data/hosted

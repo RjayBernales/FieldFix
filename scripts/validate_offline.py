@@ -24,7 +24,7 @@ class Clock:
 
 def manifest():
     paths=[p for directory in ('backend','frontend/src','scripts') for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
-    paths += [ROOT/p for p in ('pyproject.toml','requirements.lock','frontend/package.json','frontend/package-lock.json','frontend/tsconfig.json','frontend/vite.config.ts','.env.example')]
+    paths += [ROOT/p for p in ('pyproject.toml','requirements.lock','frontend/package.json','frontend/package-lock.json','frontend/tsconfig.json','frontend/vite.config.ts','.env.example','Dockerfile','.dockerignore','render.yaml')]
     hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
     fingerprint=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
     return dict(algorithm='SHA-256',fingerprint=fingerprint,files=hashes)

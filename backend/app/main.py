@@ -28,7 +28,7 @@ class ResetRequest(BaseModel):
     topic: str = Field('stations/river-01/turbidity', max_length=120)
 
 
-def create_app(settings=None, engine=None, provider=None):
+def create_app(settings=None, engine=None, provider=None, *, _trusted_gateway=False):
     settings = settings or Settings()
     owned_store = engine is None
     engine = engine or Engine(Store(settings.db))
@@ -76,10 +76,10 @@ def create_app(settings=None, engine=None, provider=None):
             loopback = ip_address(client).is_loopback
         except ValueError:
             loopback = client == 'testclient'
-        if not loopback or host not in {'localhost','127.0.0.1','::1','testserver'}:
+        if not _trusted_gateway and (not loopback or host not in {'localhost','127.0.0.1','::1','testserver'}):
             return JSONResponse({'detail':'This MVP accepts loopback requests only.'}, status_code=403)
         origin = request.headers.get('origin')
-        if origin and origin not in {'http://127.0.0.1:5173','http://localhost:5173','http://127.0.0.1:8000','http://localhost:8000'}:
+        if not _trusted_gateway and origin and origin not in {'http://127.0.0.1:5173','http://localhost:5173','http://127.0.0.1:8000','http://localhost:8000'}:
             return JSONResponse({'detail':'Origin is not allowed.'}, status_code=403)
         try:
             length = int(request.headers.get('content-length', '0'))
