@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-11-04T06:06:41.970173+00:00",
+  "url": "https://interests-codes-arabic-instructor.trycloudflare.com",
+  "hosting": "temporary Cloudflare Quick Tunnel to isolated Python app",
+  "provider": "mock",
+  "station_data": "synthetic",
+  "external_http": true,
+  "checks": {
+    "anonymous_api_rejected": true,
+    "session_creation": true,
+    "cross_session_history_empty": true,
+    "cross_session_incident_404": true,
+    "cross_session_approval_rejected": true,
+    "cross_origin_rejected": true,
+    "logout_isolated": true,
+    "no_meta_key_on_server": true,
+    "live_request_limit_zero": true
+  },
+  "limitations": [
+    "Temporary hostname; no uptime guarantee.",
+    "URL requires preview computer and tunnel process to remain running.",
+    "No Meta calls on public free factory.",
+    "Render durable free service not created because no account integration is connected."
+  ],
+  "tested_commit": "2b905d4d1e6ed806818b61ce40e3c84a020b749f",
+  "source_fingerprint": "5b50887ebc34e1fa0402da82867f955568de1503539752b611b04a0f83c11ab3",
+  "browser_recovery": "passed with three fresh post-repair samples",
+  "browser_screenshots": [
+    "evidence/public-welcome.png",
+    "evidence/public-recovered.png"
+  ],
+  "axe_counts": {
+    "inapplicable": 33,
+    "incomplete": 1,
+    "passes": 27,
+    "violations": 0
+  },
+  "docker_build": "passed",
+  "docker_nonroot_session_smoke": "passed"
+}

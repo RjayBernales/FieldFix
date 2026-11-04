@@ -1,0 +1,42 @@
+name: FieldFix verification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [dev/fieldfix-mvp]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Immutable commit pins verified against the corresponding official release tags.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check -r requirements.lock
+
+      - name: Install frontend dependencies
+        run: npm ci --ignore-scripts --prefix frontend
+
+      - name: Run verification suite
+        run: bash scripts/verify.sh
+
+      - name: Build container image
+        run: docker build --tag fieldfix-ci:${{ github.sha }} .

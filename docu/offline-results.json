@@ -1,0 +1,548 @@
+{
+  "at": "2026-11-04T08:21:01.575874+00:00",
+  "tested_commit": "3fa0dab3239cc365b52bc67354f5e6dce1c5492a",
+  "source_fingerprint": "b72a458fae02459c331208842d2e2c2943e2708fcb973cdb00b3cbd4a533eee9",
+  "provider": "mock",
+  "model": "deterministic-offline-fixture",
+  "station_data": "synthetic",
+  "clock": "injected deterministic clock; elapsed sample intervals are simulated",
+  "runs": [
+    {
+      "scenario": "mismatch",
+      "result": "pass",
+      "state": "resolved",
+      "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+      "unchanged_before_approval": true,
+      "model_turns": 2,
+      "tool_calls": 6,
+      "evidence": [
+        {
+          "evidence_id": "ev_cd6a042a4e23405a",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T01:00:00+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_4a436a41801c4eb6",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 6,
+                "sampled_at": "2026-11-04T00:59:44+00:00",
+                "received_at": "2026-11-04T00:59:44+00:00",
+                "value": 18.58,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 7,
+                "sampled_at": "2026-11-04T00:59:46+00:00",
+                "received_at": "2026-11-04T00:59:46+00:00",
+                "value": 17.64,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 8,
+                "sampled_at": "2026-11-04T00:59:48+00:00",
+                "received_at": "2026-11-04T00:59:48+00:00",
+                "value": 16.62,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 9,
+                "sampled_at": "2026-11-04T00:59:50+00:00",
+                "received_at": "2026-11-04T00:59:50+00:00",
+                "value": 15.67,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 10,
+                "sampled_at": "2026-11-04T01:00:00+00:00",
+                "received_at": null,
+                "value": 14.93,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_79706882bac14ef1",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 6,
+                "sampled_at": "2026-11-04T00:59:44+00:00",
+                "received_at": "2026-11-04T00:59:44+00:00",
+                "value": 18.58,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 7,
+                "sampled_at": "2026-11-04T00:59:46+00:00",
+                "received_at": "2026-11-04T00:59:46+00:00",
+                "value": 17.64,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 8,
+                "sampled_at": "2026-11-04T00:59:48+00:00",
+                "received_at": "2026-11-04T00:59:48+00:00",
+                "value": 16.62,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 9,
+                "sampled_at": "2026-11-04T00:59:50+00:00",
+                "received_at": "2026-11-04T00:59:50+00:00",
+                "value": 15.67,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_974771db12834b70",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T01:00:00+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_cb18802d00754e5c",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "custom/site-1/turbidity",
+            "subscription_topic": "custom/site-1/turbidity-old",
+            "version": 2
+          }
+        },
+        {
+          "evidence_id": "ev_60122d9f68e34b40",
+          "tool_name": "propose_subscription_update",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "id": "prop_7085029ae8de400e",
+            "incident_id": "inc_de1e7627c25742ef",
+            "station_id": "station-01",
+            "version": 2,
+            "before": "custom/site-1/turbidity-old",
+            "after": "custom/site-1/turbidity",
+            "evidence_ids": [
+              "ev_4a436a41801c4eb6",
+              "ev_79706882bac14ef1",
+              "ev_cb18802d00754e5c"
+            ],
+            "expires_at": "2026-11-04T01:02:00+00:00",
+            "status": "pending"
+          }
+        }
+      ],
+      "proposal": {
+        "id": "prop_7085029ae8de400e",
+        "incident_id": "inc_de1e7627c25742ef",
+        "station_id": "station-01",
+        "version": 2,
+        "before": "custom/site-1/turbidity-old",
+        "after": "custom/site-1/turbidity",
+        "evidence_ids": [
+          "ev_4a436a41801c4eb6",
+          "ev_79706882bac14ef1",
+          "ev_cb18802d00754e5c"
+        ],
+        "expires_at": "2026-11-04T01:02:00+00:00",
+        "status": "pending"
+      },
+      "verification": {
+        "recovered": true,
+        "count": 3,
+        "required": 3,
+        "latest_fresh": true,
+        "reason": "Three distinct post-repair samples and latest freshness required."
+      }
+    },
+    {
+      "scenario": "healthy",
+      "result": "pass",
+      "state": "unresolved",
+      "finding": "No fault found in collected evidence; no repair proposed. ev_0546d3ee45a4413b ev_5232bc4f3dc54913 ev_75a188a1b7a8412e ev_48cf0b70cc3a4f39 ev_f1ff146e45c04eee",
+      "unchanged_before_approval": true,
+      "model_turns": 2,
+      "tool_calls": 5,
+      "evidence": [
+        {
+          "evidence_id": "ev_0546d3ee45a4413b",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T01:00:00+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_5232bc4f3dc54913",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 6,
+                "sampled_at": "2026-11-04T00:59:44+00:00",
+                "received_at": "2026-11-04T00:59:44+00:00",
+                "value": 18.58,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 7,
+                "sampled_at": "2026-11-04T00:59:46+00:00",
+                "received_at": "2026-11-04T00:59:46+00:00",
+                "value": 17.64,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 8,
+                "sampled_at": "2026-11-04T00:59:48+00:00",
+                "received_at": "2026-11-04T00:59:48+00:00",
+                "value": 16.62,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 9,
+                "sampled_at": "2026-11-04T00:59:50+00:00",
+                "received_at": "2026-11-04T00:59:50+00:00",
+                "value": 15.67,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 10,
+                "sampled_at": "2026-11-04T01:00:00+00:00",
+                "received_at": "2026-11-04T01:00:00+00:00",
+                "value": 14.93,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_75a188a1b7a8412e",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 6,
+                "sampled_at": "2026-11-04T00:59:44+00:00",
+                "received_at": "2026-11-04T00:59:44+00:00",
+                "value": 18.58,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 7,
+                "sampled_at": "2026-11-04T00:59:46+00:00",
+                "received_at": "2026-11-04T00:59:46+00:00",
+                "value": 17.64,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 8,
+                "sampled_at": "2026-11-04T00:59:48+00:00",
+                "received_at": "2026-11-04T00:59:48+00:00",
+                "value": 16.62,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 9,
+                "sampled_at": "2026-11-04T00:59:50+00:00",
+                "received_at": "2026-11-04T00:59:50+00:00",
+                "value": 15.67,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 10,
+                "sampled_at": "2026-11-04T01:00:00+00:00",
+                "received_at": "2026-11-04T01:00:00+00:00",
+                "value": 14.93,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_48cf0b70cc3a4f39",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T01:00:00+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_f1ff146e45c04eee",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "custom/site-2/turbidity",
+            "subscription_topic": "custom/site-2/turbidity",
+            "version": 2
+          }
+        }
+      ],
+      "proposal": null,
+      "verification": null
+    },
+    {
+      "scenario": "sensor_failure",
+      "result": "pass",
+      "state": "unresolved",
+      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_1000aaa0239748bd ev_3ee6a4588b6b4aaa ev_39b1f9ee66c84e00 ev_9664847a3ba64b26 ev_ee0b4f8cba1d4b2a",
+      "unchanged_before_approval": true,
+      "model_turns": 2,
+      "tool_calls": 5,
+      "evidence": [
+        {
+          "evidence_id": "ev_1000aaa0239748bd",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T01:00:00+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_3ee6a4588b6b4aaa",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "error",
+          "payload": {
+            "error": "Local acquisition read failed. Physical inspection required."
+          }
+        },
+        {
+          "evidence_id": "ev_39b1f9ee66c84e00",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "samples": [
+              {
+                "station_id": "station-01",
+                "sequence": 6,
+                "sampled_at": "2026-11-04T00:59:44+00:00",
+                "received_at": "2026-11-04T00:59:44+00:00",
+                "value": 18.58,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 7,
+                "sampled_at": "2026-11-04T00:59:46+00:00",
+                "received_at": "2026-11-04T00:59:46+00:00",
+                "value": 17.64,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 8,
+                "sampled_at": "2026-11-04T00:59:48+00:00",
+                "received_at": "2026-11-04T00:59:48+00:00",
+                "value": 16.62,
+                "unit": "NTU",
+                "quality": "ok"
+              },
+              {
+                "station_id": "station-01",
+                "sequence": 9,
+                "sampled_at": "2026-11-04T00:59:50+00:00",
+                "received_at": "2026-11-04T00:59:50+00:00",
+                "value": 15.67,
+                "unit": "NTU",
+                "quality": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_9664847a3ba64b26",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T01:00:00+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_ee0b4f8cba1d4b2a",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "publish_topic": "custom/site-3/turbidity",
+            "subscription_topic": "custom/site-3/turbidity",
+            "version": 2
+          }
+        }
+      ],
+      "proposal": null,
+      "verification": null
+    },
+    {
+      "scenario": "unavailable",
+      "result": "pass",
+      "state": "unresolved",
+      "finding": "Diagnostic evidence is unavailable or local acquisition failed. Request a physical check or restore diagnostic access. ev_0ddb1c2168164d9b ev_113b5439fc2740e5 ev_49fa6f9d806b4f02 ev_28da6e8d3d444f1a ev_893a5d913d744539",
+      "unchanged_before_approval": true,
+      "model_turns": 2,
+      "tool_calls": 5,
+      "evidence": [
+        {
+          "evidence_id": "ev_0ddb1c2168164d9b",
+          "tool_name": "get_station_status",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "connected": true,
+            "last_heartbeat": "2026-11-04T01:00:00+00:00"
+          }
+        },
+        {
+          "evidence_id": "ev_113b5439fc2740e5",
+          "tool_name": "get_local_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "unavailable",
+          "payload": {
+            "error": "Diagnostic access unavailable."
+          }
+        },
+        {
+          "evidence_id": "ev_49fa6f9d806b4f02",
+          "tool_name": "get_received_samples",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "unavailable",
+          "payload": {
+            "error": "Diagnostic access unavailable."
+          }
+        },
+        {
+          "evidence_id": "ev_28da6e8d3d444f1a",
+          "tool_name": "get_device_logs",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "ok",
+          "payload": {
+            "events": [
+              {
+                "observed_at": "2026-11-04T01:00:00+00:00",
+                "message": "Station connected; sampling interval 2 seconds."
+              }
+            ]
+          }
+        },
+        {
+          "evidence_id": "ev_893a5d913d744539",
+          "tool_name": "get_transport_config",
+          "station_id": "station-01",
+          "observed_at": "2026-11-04T01:00:00+00:00",
+          "status": "unavailable",
+          "payload": {
+            "error": "Diagnostic access unavailable."
+          }
+        }
+      ],
+      "proposal": null,
+      "verification": null
+    }
+  ],
+  "live_requests": 0
+}
