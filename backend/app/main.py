@@ -108,8 +108,9 @@ def create_app(settings=None, engine=None, provider=None, *, _trusted_gateway=Fa
 
     @app.get('/health')
     async def health():
-        with engine.store.lock:
-            used = engine.store.db.execute('SELECT used FROM budget WHERE id=1').fetchone()[0]
+        budget_store = getattr(provider, 'budget_store', engine.store)
+        with budget_store.lock:
+            used = budget_store.db.execute('SELECT used FROM budget WHERE id=1').fetchone()[0]
         return dict(status='ok', provider=settings.provider, model=settings.model if settings.provider=='meta' else 'deterministic-offline-fixture',
                     credentials_configured=bool(settings.api_key), live_requests_used=used,
                     live_request_limit=settings.live_limit, demo_enabled=settings.enable_demo, station_simulated=True,

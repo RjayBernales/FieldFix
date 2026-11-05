@@ -1,14 +1,47 @@
-# Free demo hosting
+# Cloudflare live judging demo
 
-Current verified preview: **https://nor-terminology-families-serve.trycloudflare.com**
+Current verified preview: **https://gtk-driver-politicians-however.trycloudflare.com** (2026-11-05 UTC).
 
-This is a **temporary Cloudflare Quick Tunnel** to the Python app, not a permanent Render deployment. It requires the preview computer and tunnel process to remain running. Cloudflare provides no uptime guarantee for Quick Tunnels, and the hostname changes if the tunnel is recreated. [Official limitations](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
+Click **Start live demo**. Remote judges need no account, access code, or contact with the presenter. The server issues an opaque Secure/HttpOnly cookie for an isolated 30-minute station session. The API key stays server-side. The inference badge visibly says Meta; there is no mock fallback.
 
-Two earlier Quick Tunnels expired while their processes were still running (the latest returned “Unauthorized: Tunnel not found”). The current replacement was checked on 2026-11-04 UTC for HTTPS health, dashboard assets, browser session startup, investigation, exact approval, 3/3 recovery and logout. Earlier full mock recovery checks are separately recorded in VALIDATION.md. It is a temporary preview; [#17](https://github.com/RjayBernales/FieldFix/issues/17) remains open for a stable free host.
+The shared cumulative cap is **100 requests**, explicitly selected by the owner, with **33 used / 67 remaining** after validation. Each visitor session allows two investigations; creating/resetting a station never resets the durable global counter. There are at most three active live sessions, 12 session creations per minute, bounded bodies/timeouts, and per-session API/mutation quotas. This is controlled public access, not verified user identity. The cap is not a dollar spending guarantee.
 
-The URL serves the actual FastAPI backend and compiled React dashboard. Online inference is explicitly **mock-only**, with no Meta key and a zero live-request limit. The separate genuine Meta validation is recorded in VALIDATION.md. It is never represented as an online Meta run or a real field deployment.
+[Actual code-free live results](public-live-navy-results.json): two genuine Meta responses, six tool calls, exact technician approval and 3/3 recovery. [Recorded evidence](https://gtk-driver-politicians-however.trycloudflare.com/recorded-demo.html) and the labeled landing-page evidence viewer use stored observations without model calls; they remain useful if the live budget is exhausted. All station values and transport are simulated. The earlier private-code validation remains historical evidence, not the current entry flow.
 
-## Visitor protection
+## Launch the judging host
+
+Install locked dependencies, then run `npm --prefix frontend run build`. Keep the model/base URL/key in ignored `.env`. Configure these non-secret switches there:
+
+```dotenv
+FIELDFIX_PROVIDER=meta
+FIELDFIX_PUBLIC_LIVE=true
+FIELDFIX_LIVE_REQUEST_LIMIT=100
+```
+
+Do not erase `.data/fieldfix.sqlite`; it contains the shared counter and sanitized inference usage. The private-code mode remains available by setting `FIELDFIX_PUBLIC_LIVE=false` and supplying a strong `FIELDFIX_DEMO_ACCESS_CODE`. It is not required for current judging access.
+
+Install `cloudflared` on PATH first. This workspace already has the executable at `.local/cloudflared`; use that path in place of `cloudflared` here. Start the free tunnel, then use its exact returned HTTPS origin:
+
+```bash
+cloudflared tunnel --url http://127.0.0.1:10000 --no-autoupdate
+```
+
+```bash
+FIELDFIX_PROVIDER=meta FIELDFIX_PUBLIC_LIVE=true \
+FIELDFIX_PUBLIC_ORIGIN=https://YOUR-RETURNED-HOST.trycloudflare.com \
+PYTHONPATH=backend .venv/bin/python -m uvicorn app.hosted:create_live_demo_app --factory \
+  --host 127.0.0.1 --port 10000 --workers 1 --no-proxy-headers
+```
+
+`FIELDFIX_PUBLIC_ORIGIN` can also be placed in ignored `.env`. Never tunnel the ordinary local factory. The hosted gateway retains same-origin checks, session isolation, typed tools, exact approval, and deterministic verification. Logout and expiry cancel session jobs and remove temporary station state; only sanitized inference metadata and budget usage persist in the owner ledger.
+
+Cloudflare Quick Tunnels are temporary. This computer, its network, and both processes must stay running. Earlier endpoints expired with “Tunnel not found”; recreation changes the URL and requires the new exact backend origin. Initial DNS propagation and brief startup 502 responses were observed and rerun after readiness. No permanent named tunnel/domain or Render account is configured. [Official limitations](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/). Hosting is free; Meta usage may consume API credits.
+
+## Optional public mock factory
+
+`app.hosted:create_hosted_app` remains mock-only and refuses any Meta/key configuration. The historical public preview used this factory; it does **not** establish genuine model performance. The following mock-container instructions remain available for offline/public UI testing.
+
+## Mock-factory visitor protection
 
 - Visitors explicitly start a browser session; mutations and station history require an opaque, HttpOnly, SameSite-strict cookie, Secure on HTTPS.
 - Each visitor gets a separate SQLite station, incident/proposal history, simulator loop, and approval state. An incident or proposal ID alone cannot authorize another visitor's request.

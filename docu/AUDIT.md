@@ -1,5 +1,7 @@
 # FieldFix specification audit
 
+Current judging update (2026-11-05 UTC): code-free live Meta sessions, shared cap **100**, **33 used** at validation; navy UI and **64 backend tests** checked. [Latest actual report](public-live-navy-results.json), [UI report](navy-ui-validation.json). Historical counts/budgets below describe their original audits. Quick Tunnel availability and manual submission remain participant responsibilities.
+
 Audited 2026-11-04 UTC against the private root build pack, sections 1–11. Tested runtime `08a076e39abb9451c331649449884b1025cff046`. Evidence: [validation report](VALIDATION.md), [fresh live suite](audit-live-results.json), [browser report](audit-browser-results.json). The build pack remains untracked.
 
 | Specification criterion | Outcome and evidence |
@@ -19,7 +21,7 @@ Audited 2026-11-04 UTC against the private root build pack, sections 1–11. Tes
 | Public access controls | Isolated cookie sessions, bounds, origin/host checks covered by tests; public is mock-only with no key |
 | Clean setup and package | Frozen installs and verification from fresh extracted ZIP pass; shell-script omission fixed. Original installation from a remote clone was not repeated in this audit |
 | Secret hygiene | .env ignored/0600, example empty, key absent from browser HAR, scanner passes. **Rotation remains owner-unconfirmed** |
-| Git/delivery | dev/fieldfix-mvp, required author/committer, focused fixes; #25/#26 created by delegated authorized GitHub agent. PR24 updated-head checks and merge must be verified before claiming delivery complete |
+| Git/delivery | dev/fieldfix-mvp, required author/committer, focused fixes; #25/#26 created by delegated authorized GitHub agent. PR #24 merged after both exact-head checks passed: tested c763ad8daaea288b995e9a0b98900818d2336078; merge 666c03f3af194324111ed08eaab9be1bd198fbf4 |
 | Documentation and demo | README, self-test guide, three-minute script and checklist present; outdated temporary URL and budget text corrected |
 | Competition submission | **Not complete:** eligibility/form/deadline/public repository/video links need owner verification; no upload or submission performed |
 
@@ -35,6 +37,6 @@ Audited 2026-11-04 UTC against the private root build pack, sections 1–11. Tes
 - Live secondary faults, hardware/MQTT integration, environmental interpretation, real mobile/Safari, screen-reader and cross-platform checks remain untested/out of scope. One automated SVG contrast category is incomplete.
 - Mocked HTTP error tests establish adapter behavior, not observed Meta rate-limit/outage performance.
 - The live sample is small and supports a demonstration, not model-accuracy or deployment claims. Monetary cost was not returned.
-- Record the video locally with visible provider/simulator labels. Use actual current health budget (26/30 at this audit); do not reset/increase it silently. Leave the remaining four requests for recording.
+- Record the video locally with visible provider/simulator labels. Use the actual current health budget (26/30 at the audit; 28/30 after video capture); do not reset/increase it silently. Only two requests remain under the original cap.
 
 Use README's launch commands and [DEMO_SCRIPT.md](DEMO_SCRIPT.md). **The core workflow is evidenced; the overall competition submission is not complete.**

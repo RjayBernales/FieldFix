@@ -1,8 +1,46 @@
 # FieldFix validation — actual results
 
-Report updated: 2026-11-04T17:13:13.843062+00:00.
+Report updated: 2026-11-05T00:51:32.738721+00:00.
 
 **The simulated-station MVP passed local, genuine Meta, public-preview, Docker, and fresh-checkout workflows.** All station values and transport are synthetic. No real hardware, field deployment, model accuracy, environmental safety, or social-impact result is claimed.
+
+## Code-free judging and navy redesign — 2026-11-05 UTC
+
+Current preview: **https://gtk-driver-politicians-however.trycloudflare.com**. Remote judging now uses one-click, isolated cookie sessions with **no account/access code**. The owner explicitly selected a **100-request cumulative shared cap**; prior usage was preserved. A genuine public run moved usage **31 → 33 / 100**: **2 Meta responses, 6 tool calls, exact approval and resolved 3/3 recovery**. Actual usage: **4,945 prompt + 808 completion = 5,753 tokens**; cost was not returned. [Full actual evidence](public-live-navy-results.json). The current restart preserved **33/100** without making another model call.
+
+The genuine run used `d8d7111`; final UI/config refinements are at `4712027f13a1fa0c21b1ae0396be28a74d5c391b`. **64 deterministic/backend tests passed**, including mocked HTTP tests for shared-budget persistence, code-free session enforcement, quotas and validated configuration. Strict TypeScript/Vite build and known-secret scanning passed. These tests are not 64 live inference runs.
+
+UI/UX Pro Max and Taste informed the shared navy/cyan/white palette, actual evidence viewer, preserved logo, and landing/workflow/proof composition. Landing, Overview, Investigations, Simulator, and recorded evidence are dark. Production browser checks covered 1440/768/390px, code-free entry, real recovery, evidence tabs, responsive navigation, no document overflow and reduced motion. A deliberately intercepted health request preserved neutral provider labels and recovered to genuine Meta mode after interception was removed; no new model request was used. [UI measurements and limitations](navy-ui-validation.json).
+
+Taste: landing **0 failures / 2 explained warnings**; all nine app view/width combinations **0 failures**, with one explained short-Simulator-page whitespace warning. Automated axe: **0 violations on all five pages**. Overview and Investigations retain one SVG contrast category requiring manual review; this is not accessibility certification. A 502 during server restart was rerun after public readiness.
+
+Recorded evidence is explicitly labeled, reflects actual returned values, and performs no inference. Public usage remains finite and shared; the Quick Tunnel requires this computer and has no permanent availability guarantee. No video uploaded, competition submission, or field-deployment claim.
+
+## Earlier private-code Meta Cloudflare demo — 2026-11-05 UTC
+
+Runtime `ebf4d0a05ab033ebc20ab4a6c07f6eb8972661f7` passed a genuine public-browser investigation through Cloudflare: **3 successful Meta responses, 6 tool calls, exact technician approval, and resolved recovery with 3/3 fresh samples**. Actual usage: **8,340 prompt + 1,291 completion = 9,631 tokens**; monetary cost was not returned. [Sanitized full evidence](hosted-live-results.json), [actual recovery screenshot](evidence/hosted-live-recovery.png).
+
+The owner delegated budget selection; the cumulative cap was explicitly raised to **50**, preserving prior usage. This run moved the durable counter **28 → 31 / 50**. All visitors share that ledger across logouts and server restarts; sanitized inference usage persists after temporary station cleanup. No automatic fallback is used. The old public mock factory remains explicitly mock-only; a separate live factory requires the private access code and server credentials. These hosting changes are locally committed; no GitHub push was made for this change.
+
+Checks: **60 backend tests passed** (four additional hosted tests use mocked HTTP for login rejection, isolation, global budget/restart enforcement and rate bounds); strict TypeScript/Vite production build passed. Actual public browser: wrong code rejected, private code accepted, live provider/model/budget confirmed, exact approval and recovery passed, 390px no document overflow. Browser resource timing recorded zero direct Meta entries; backend source and known-secret scanning remain separate checks. All station values and transport are synthetic.
+
+The previous Cloudflare URL expired with “Tunnel not found”; the replacement initially needed DNS propagation, then passed HTTPS health and the complete live workflow. The current verified origin is recorded in the JSON report. A Quick Tunnel remains temporary and depends on this computer and its processes. Judging access requires privately sharing the demo code; it is not the Meta API key. No video upload, submission, permanent deployment or model-accuracy claim is made.
+
+## Navy kinetic explainer — 2026-11-04 UTC
+
+The redesigned local MP4 passed full-file decoding: **180.0 seconds, 1920×1080, 30 fps / 5,400 frames, H.264/AAC**, 32,219,524 bytes. Final audio measured **−14.1 LUFS, −1.4 dBFS true peak** (no clipping). Video source commit: `bbcece67f6dbcc868841c4aaa51d37960b577f12`. ESLint and strict TypeScript passed. [Actual export report](video-explainer-validation.json) and [six decoded chapter frames](evidence/video-navy-storyboard.png).
+
+The navy/ice-cyan edit adds a continuously moving line-and-dot background, smaller floating captures, explanatory diagrams, 110 short kinetic caption beats with individual letter entrances, and six original quiet transition accents. All six chapter layouts and entrance frames were visually inspected; pixel comparisons confirmed changing caption/background regions. Captions retain the original 48 measured pages and proportional word timing, rather than claiming forced alignment. The approved logo and actual interface colors remain intact.
+
+This edit reused the existing genuine Meta capture and local AI narration: **zero new Meta requests; persistent budget remains 28/30**. Synthetic station data, deterministic tests, and genuine recorded inference remain explicitly separated. The video is an edited demonstration, not a continuous live screen recording. The MP4 stays ignored/local at `video/out/FieldFix-explainer.mp4`; the original edition remains preserved. No upload, competition submission, or real-world deployment occurred.
+
+## Genuine Meta video capture — 2026-11-04 UTC
+
+The new video capture used runtime `c763ad8daaea288b995e9a0b98900818d2336078` with `muse-spark-1.3`: **two successful real API responses, six diagnostic/proposal tool calls, exact technician approval, and resolved recovery with 3/3 distinct fresh samples**. [Sanitized capture evidence](video-capture-validation.json) contains actual request IDs, returned usage and tool results. The persistent local budget increased **26 → 28 / 30**. No further model calls are needed for playback or rendering; monetary cost was not returned.
+
+The completed local video was verified at 2026-11-04T18:30:14.129918+00:00: **180.0 seconds, 1920×1080, 30 fps / 5,400 frames, H.264 video and AAC audio, full-file decode passed**, 11575954 bytes. Final audio measured -14.1 LUFS with -1.4 dBFS true peak (no clipping). [Video export verification](video-render-validation.json). The MP4 is ignored by Git and remains local.
+
+All samples and transport remain synthetic. The edit uses real interface captures and an explicitly labeled controlled simulator replay at measured sample timings. Two screen-recording encoder attempts failed under load; their failed footage is not used. Original captured frames preserve the actual observations. Local Kokoro AI narration and captions explain the run; they do not generate diagnoses or verification results. Media export checks are recorded separately in the local Remotion project's `render-validation.json` after export. No video upload, competition submission or real-world deployment is claimed.
 
 ## Specification audit — 2026-11-04 UTC
 
@@ -18,7 +56,7 @@ Tested runtime: `08a076e39abb9451c331649449884b1025cff046`; the browser tested t
 - Found/fixed: review ZIP omitted `scripts/verify.sh` ([#25](https://github.com/RjayBernales/FieldFix/issues/25)); include `.sh`. A fresh extracted package installed frozen Python/npm dependencies and passed 56 tests (7.68s), build and scan. Final extracted source/branding bytes matched the checkout; a second frozen install and 56 tests (7.93s) passed.
 - Found/fixed: an unknown/unreachable session probe claimed mock mode before server confirmation ([#26](https://github.com/RjayBernales/FieldFix/issues/26)). It now shows checking mode, with no premature no-Meta or 30-minute-session claim. Browser interception regression passed, then reconnecting showed live Meta mode.
 
-Remaining gates: owner confirmation of credential rotation, stable free hosting account connection, updated PR checks/merge, video recording, organizer eligibility/deadline/form verification and manual submission. The current temporary public URL is mock-only. No video uploaded, competition entry submitted, or real-world deployment claimed.
+Remaining gates: owner confirmation of credential rotation, stable free hosting account connection, participant review/upload of the local video, organizer eligibility/deadline/form verification and manual submission. PR #24 subsequently merged after both exact-head checks passed (tested c763ad8daaea288b995e9a0b98900818d2336078; merge 666c03f3af194324111ed08eaab9be1bd198fbf4). The current temporary public URL is mock-only. No video uploaded, competition entry submitted, or real-world deployment claimed.
 
 ## Approved logo integration — 2026-11-04
 

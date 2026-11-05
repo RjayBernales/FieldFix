@@ -17,8 +17,9 @@ class ProviderError(RuntimeError):
 
 class MetaProvider:
     """Documented Chat Completions protocol; no SDK-specific coupling or silent retry."""
-    def __init__(self, settings, engine, transport=None):
+    def __init__(self, settings, engine, transport=None, *, budget_store=None):
         self.settings, self.engine, self.transport = settings, engine, transport
+        self.budget_store = budget_store if budget_store is not None else engine.store
 
     async def complete(self, messages, incident_id):
         s = self.settings
@@ -28,11 +29,11 @@ class MetaProvider:
             raise ProviderError('Meta base URL must use HTTPS.')
         if len(json.dumps(messages)) > 180000:
             raise ProviderError('Context size limit reached.')
-        with self.engine.store.transaction():
-            used = self.engine.store.db.execute('SELECT used FROM budget WHERE id=1').fetchone()[0]
+        with self.budget_store.transaction():
+            used = self.budget_store.db.execute('SELECT used FROM budget WHERE id=1').fetchone()[0]
             if used >= s.live_limit:
                 raise ProviderError('Persistent live request budget exhausted; review usage before increasing the limit.')
-            self.engine.store.db.execute('UPDATE budget SET used=used+1 WHERE id=1')
+            self.budget_store.db.execute('UPDATE budget SET used=used+1 WHERE id=1')
         started = time.monotonic()
         metadata = dict(provider='meta', model=s.model, returned_model=None, request_id=None, usage=None, outcome='error', failure_kind=None)
         try:
@@ -73,6 +74,10 @@ class MetaProvider:
             metadata['latency_ms'] = round((time.monotonic()-started)*1000)
             with self.engine.store.transaction():
                 self.engine.store.db.execute('INSERT INTO inference(incident_id,body) VALUES(?,?)', (incident_id, json.dumps(metadata)))
+            if self.budget_store is not self.engine.store:
+                # Retain sanitized usage/latency in the durable owner ledger after visitor expiry.
+                with self.budget_store.transaction():
+                    self.budget_store.db.execute('INSERT INTO inference(incident_id,body) VALUES(?,?)', (incident_id, json.dumps(metadata)))
 
 
 class MockProvider:

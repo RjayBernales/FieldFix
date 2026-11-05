@@ -1,0 +1,322 @@
+{
+  "recorded_at": "2026-11-04T17:37:12.024051+00:00",
+  "tested_runtime_commit": "c763ad8daaea288b995e9a0b98900818d2336078",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "station_data": "synthetic",
+  "transport": "in-process topic router, not MQTT hardware",
+  "incident": {
+    "id": "inc_67bc62a754a04d25",
+    "station_id": "station-01",
+    "state": "resolved",
+    "provider": "meta",
+    "created_at": "2026-11-04T17:31:40.364703+00:00",
+    "updated_at": "2026-11-04T17:32:49.474344+00:00",
+    "question": "Why are dashboard readings stale?",
+    "finding": "Recovery verified: three distinct post-repair samples received; latest sample is fresh.",
+    "proposal_id": "prop_ef2626607b2d4da9",
+    "repair_at": 1793813563.8177898,
+    "pre_repair_sequence": 1482,
+    "verification": {
+      "recovered": true,
+      "count": 3,
+      "required": 3,
+      "latest_fresh": true,
+      "reason": "Three distinct post-repair samples and latest freshness required."
+    },
+    "model_turns": 2,
+    "tool_calls": 6,
+    "proposal": {
+      "id": "prop_ef2626607b2d4da9",
+      "incident_id": "inc_67bc62a754a04d25",
+      "station_id": "station-01",
+      "version": 31,
+      "before": "stations/river-01/turbidity-old",
+      "after": "stations/river-01/turbidity",
+      "evidence_ids": [
+        "ev_e05cd67a0c1b4295",
+        "ev_81cccab94a474627",
+        "ev_0dfa60c6f5a64124"
+      ],
+      "expires_at": "2026-11-04T17:33:55.471926+00:00",
+      "status": "approved"
+    },
+    "evidence": [
+      {
+        "evidence_id": "ev_f5ae6b1466bb4156",
+        "tool_name": "get_station_status",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:48.779712+00:00",
+        "status": "ok",
+        "payload": {
+          "connected": true,
+          "last_heartbeat": "2026-11-04T17:31:47.914867+00:00"
+        }
+      },
+      {
+        "evidence_id": "ev_81cccab94a474627",
+        "tool_name": "get_local_samples",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:48.802577+00:00",
+        "status": "ok",
+        "payload": {
+          "samples": [
+            {
+              "station_id": "station-01",
+              "sequence": 1487,
+              "sampled_at": "2026-11-04T17:31:25.766237+00:00",
+              "received_at": null,
+              "value": 19.17,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1488,
+              "sampled_at": "2026-11-04T17:31:27.774710+00:00",
+              "received_at": null,
+              "value": 18.43,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1489,
+              "sampled_at": "2026-11-04T17:31:29.784462+00:00",
+              "received_at": null,
+              "value": 17.58,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1490,
+              "sampled_at": "2026-11-04T17:31:31.795710+00:00",
+              "received_at": null,
+              "value": 16.77,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1491,
+              "sampled_at": "2026-11-04T17:31:33.818326+00:00",
+              "received_at": null,
+              "value": 16.13,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1492,
+              "sampled_at": "2026-11-04T17:31:35.826956+00:00",
+              "received_at": null,
+              "value": 15.75,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1493,
+              "sampled_at": "2026-11-04T17:31:37.845308+00:00",
+              "received_at": null,
+              "value": 15.7,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1494,
+              "sampled_at": "2026-11-04T17:31:39.854533+00:00",
+              "received_at": null,
+              "value": 15.95,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1495,
+              "sampled_at": "2026-11-04T17:31:41.861591+00:00",
+              "received_at": null,
+              "value": 16.45,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1496,
+              "sampled_at": "2026-11-04T17:31:43.888370+00:00",
+              "received_at": null,
+              "value": 17.08,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1497,
+              "sampled_at": "2026-11-04T17:31:45.897838+00:00",
+              "received_at": null,
+              "value": 17.7,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1498,
+              "sampled_at": "2026-11-04T17:31:47.914867+00:00",
+              "received_at": null,
+              "value": 18.19,
+              "unit": "NTU",
+              "quality": "ok"
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "ev_0dfa60c6f5a64124",
+        "tool_name": "get_received_samples",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:48.820084+00:00",
+        "status": "ok",
+        "payload": {
+          "samples": [
+            {
+              "station_id": "station-01",
+              "sequence": 1479,
+              "sampled_at": "2026-11-04T17:31:01.844540+00:00",
+              "received_at": "2026-11-04T17:31:01.844540+00:00",
+              "value": 15.33,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1480,
+              "sampled_at": "2026-11-04T17:31:03.844713+00:00",
+              "received_at": "2026-11-04T17:31:03.844713+00:00",
+              "value": 16.18,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1481,
+              "sampled_at": "2026-11-04T17:31:05.844851+00:00",
+              "received_at": "2026-11-04T17:31:05.844851+00:00",
+              "value": 17.19,
+              "unit": "NTU",
+              "quality": "ok"
+            },
+            {
+              "station_id": "station-01",
+              "sequence": 1482,
+              "sampled_at": "2026-11-04T17:31:07.845024+00:00",
+              "received_at": "2026-11-04T17:31:07.845024+00:00",
+              "value": 18.18,
+              "unit": "NTU",
+              "quality": "ok"
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "ev_e05cd67a0c1b4295",
+        "tool_name": "get_transport_config",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:48.836328+00:00",
+        "status": "ok",
+        "payload": {
+          "publish_topic": "stations/river-01/turbidity",
+          "subscription_topic": "stations/river-01/turbidity-old",
+          "version": 31
+        }
+      },
+      {
+        "evidence_id": "ev_73e3eb85fbf24fd4",
+        "tool_name": "get_device_logs",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:48.853784+00:00",
+        "status": "ok",
+        "payload": {
+          "events": [
+            {
+              "observed_at": "2026-11-04T17:31:17.845194+00:00",
+              "message": "Station connected; sampling interval 2 seconds."
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "ev_99b0e92b856247b0",
+        "tool_name": "propose_subscription_update",
+        "station_id": "station-01",
+        "observed_at": "2026-11-04T17:31:55.494367+00:00",
+        "status": "ok",
+        "payload": {
+          "id": "prop_ef2626607b2d4da9",
+          "incident_id": "inc_67bc62a754a04d25",
+          "station_id": "station-01",
+          "version": 31,
+          "before": "stations/river-01/turbidity-old",
+          "after": "stations/river-01/turbidity",
+          "evidence_ids": [
+            "ev_e05cd67a0c1b4295",
+            "ev_81cccab94a474627",
+            "ev_0dfa60c6f5a64124"
+          ],
+          "expires_at": "2026-11-04T17:33:55.471926+00:00",
+          "status": "pending"
+        }
+      }
+    ],
+    "inference": [
+      {
+        "provider": "meta",
+        "model": "muse-spark-1.3",
+        "returned_model": "muse-spark-1.3",
+        "request_id": "8a1041e8-60ef-49e3-a6a7-6c1e8776beb3",
+        "usage": {
+          "completion_tokens": 402,
+          "prompt_tokens": 1450,
+          "total_tokens": 1852
+        },
+        "outcome": "ok",
+        "failure_kind": null,
+        "latency_ms": 8317
+      },
+      {
+        "provider": "meta",
+        "model": "muse-spark-1.3",
+        "returned_model": "muse-spark-1.3",
+        "request_id": "d846858a-6432-44d4-ab63-823363a48809",
+        "usage": {
+          "completion_tokens": 502,
+          "prompt_tokens": 3513,
+          "total_tokens": 4015
+        },
+        "outcome": "ok",
+        "failure_kind": null,
+        "latency_ms": 6562
+      }
+    ]
+  },
+  "live_requests_before": 26,
+  "live_requests_after": 28,
+  "configured_limit": 30,
+  "actual_requests": 2,
+  "completed_tool_calls": 6,
+  "result": "resolved with three distinct fresh post-repair samples",
+  "capture_limitations": [
+    "24fps MP4 screen recorder encoder stalled; file not retained. Original interface screenshots preserved.",
+    "6fps WebM recovery footage captured successfully, 41 seconds.",
+    "Video uses real screenshots with annotated pauses and zooms; conceptual diagrams are labeled. No synthetic tool results or model responses.",
+    "A second 6fps full-page recording also stalled under CPU load; no failed footage is used.",
+    "Fault section uses 13 actual browser frames captured on consecutive local samples at measured original timing, assembled without live encoder deadlines. This is a separate controlled simulator replay; no model requests were made."
+  ],
+  "video_edit": {
+    "fault": "Original sampled browser PNG frames, selected at measured times; no decoder resampling",
+    "recovery": "Original recovered-interface screenshot, not an animated progress reconstruction",
+    "reference_only": "The 41-second 6fps WebM is retained but not used by the final composition"
+  },
+  "cost": "Monetary cost not returned; no estimate made."
+}

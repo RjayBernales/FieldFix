@@ -14,12 +14,14 @@ for p in files:
 # Compare against the actual locally configured key without printing it.
 try:
     from dotenv import dotenv_values
-    key=dotenv_values('.env').get('MODEL_API_KEY')
+    local_values=dotenv_values('.env')
+    keys=[local_values.get(name) for name in ('MODEL_API_KEY','FIELDFIX_DEMO_ACCESS_CODE')]
 except ImportError:
-    key=None
-if key and len(key)>8:
-    for p in files:
-        if p.suffix not in {'.png','.jpg','.webm'} and key in p.read_text(errors='replace'):
-            issues.append(str(p))
+    keys=[]
+for key in keys:
+    if key and len(key)>8:
+        for p in files:
+            if p.suffix not in {'.png','.jpg','.webm'} and key in p.read_text(errors='replace'):
+                issues.append(str(p))
 if issues:raise SystemExit('Potential secret in: '+', '.join(issues))
 print(f'Pattern secret scan passed for {len(files)} deliverable files. Manual review still required.')

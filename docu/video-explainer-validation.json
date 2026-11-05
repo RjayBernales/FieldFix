@@ -1,0 +1,120 @@
+{
+  "verified_at": "2026-11-04T19:44:27.404058+00:00",
+  "video": "out/FieldFix-explainer.mp4",
+  "duration_seconds": 180.0,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": "30/1",
+  "frames": 5400,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "bytes": 32219524,
+  "sha256": "88a9f4c726e9ff776c95ffcb5292a7437598db06d056c98c0db86c46588bc97f",
+  "full_decode": "passed",
+  "chapters": 6,
+  "caption_pages": 48,
+  "chapter_audio_and_captions": "in bounds, measured durations",
+  "lint_and_types": "passed",
+  "visual_review": "all six redesigned chapters inspected; animated letter entrance and layout regression frames checked",
+  "station": "synthetic",
+  "inference": "genuine Meta run, edited captures; see provenance.json",
+  "voice": "free local Kokoro am_michael AI narration",
+  "uploaded": false,
+  "limitations": [
+    "Edited interface captures, not a continuous real-time recording.",
+    "Phrase captions within each sentence use proportional word positions, not forced alignment.",
+    "No claim of real hardware, field deployment or environmental safety."
+  ],
+  "source_media_sha256": {
+    "src/ClassicVideo.tsx": "d4fe2f9a3f72b81de1a14130b7d4b9197045fd270c8c3519d081702907081aa8",
+    "src/ExplainerScenes.tsx": "ef6b56bbe5994e92d8a724d1ac6c5e8535b6e305662713ccd921914ace03da32",
+    "src/FieldFixDemo.tsx": "c08cf4f388c13da7bcea3d0026b04fd65ab8e1f3bfc50d99cb4a32a7dfbb131b",
+    "src/KineticCaptions.tsx": "b2b8f7c5039eb524e2b30c1d96876b7dd1d3cf0914cd9db18e65a0cd4890abb1",
+    "src/Root.tsx": "c9e1b57418bc379f5280d993a787952132dd4a22ee813f89b291ba3545dff9f5",
+    "src/Video.tsx": "6e45c7daf47db03b27443826e22893c37ea396e52648492f505d1707055e647c",
+    "src/basic-captions.tsx": "9eea5ad2c975f5b21885d4f137165b351f6adeab114857ae52daf6a0484ba716",
+    "src/index.ts": "957e481dd33a29b4a55ae0e95dbf763b7e48c37c427ca4bd1275faf34bc07a74",
+    "public/audio/approval.wav": "9082077d2c2a33cf26c403625672a65d7c5208836f6aae47902298eedbfc1e2a",
+    "public/audio/evidence.wav": "f57a848064d86369eec89e61137673520e96549933df9cf1b83cfe4d4ee64a8f",
+    "public/audio/fault.wav": "f3320b2064c574140fe11d7d32b8f37e635141949fc9713487b2fa24b1ec9a60",
+    "public/audio/intro.wav": "2b3bf2ee282edbb08c862dccb08e3b7416f996dd6665b9e1021b4a1dc24ca507",
+    "public/audio/results.wav": "b2e4f0b151d162ecefa308e24a4c5cbf22edd4e2d9b2f0d7dd5876719d86256b",
+    "public/audio/transition.wav": "04aa79e273de078135790067fe5e96f3bdbac9dd1a2210dd38f4847a29205ab5",
+    "public/audio/verification.wav": "fac0c1978be297dc657ba6ff952af8f6cad20e1b84ba1b276bedce0cfcac4c69",
+    "public/captures/fault-frames/frame-00.png": "bd784f6f89cf9c8c559ec7e8944ef7a7861c26c8f686e9e007c475a4d495c6ee",
+    "public/captures/fault-frames/frame-01.png": "894c70a41d584d6a238ad8f563700441af8e6a4c3e69d402438a5774366df42e",
+    "public/captures/fault-frames/frame-02.png": "6d737db04cf596a91acf12db8f71dc1c224a95f0a24097c8db04ad3d14642f09",
+    "public/captures/fault-frames/frame-03.png": "225253d2f81b59c8c0ffb3e7163c575e0d8624f28d253112c30f4ad019a77e8d",
+    "public/captures/fault-frames/frame-04.png": "42f179ea1d6b603e9af4d83ed464b6ecb6ff47bdf8c97a891ed26e627463bde3",
+    "public/captures/fault-frames/frame-05.png": "075ea17208002ac612c26a7b3879f383ae4e1c5406f9845c7e7b2865b45d8dcc",
+    "public/captures/fault-frames/frame-06.png": "5374f45a74e8ef9f8b21a5c6d91c752709d75eb8e8f61090d43997f2896106fd",
+    "public/captures/fault-frames/frame-07.png": "e3caa825bdb9bfaa2b4a3285f413858c0bb57ebbc0a3eca3ff1ea50ef1e7cd33",
+    "public/captures/fault-frames/frame-08.png": "398701fd181c56ddd7c69ab2274908063c253ae1eddae804d8f98c739666c37d",
+    "public/captures/fault-frames/frame-09.png": "d21855bbef4befefdd20d2643161065083293503b04c77fb7f4652276d428866",
+    "public/captures/fault-frames/frame-10.png": "67553130837b555dbc13c32aff857147aba64e07cb2334fec4c3eba579f4ecce",
+    "public/captures/fault-frames/frame-11.png": "d6686a2719d4dc900830810cf76d48520f4478bc9e5303693db26145c5c7e3b8",
+    "public/captures/fault-frames/frame-12.png": "8f02e21cb11d7508b38fc0934386923fc1b3ed75377c4e206ce944e6bac168f8",
+    "public/captures/fault-replay.mp4": "6e6a13028efb29042ea85ce86c8ac8b6606d020f4dd5ab32aaf0c4df88683d22",
+    "public/captures/local-evidence.png": "6e81ebf0a680ffdf6dca8d514e9265ee22c56b35638ba5a093723ec9f78e210c",
+    "public/captures/opening.png": "627c03b341d7c15ac1c48a31a452c45a342b4fdd387bc92fc40a1212f7b42c0a",
+    "public/captures/proposal.png": "eba4957168e7158b6aeddbcdf2095689587cfe9cbb8b5f4d8bc6137f795e26e0",
+    "public/captures/recovered-footage.webm": "58c8cd2b68234369daac99ad9921fe9c48eb1577d162c3fda5c8868e6a26f40b",
+    "public/captures/recovered.png": "d2f0b26e5df258edf7cec4b1d6b222afc50da260c388844e98e0aff6228b2e3a",
+    "public/captures/review.png": "bc0b308050f426e37981074c2cfd76db3cff004387bb385d1f4525241397975f",
+    "public/captures/stale.png": "e42f70f9a0408443b38f00cac4a4cfc5ae686ea1338386ede419b086bdd858eb",
+    "public/captures/transport-evidence.png": "d654aee0fd9eb44806994b826646590e26ee80f35e50c9e472d393d53f0a1ac1",
+    "public/fieldfix-logo.png": "4479e6af266d35ac86c6e08c9f7aa34d20263b1b7980de00470ebf85e28da536",
+    "public/fonts/OFL-inter.txt": "5dd548d31a85f756e01d63e00d7faf1e324103ed3e9102fcbbabf2cc2db6dd39",
+    "public/fonts/inter-500-normal.woff2": "b0e7558f4710a1e255b93e3deefe3aebb19f3bb41c150f685a74d3b1a1c79e87",
+    "public/fonts/inter-600-normal.woff2": "62553d159189834af73c9a6264704be5b2bee9a08da66a14768d8e5c6ffd2cdb",
+    "public/fonts/inter-700-normal.woff2": "aac638f7503cebb084ec494cf00f75f7d8260d50c2f4e7820bccabba09626a3a"
+  },
+  "audio_measurement": {
+    "integrated_lufs": -14.1,
+    "true_peak_dbfs": -1.4,
+    "loudness_range_lu": 2.4
+  },
+  "rendered_source_commit": "bbcece67f6dbcc868841c4aaa51d37960b577f12",
+  "kinetic_caption_beats": 110,
+  "decoded_visual_review_seconds": [
+    6,
+    32,
+    65,
+    125,
+    140,
+    170
+  ],
+  "visual_contact_sheet": "docu/evidence/video-navy-storyboard.png",
+  "contact_sheet_sha256": "ac7ffe8b67f655f25adc67c68c64175a1a49aafcdd78db4c45f1c8bea63f16c2",
+  "motion_review": {
+    "frames": [
+      16,
+      22
+    ],
+    "caption_region_changes": true,
+    "background_region_changes": true,
+    "letter_entrance_manually_inspected": true,
+    "timing": "Frame-driven, deterministic; no CSS animation."
+  },
+  "new_meta_requests_for_redesign": 0,
+  "persistent_request_budget": {
+    "used": 28,
+    "limit": 30
+  },
+  "palette": {
+    "navy_dark": "#071426",
+    "navy_light": "#112b47",
+    "ivory": "#f6f3e9",
+    "ice_cyan": "#79dff7",
+    "secondary": "#a5b9d2",
+    "amber": "#ffc184"
+  },
+  "nominal_contrast_against_lightest_navy": {
+    "ivory": 12.95,
+    "ice_cyan": 9.39,
+    "secondary": 7.17,
+    "amber": 9.05
+  }
+}

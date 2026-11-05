@@ -34,3 +34,11 @@ Implementation PR: [#15](https://github.com/RjayBernales/FieldFix/pull/15). Its 
 
 | FF-020 | [#25: Include verification shell scripts in the submission archive](https://github.com/RjayBernales/FieldFix/issues/25) | Fixed .sh allowlist; extracted package frozen install, 56 tests, build and scan passed |
 | FF-021 | [#26: Confirm server mode before inference/session claims](https://github.com/RjayBernales/FieldFix/issues/26) | Unknown/startup-error state now neutral; intercepted session probe and real Meta reconnection verified |
+
+| Judging / navy follow-up | Ticket | Disposition |
+| --- | --- | --- |
+| FF-022 | [#27: Keep investigation provider labels neutral while health is pending](https://github.com/RjayBernales/FieldFix/issues/27) | Fixed; health-pending label remains neutral and recovers after retry |
+| FF-023 | [#28: Expose Simulator controls on its dedicated view](https://github.com/RjayBernales/FieldFix/issues/28) | Fixed; Simulator controls open in the dedicated view while Overview remains collapsed |
+| FF-024 | [#29: Place session banner and skip navigation in landmarks](https://github.com/RjayBernales/FieldFix/issues/29) | Fixed; all five page accessibility audits report zero violations |
+| FF-025 | [#30: Keep tablet navigation labels and diagnostic rows aligned](https://github.com/RjayBernales/FieldFix/issues/30) | Fixed; tablet/mobile layouts checked without document overflow |
+| FF-026 | [#31: Include new static runtime and validation assets in the review ZIP](https://github.com/RjayBernales/FieldFix/issues/31) | Fixed; public assets are included and private configuration/video files excluded |

@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 28px 32px;
+}
+a {
+  color: var(--ink);
+  text-underline-offset: 5px;
+}
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+header,
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+header > a,
+footer > a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.brand {
+  background: #f8fafc;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+.brand img {
+  display: block;
+  width: 204px;
+  height: auto;
+}
+.intro {
+  padding-top: 64px;
+}
+.intro p {
+  max-width: 70ch;
+}
+h1 {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  font-weight: 500;
+}
+h2 {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+section {
+  padding: 32px 0;
+}
+p {
+  color: var(--muted);
+}
+.summary {
+  background: var(--raised);
+  padding: 24px;
+  font-size: 20px;
+  color: var(--positive);
+}
+.capture {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: block;
+}
+details {
+  background: var(--surface);
+  margin: 12px 0;
+  padding: 12px 20px;
+}
+summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 10px 0;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow: auto;
+  background: var(--raised);
+  padding: 20px;
+  color: var(--ink);
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th,
+td {
+  padding: 14px 12px;
+}
+th {
+  color: var(--muted);
+  font-weight: 400;
+}
+td:nth-child(n + 3),
+th:nth-child(n + 3) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+footer {
+  padding: 48px 0 20px;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 20px;
+  }
+  .brand img {
+    width: 168px;
+  }
+  header {
+    flex-wrap: wrap;
+  }
+  .intro {
+    padding-top: 36px;
+  }
+  footer {
+    align-items: start;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  .summary {
+    font-size: 18px;
+    padding: 20px;
+  }
+}

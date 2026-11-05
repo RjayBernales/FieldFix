@@ -1,0 +1,109 @@
+{
+  "verified_at": "2026-11-05T00:51:32.738721+00:00",
+  "final_ui_commit": "4712027f13a1fa0c21b1ae0396be28a74d5c391b",
+  "skills": [
+    "UI/UX Pro Max",
+    "Taste frontend"
+  ],
+  "directions": {
+    "landing": "The product performs",
+    "landing_seed": 621651028,
+    "app": "Data terminal, preserving the existing dashboard grid",
+    "palette_override": "Owner explicitly requested navy dark surfaces instead of the skill\u2019s neutral-black preference.",
+    "proof_redraw": "Use real validation/evidence, not customer or award logos that do not exist."
+  },
+  "viewports": [
+    1440,
+    768,
+    390
+  ],
+  "landing_findings": [
+    {
+      "level": "WARN",
+      "id": "no-footage",
+      "width": 1440,
+      "message": "No video anywhere on the page.",
+      "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+    },
+    {
+      "level": "WARN",
+      "id": "still-page",
+      "width": 1440,
+      "message": "Little motion: 13 element(s) moved while the page loaded and scrolled.",
+      "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+    }
+  ],
+  "app_findings": [
+    {
+      "level": "WARN",
+      "id": "hero-void",
+      "width": 1440,
+      "message": "40% of the first screen is one empty block (1440\u00d7360px at 0,540).",
+      "fix": "Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest.",
+      "view": "simulator"
+    }
+  ],
+  "warnings_explained": {
+    "no-footage": "User has not authorized video upload; the real interface and recorded observations are the appropriate visual material.",
+    "still-page": "13 measured entrances plus working evidence tabs and control feedback; deliberate restraint instead of continuous distracting motion.",
+    "hero-void": "Simulator contains the one real station configuration; the empty tail of a tall desktop viewport avoids invented filler."
+  },
+  "axe": {
+    "landing": {
+      "inapplicable": 50,
+      "incomplete": 0,
+      "passes": 39,
+      "violations": 0
+    },
+    "overview": {
+      "inapplicable": 42,
+      "incomplete": 1,
+      "passes": 47,
+      "violations": 0
+    },
+    "investigations": {
+      "inapplicable": 43,
+      "incomplete": 1,
+      "passes": 46,
+      "violations": 0
+    },
+    "simulator": {
+      "inapplicable": 53,
+      "incomplete": 0,
+      "passes": 36,
+      "violations": 0
+    },
+    "recorded": {
+      "inapplicable": 56,
+      "incomplete": 0,
+      "passes": 33,
+      "violations": 0
+    }
+  },
+  "manual_review": "Landing, Overview, Investigations, Simulator and recorded evidence screenshots inspected; desktop/tablet/mobile reviewed. Tablet links kept intact, sample-tab labels wrap on phone, and reduced-motion content stays visible.",
+  "before": {
+    "landing_failures": 6,
+    "landing_warnings": 4
+  },
+  "after": {
+    "landing_failures": 0,
+    "landing_warnings": 2,
+    "app_failures": 0,
+    "app_warnings": 1
+  },
+  "palette": {
+    "ground": "#081426",
+    "surface": "#102039",
+    "raised": "#162a44",
+    "ink": "#f2f6fc",
+    "muted": "#a5b6cc",
+    "accent": "#71d8eb"
+  },
+  "no_new_model_calls_for_visual_checks": true,
+  "known_limit": "Automated accessibility is not comprehensive certification; SVG contrast requires manual review.",
+  "nominal_token_contrast": {
+    "main_text_on_surface": 15.04,
+    "secondary_text_on_surface": 7.89,
+    "button_label_on_cyan": 11.18
+  }
+}

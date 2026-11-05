@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#081426" />
+    <title>FieldFix · Recorded Meta evidence</title>
+    <link rel="icon" href="/brand/fieldfix-mark-v1.png" />
+    <link rel="stylesheet" href="/theme.css" />
+    <link rel="stylesheet" href="/recorded-demo.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a class="brand" href="/" aria-label="FieldFix home"
+          ><img
+            src="/brand/fieldfix-logo-v1.png"
+            width="204"
+            height="68"
+            alt="FieldFix" /></a
+        ><a href="/">Open live demo ↗</a>
+      </header>
+      <section class="intro">
+        <h1>Recorded Meta investigation.</h1>
+        <p>
+          Genuine Meta inference with a software station and simulated
+          transport. This evidence was captured from a completed run; viewing
+          this page makes no Meta API calls.
+        </p>
+        <p id="date">Loading recorded metadata…</p>
+      </section>
+      <section aria-labelledby="result-title">
+        <h2 id="result-title">The verified result.</h2>
+        <div id="summary" class="summary" aria-live="polite"></div>
+        <p id="finding"></p>
+        <p>
+          The request counter in the capture reflects the budget at recording
+          time. Current judging limits may differ.
+        </p>
+        <img
+          class="capture"
+          src="/evidence/recorded-meta-recovery.png"
+          alt="Actual recorded FieldFix recovery with Meta API label, diagnostic tool results, model responses, and three verified post-repair samples"
+          width="1440"
+          loading="lazy"
+        />
+      </section>
+      <section aria-labelledby="tools-title">
+        <h2 id="tools-title">Inspect the tool observations.</h2>
+        <p>
+          Original payloads and evidence references from the recorded run. The
+          tools observed simulated operational data.
+        </p>
+        <div id="tools"></div>
+      </section>
+      <section aria-labelledby="requests-title">
+        <h2 id="requests-title">Actual Meta responses.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model response</th>
+                <th>Returned model</th>
+                <th>Latency</th>
+                <th>Tokens</th>
+              </tr>
+            </thead>
+            <tbody id="requests"></tbody>
+          </table>
+        </div>
+        <p id="usage"></p>
+        <p>
+          Token usage was returned by Meta. Monetary cost was not returned. This
+          small demonstration does not establish accuracy, environmental safety,
+          or field impact.
+        </p>
+      </section>
+      <footer>
+        <a href="/">Return to FieldFix →</a
+        ><a href="/recorded-run.json">View the sanitized source JSON ↗</a>
+      </footer>
+    </main>
+    <script>
+      fetch("/recorded-run.json")
+        .then((r) => {
+          if (!r.ok) throw new Error();
+          return r.json();
+        })
+        .then((run) => {
+          const i = run.incident;
+          document.getElementById("date").textContent =
+            "Recorded " +
+            new Date(run.recorded_at).toUTCString() +
+            " · " +
+            run.model;
+          document.getElementById("summary").textContent =
+            i.model_turns +
+            " genuine responses · " +
+            i.tool_calls +
+            " tool calls · " +
+            i.verification.count +
+            " / " +
+            i.verification.required +
+            " fresh samples verified";
+          document.getElementById("finding").textContent = i.finding;
+          for (const e of i.evidence) {
+            const d = document.createElement("details"),
+              s = document.createElement("summary"),
+              p = document.createElement("p"),
+              pre = document.createElement("pre");
+            s.textContent = e.tool_name.replaceAll("_", " ");
+            p.textContent = e.evidence_id + " · observed " + e.observed_at;
+            pre.textContent = JSON.stringify(e.payload, null, 2);
+            d.append(s, p, pre);
+            document.getElementById("tools").append(d);
+          }
+          i.inference.forEach((x, n) => {
+            const tr = document.createElement("tr");
+            for (const v of [
+              String(n + 1),
+              x.returned_model || x.model,
+              x.latency_ms + " ms",
+              String(x.usage?.total_tokens ?? "Not returned"),
+            ]) {
+              const td = document.createElement("td");
+              td.textContent = v;
+              tr.append(td);
+            }
+            document.getElementById("requests").append(tr);
+          });
+          document.getElementById("usage").textContent =
+            "Actual usage: " +
+            run.usage.total_tokens.toLocaleString() +
+            " tokens across this recorded run.";
+        })
+        .catch(() => {
+          document.getElementById("date").textContent =
+            "The evidence file could not be loaded. Retry this page or return to the live demo.";
+        });
+    </script>
+  </body>
+</html>

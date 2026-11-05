@@ -8,7 +8,7 @@ from dotenv import dotenv_values
 
 ROOT=Path(__file__).resolve().parents[1]
 paths=[p for directory in ('backend','frontend/src','frontend/public','scripts','docu','rules','.github') for p in (ROOT/directory).rglob('*')
-       if p.is_file() and '__pycache__' not in p.parts and p.suffix in {'.py','.sh','.txt','.tsx','.ts','.css','.json','.md','.png','.yml','.yaml'}]
+       if p.is_file() and '__pycache__' not in p.parts and p.suffix in {'.py','.sh','.txt','.tsx','.ts','.css','.html','.json','.md','.png','.jpg','.jpeg','.svg','.yml','.yaml'}]
 paths += [ROOT/p for p in ('README.md','.gitignore','.env.example','pyproject.toml','requirements.lock',
           'Dockerfile','.dockerignore','render.yaml','frontend/index.html','frontend/package.json','frontend/package-lock.json','frontend/tsconfig.json','frontend/vite.config.ts')]
 key=dotenv_values(ROOT/'.env').get('MODEL_API_KEY')

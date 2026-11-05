@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <img src="docu/evidence/branding/dashboard-desktop.png" alt="FieldFix dashboard showing station telemetry, local and delivered readings, diagnostic activity, and technician repair review" width="100%" />
+  <img src="frontend/public/evidence/navy-dashboard.png" alt="FieldFix dashboard showing station telemetry, local and delivered readings, diagnostic activity, and technician repair review" width="100%" />
 </p>
 
 <p align="center"><em>Actual application capture. Station readings and transport are simulated; the provider badge identifies the inference mode.</em></p>
@@ -68,7 +68,7 @@ For a guided walkthrough, open the [hands-on self-test guide](docu/SELF_TEST_GUI
 
 ## Demo and preview
 
-Run the application locally using the commands below. The optional public preview uses isolated **mock inference** sessions and requires no API key. Account-free tunnel links expire when the host or tunnel stops, so they are not permanent hosting. See [hosting instructions and limits](docu/DEPLOYMENT.md).
+Run the application locally using the commands below. The current [Cloudflare judging demo](https://gtk-driver-politicians-however.trycloudflare.com) uses **genuine Meta Muse inference** with one-click isolated visitor sessions: no account or access code. Each session allows two investigations within one persistent **100-request shared cap**. The [recorded genuine Meta walkthrough](https://gtk-driver-politicians-however.trycloudflare.com/recorded-demo.html) makes no model calls. The separate optional mock factory makes no Meta calls. Account-free tunnel links expire when the host or tunnel stops, so they are not permanent hosting. See [hosting instructions and limits](docu/DEPLOYMENT.md).
 
 The [three-minute demo script](docu/DEMO_SCRIPT.md), [actual validation report](docu/VALIDATION.md), and [specification audit](docu/AUDIT.md) explain the demonstrated behavior and remaining submission criteria. [Brand assets](frontend/public/brand/README.md) document the approved system logo used here and in the application.
 
@@ -99,7 +99,7 @@ Start the dashboard in terminal 2:
 npm --prefix frontend run dev
 ```
 
-Open **http://127.0.0.1:5173**. The Vite server proxies `/api` to the backend. Keep exactly **one backend worker**. The ordinary factory is local-only. The separate free-hosting factory adds isolated visitor sessions and explicitly mock-only online operation; see DEPLOYMENT.md. These launch commands were exercised locally after execution access was enabled; both mock and live Meta browser workflows were checked.
+Open **http://127.0.0.1:5173**. The Vite server proxies `/api` to the backend. Keep exactly **one backend worker**. The ordinary factory is local-only. The mock public factory and the separate authenticated live Meta factory add isolated visitor sessions; live judging uses quota-controlled cookie sessions and a shared persistent budget; private-code hosting remains optional. See [DEPLOYMENT.md](docu/DEPLOYMENT.md). These launch commands were exercised locally after execution access was enabled; both mock and live Meta browser workflows were checked.
 
 ## Mock and live modes
 

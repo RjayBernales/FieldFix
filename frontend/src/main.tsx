@@ -542,13 +542,19 @@ function App() {
             Investigation
           </h2>
           <p>
-            {health?.provider === "meta"
-              ? health.model
-              : "Deterministic mock fixture"}
+            {!health
+              ? "Confirming inference mode…"
+              : health.provider === "meta"
+                ? health.model
+                : "Deterministic mock fixture"}
           </p>
         </div>
         <span className="badge neutral">
-          {health?.provider === "meta" ? "Meta API" : "Mock"}
+          {!health
+            ? "Connecting"
+            : health.provider === "meta"
+              ? "Meta API"
+              : "Mock"}
         </span>
       </div>
       <div className="investigation-body">
@@ -704,9 +710,11 @@ function App() {
         </div>
       )}
       <div className="provider-note">
-        {health?.provider === "meta"
-          ? `Live request budget: ${health.live_requests_used} / ${health.live_request_limit}. No automatic fallback.`
-          : "Mock inference · not live Meta validation."}
+        {!health
+          ? "Confirming provider and request budget…"
+          : health.provider === "meta"
+            ? `Live request budget: ${health.live_requests_used} / ${health.live_request_limit}. No automatic fallback.`
+            : "Mock inference · not live Meta validation."}
       </div>
     </section>
   );
@@ -728,7 +736,11 @@ function App() {
     </div>
   );
   const simulator = (
-    <details className="demo-controls" id="simulator-controls">
+    <details
+      className="demo-controls"
+      id="simulator-controls"
+      open={view === "simulator" ? true : undefined}
+    >
       <summary>
         <span>Simulator controls</span>
         <span className="summary-note">Synthetic station scenarios</span>
@@ -775,16 +787,18 @@ function App() {
   );
   return (
     <>
-      <a
-        className="skip-link"
-        href="#main"
-        onClick={(e) => {
-          e.preventDefault();
-          document.getElementById("main")?.focus();
-        }}
-      >
-        Skip to station content
-      </a>
+      <nav aria-label="Skip links">
+        <a
+          className="skip-link"
+          href="#main"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("main")?.focus();
+          }}
+        >
+          Skip to station content
+        </a>
+      </nav>
       <header className="app-header">
         <Brand />
         <button
@@ -1041,13 +1055,140 @@ function App() {
     </>
   );
 }
+type RecordedRun = {
+  recorded_at: string;
+  model: string;
+  incident: Incident;
+  usage: { total_tokens: number };
+};
+function RecordedPreview() {
+  const [run, setRun] = useState<RecordedRun | null>(null);
+  const [selected, setSelected] = useState(0);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    fetch("/recorded-run.json")
+      .then((r) => {
+        if (!r.ok) throw new Error();
+        return r.json();
+      })
+      .then(setRun)
+      .catch(() => setFailed(true));
+  }, []);
+  const names = [
+    "get_local_samples",
+    "get_received_samples",
+    "get_transport_config",
+  ];
+  const evidence = run?.incident.evidence.find(
+    (e) => e.tool_name === names[selected],
+  );
+  const samples = (evidence?.payload.samples as Sample[] | undefined) || [];
+  const latest = samples[samples.length - 1];
+  return (
+    <section
+      className="landing-preview"
+      data-ui
+      aria-labelledby="preview-title"
+    >
+      <div className="preview-heading landing-enter">
+        <h2 id="preview-title">Inspect the evidence.</h2>
+        <span>Recorded genuine Meta run</span>
+      </div>
+      <p className="preview-caption landing-enter">
+        {run
+          ? `${run.model} · ${new Date(run.recorded_at).toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })} UTC`
+          : "Loading the recorded evidence…"}
+      </p>
+      <div
+        className="preview-tabs landing-enter"
+        role="group"
+        aria-label="Recorded diagnostic evidence"
+      >
+        {["Local samples", "Delivered samples", "Transport topics"].map(
+          (label, i) => (
+            <button
+              key={label}
+              aria-pressed={selected === i}
+              onClick={() => setSelected(i)}
+            >
+              {label}
+            </button>
+          ),
+        )}
+      </div>
+      <div className="preview-observation landing-enter" key={selected}>
+        {failed ? (
+          <p>
+            The evidence file is unavailable.{" "}
+            <a href="/recorded-demo.html">Open the recorded walkthrough.</a>
+          </p>
+        ) : evidence ? (
+          <>
+            {latest ? (
+              <>
+                <p>
+                  {selected === 0
+                    ? "Device-side reading"
+                    : "Last delivered reading"}
+                </p>
+                <div className="preview-reading">
+                  {latest.value.toFixed(2)} <span>{latest.unit}</span>
+                </div>
+                <dl>
+                  <div>
+                    <dt>Original sequence</dt>
+                    <dd>{latest.sequence}</dd>
+                  </div>
+                  <div>
+                    <dt>Sampled at</dt>
+                    <dd>{latest.sampled_at.slice(11, 19)} UTC</dd>
+                  </div>
+                </dl>
+              </>
+            ) : (
+              <dl className="preview-topics">
+                <div>
+                  <dt>Publishing topic</dt>
+                  <dd>{String(evidence.payload.publish_topic)}</dd>
+                </div>
+                <div>
+                  <dt>Dashboard subscription</dt>
+                  <dd>{String(evidence.payload.subscription_topic)}</dd>
+                </div>
+              </dl>
+            )}
+            <p className="preview-ref">Evidence {evidence.evidence_id}</p>
+          </>
+        ) : (
+          <p>Original samples and tool results will appear here.</p>
+        )}
+      </div>
+      <div className="preview-outcome landing-enter">
+        <span>Verified outcome</span>
+        <strong>
+          {run?.incident.verification
+            ? `${run.incident.verification.count} / ${run.incident.verification.required} fresh samples`
+            : "Recorded recovery"}
+        </strong>
+      </div>
+      <p className="preview-footnote landing-enter">
+        A recorded observation, available without model calls.{" "}
+        <a href="/recorded-demo.html">Read the complete trace ↗</a>
+      </p>
+    </section>
+  );
+}
 type SessionStatus = {
   hosted_demo: boolean;
   authenticated: boolean;
   expires_in?: number;
+  provider?: "meta" | "mock";
+  requires_access_code?: boolean;
+  public_live?: boolean;
 };
 function SessionGate() {
   const [status, setStatus] = useState<SessionStatus | null>(null),
+    [accessCode, setAccessCode] = useState(""),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
   async function check() {
@@ -1074,7 +1215,7 @@ function SessionGate() {
   useEffect(() => {
     void check();
     const expired = () =>
-      setStatus({ hosted_demo: true, authenticated: false });
+      setStatus((s) => (s ? { ...s, authenticated: false } : null));
     window.addEventListener("fieldfix-session-expired", expired);
     return () =>
       window.removeEventListener("fieldfix-session-expired", expired);
@@ -1083,7 +1224,10 @@ function SessionGate() {
     setBusy(true);
     setError("");
     try {
-      setStatus(await api<SessionStatus>("/session", {}));
+      setStatus(
+        await api<SessionStatus>("/session", { access_code: accessCode }),
+      );
+      setAccessCode("");
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -1093,126 +1237,266 @@ function SessionGate() {
   async function end() {
     setBusy(true);
     try {
-      await api("/session/end", {});
-      setStatus({ hosted_demo: true, authenticated: false });
+      setStatus(await api<SessionStatus>("/session/end", {}));
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setBusy(false);
     }
   }
-  if (!status || !status.authenticated)
+  if (!status || !status.authenticated) {
     return (
-      <main className="welcome">
-        <Brand context="Interactive demo" />
-        <div className="welcome-layout">
-          <section className="welcome-card">
-            <h1>
-              From stale readings
+      <main className="landing">
+        <header className="landing-header">
+          <Brand context="" />
+          <nav aria-label="About FieldFix">
+            <a href="#workflow">How it works</a>
+            <a href="#validation">Evidence</a>
+            <a href="#demo-entry">Open demo</a>
+          </nav>
+        </header>
+        <section
+          className="landing-hero"
+          aria-label="FieldFix live demonstration"
+        >
+          <div className="landing-copy">
+            <h1 className="landing-enter">
+              Find the fault.
               <br />
-              to verified recovery.
+              Prove the fix.
             </h1>
-            <p>
-              Work through a station delivery fault. Inspect what happened,
-              approve the exact change, and watch fresh samples return.
+            <p className="landing-lede landing-enter">
+              FieldFix uses Meta Muse to investigate monitoring-station faults,
+              propose exact repairs, and verify that fresh data returns.
             </p>
-            <div className="welcome-disclosure">
-              <strong>
+            <div className="landing-mode landing-enter">
+              <span className="status-dot" />
+              <span>
                 {status?.hosted_demo
-                  ? "Simulated station · mock inference"
-                  : "Simulated station · checking inference mode"}
-              </strong>
-              <p>
-                {status?.hosted_demo
-                  ? "This free demo makes no Meta API calls. Genuine Meta validation is documented in the repository."
-                  : "Connect to the server to confirm its configured inference mode. No investigation has started on this screen."}
-              </p>
+                  ? status.provider === "meta"
+                    ? "Live Meta inference · simulated station"
+                    : "Mock inference · simulated station"
+                  : "Connecting to confirm inference mode"}
+              </span>
             </div>
-            {error && (
-              <p className="error" role="alert">
-                {error}
-              </p>
-            )}
-            {status ? (
-              <button
-                className="primary"
-                disabled={busy}
-                onClick={() => void start()}
-              >
-                {busy ? "Starting your station…" : "Start my demo session"}
-                <Icon name="arrow" />
-              </button>
-            ) : (
-              <button
-                className="primary"
-                disabled={!error}
-                onClick={() => void check()}
-              >
-                {error ? "Retry connection" : "Connecting to server…"}
-              </button>
-            )}
+            <div className="landing-entry landing-enter" id="demo-entry">
+              {error && (
+                <p className="error" role="alert">
+                  {error}
+                </p>
+              )}
+              {status ? (
+                <form
+                  className="session-login"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    void start();
+                  }}
+                >
+                  {status.requires_access_code && (
+                    <label htmlFor="demo-access-code">
+                      Demo access code
+                      <input
+                        id="demo-access-code"
+                        type="password"
+                        autoComplete="current-password"
+                        value={accessCode}
+                        onChange={(e) => setAccessCode(e.target.value)}
+                        maxLength={200}
+                        required
+                        aria-describedby="demo-access-help"
+                      />
+                      <small id="demo-access-help">
+                        Use the private code shared by the presenter. Never
+                        enter a Meta API key.
+                      </small>
+                    </label>
+                  )}
+                  <button className="primary" disabled={busy} type="submit">
+                    {busy
+                      ? "Starting your station…"
+                      : status.provider === "meta"
+                        ? "Start live demo"
+                        : "Start my demo session"}
+                    <Icon name="arrow" />
+                  </button>
+                </form>
+              ) : (
+                <button
+                  className="primary"
+                  disabled={!error}
+                  onClick={() => void check()}
+                >
+                  {error ? "Retry connection" : "Connecting to server…"}
+                </button>
+              )}
+            </div>
+            <p className="landing-limits landing-enter">
+              {status?.requires_access_code
+                ? "This private demo requires the presenter's access code."
+                : status?.provider === "meta"
+                  ? "No account or access code. Two investigations per session, within the shared API budget."
+                  : "An isolated demo session. Provider mode is confirmed by the server."}
+            </p>
             <a
-              className="guide-link"
-              href="https://github.com/RjayBernales/FieldFix/blob/main/docu/SELF_TEST_GUIDE.md"
+              className="landing-recorded landing-enter"
+              href="/recorded-demo.html"
+            >
+              Review the recorded Meta run ↗
+            </a>
+          </div>
+          <RecordedPreview />
+        </section>
+        <section
+          id="workflow"
+          className="landing-workflow"
+          aria-labelledby="workflow-title"
+        >
+          <h2 id="workflow-title" className="landing-enter">
+            Evidence to recovery.
+          </h2>
+          <p className="landing-section-copy">
+            A frozen dashboard is a symptom. FieldFix follows the data before
+            suggesting a repair.
+          </p>
+          <ol>
+            <li>
+              <strong>Observe</strong>
+              <p>Compare original device and delivered samples.</p>
+            </li>
+            <li>
+              <strong>Investigate</strong>
+              <p>Meta chooses typed diagnostic tools and cites observations.</p>
+            </li>
+            <li>
+              <strong>Approve</strong>
+              <p>The technician authorizes one exact configuration change.</p>
+            </li>
+            <li>
+              <strong>Verify</strong>
+              <p>Three distinct fresh samples prove delivery has recovered.</p>
+            </li>
+          </ol>
+          <div className="landing-observations">
+            <figure>
+              <a
+                href="/evidence/navy-tool-evidence.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/evidence/navy-tool-evidence.png"
+                  width="1440"
+                  height="1000"
+                  loading="lazy"
+                  alt="Actual diagnostic tool observations and original local sample payload in FieldFix"
+                />
+              </a>
+              <figcaption>
+                Observed tool payloads. Original samples and evidence references
+                are available to inspect.
+              </figcaption>
+            </figure>
+            <figure>
+              <a
+                href="/evidence/navy-repair-verification.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/evidence/navy-repair-verification.png"
+                  width="1440"
+                  height="1000"
+                  loading="lazy"
+                  alt="Actual approved subscription-topic correction and verified recovery in FieldFix"
+                />
+              </a>
+              <figcaption>
+                The exact approved change and the recorded recovery check. Open
+                either capture at full size.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <section
+          id="validation"
+          className="landing-proof"
+          aria-labelledby="validation-title"
+        >
+          <div>
+            <h2 id="validation-title">Proof you can inspect.</h2>
+            <p>
+              Real model responses, documented checks, and explicit limits. All
+              stations and transport are software simulations.
+            </p>
+            <a href="/recorded-demo.html">Open the evidence report ↗</a>
+          </div>
+          <div className="landing-proof-list">
+            <p>
+              <strong>Genuine Meta tool use</strong>
+              <span>
+                Inspect the returned model metadata and the original diagnostic
+                tool results.
+              </span>
+            </p>
+            <p>
+              <strong>Technician control</strong>
+              <span>
+                Exact approval is required before the subscription changes.
+              </span>
+            </p>
+            <p>
+              <strong>Deterministic recovery</strong>
+              <span>
+                Recovery requires distinct post-repair samples and a fresh
+                latest reading.
+              </span>
+            </p>
+          </div>
+          <figure className="landing-capture">
+            <a
+              href="/evidence/navy-dashboard.png"
               target="_blank"
               rel="noreferrer"
             >
-              Read the hands-on testing guide ↗
+              <img
+                src="/evidence/navy-dashboard.png"
+                alt="Actual FieldFix navy dashboard with station telemetry, diagnostic observations and repair review"
+                width="1440"
+                height="1100"
+                loading="lazy"
+              />
             </a>
-            <small>
-              {status?.hosted_demo
-                ? "An isolated session, private to this browser, expires after 30 minutes. Do not enter secrets or personal data."
-                : "Do not enter secrets or personal data. Hosted session details appear after the server responds."}
-            </small>
-          </section>
-          <aside className="welcome-process" aria-label="Demo workflow">
-            <div className="process-heading">
-              <Icon name="wave" />
-              <span>Station recovery workflow</span>
-            </div>
-            <ol>
-              <li>
-                <strong>Observe the gap</strong>
-                <p>
-                  The device keeps sampling while dashboard delivery falls
-                  behind.
-                </p>
-              </li>
-              <li>
-                <strong>Follow the evidence</strong>
-                <p>
-                  Inspect diagnostic results and compare the exact subscription
-                  topics.
-                </p>
-              </li>
-              <li>
-                <strong>Approve & verify</strong>
-                <p>
-                  Authorize a bounded repair. Recovery needs three new
-                  post-repair samples.
-                </p>
-              </li>
-            </ol>
-            <div className="welcome-footnote">
-              Software station · in-process transport
-              <br />
-              No hardware connection or field deployment
-            </div>
-          </aside>
-        </div>
+            <figcaption>
+              Actual application capture · software station. Open the image to
+              inspect it at full size.
+            </figcaption>
+          </figure>
+        </section>
+        <footer className="landing-footer">
+          <span>FieldFix · Evidence before action.</span>
+          <span>Software station. No field-deployment or safety claim.</span>
+        </footer>
       </main>
     );
+  }
   return (
     <>
       {status.hosted_demo && (
-        <div className="hosted-banner">
+        <aside className="hosted-banner" aria-label="Demo session">
           <span>
-            Free online demo · mock inference · isolated temporary station
+            {status.provider === "meta"
+              ? "Live Meta demo · shared request budget"
+              : "Free online demo · mock inference"}{" "}
+            · isolated temporary station
           </span>
+          <a href="/recorded-demo.html" target="_blank" rel="noreferrer">
+            Recorded Meta evidence ↗
+          </a>
           <button disabled={busy} onClick={() => void end()}>
             End my session
           </button>
-        </div>
+        </aside>
       )}
       {error && (
         <div className="error" role="alert">

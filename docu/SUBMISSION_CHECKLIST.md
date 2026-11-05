@@ -1,8 +1,10 @@
 # Submission checklist
 
+Current judging update (2026-11-05 UTC): code-free live Meta sessions, shared cap **100**, **33 used** at validation; navy UI and **64 backend tests** checked. [Latest actual report](public-live-navy-results.json), [UI report](navy-ui-validation.json). Historical counts/budgets below describe their original audits. Quick Tunnel availability and manual submission remain participant responsibilities.
+
 ## Latest specification audit
 
-[Full matrix](AUDIT.md): 56 backend tests, build, fresh-package setup, mock browser regressions, three fresh genuine Meta repairs plus healthy and a genuine Meta browser repair passed. Local live usage is 26/30. PR #24 updated-head checks/merge remain to be verified. Stable free hosting and key rotation remain incomplete owner gates.
+[Full matrix](AUDIT.md): 56 backend tests, build, fresh-package setup, mock browser regressions, three fresh genuine Meta repairs plus healthy and a genuine Meta browser repair passed. The audit used 26/30 requests; the subsequent video capture brought local usage to 28/30. PR #24 merged after both final-head checks passed (tested c763ad8; merge 666c03f). Stable free hosting and key rotation remain incomplete owner gates.
 
 ## Live demonstration gates
 
@@ -28,7 +30,7 @@
 
 - [ ] Confirm current eligibility, rubric, required fields, contributor information, and deadline on the organizer platform. Do not rely solely on a copied deadline.
 - [ ] Confirm repository access appropriate for submission; do not change visibility without approval.
-- [ ] Record a truthful three-minute demonstration with visible simulator/provider labels.
+- [x] Created the local three-minute Remotion demonstration with visible simulator/provider labels, free AI narration and captions. Export verified: 180 seconds, 1920×1080, 30 fps, H.264/AAC, full decode passed. Not uploaded.
 - [ ] Upload video manually and verify its public link and repository link from a signed-out context.
 - [ ] Complete and submit the competition form manually; retain confirmation.
 

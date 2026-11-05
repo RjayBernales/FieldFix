@@ -111,3 +111,13 @@ Suggested label: `bug`. Fixed before public preview.
 - Code-review finding: streaming a new session's body while holding the global session lock could delay unrelated visitors.
 - Fix: bound the body and its read timeout before acquiring the lock; bound authorized request handling, and defer cleanup while an already-authorized request is active.
 - Verification: regression sends a stalled body under an injected short deadline and confirms timeout with no held lock or created station. Other session-isolation tests remain passing. No real user attack or outage is claimed.
+
+## 2026-11-05 judging/navy follow-up tickets — published
+
+These concrete findings were fixed locally and published as GitHub issues. The implementation commit references each issue for automatic closure.
+
+- [#27: Keep investigation provider labels neutral while health is pending](https://github.com/RjayBernales/FieldFix/issues/27). The card initially selected its mock label before the live health response arrived. Show connecting/confirming text until confirmed; a browser-aborted health request now stays neutral and recovers to Meta after retry. No model call was used for this regression check.
+- [#28: Expose Simulator controls on its dedicated view](https://github.com/RjayBernales/FieldFix/issues/28). The Simulator workspace opened with its sole controls collapsed. Open them in Simulator while preserving the collapsed default in Overview; browser checks cover 1440/768/390px.
+- [#29: Place session banner and skip navigation in landmarks](https://github.com/RjayBernales/FieldFix/issues/29). Full axe checks found a region violation outside the content landmarks. Use an aside for the demo session and a named skip-navigation landmark; all five pages now report zero violations.
+- [#30: Keep tablet navigation labels and diagnostic rows aligned](https://github.com/RjayBernales/FieldFix/issues/30). Tablet Guide text wrapped mid-label and expanded evidence created an uneven row. Preserve whole navigation labels and bound the desktop evidence region; mobile retains natural scrolling. Browser widths and no-document-overflow checks pass.
+- [#31: Include new static runtime and validation assets in the review ZIP](https://github.com/RjayBernales/FieldFix/issues/31). The archive allowlist omitted public HTML, README SVG presentation assets and JPEG validation images. Extend the safe suffix list and verify all new files are present; private configuration and video files remain excluded.
