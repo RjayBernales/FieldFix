@@ -16,6 +16,8 @@ Taste: landing **0 failures / 2 explained warnings**; all nine app view/width co
 
 Recorded evidence is explicitly labeled, reflects actual returned values, and performs no inference. Public usage remains finite and shared; the Quick Tunnel requires this computer and has no permanent availability guarantee. No video uploaded, competition submission, or field-deployment claim.
 
+Published application commit: `bafe16058182e74ea5a333cb67f51ceff164ef4f` was pushed directly to `main` under owner approval. The exact published snapshot passed 64 backend tests (4.84s), strict TypeScript/Vite build, whitespace and secret checks. Issues #27–#31 are closed. GitHub Actions did not run: the current workflow triggers on PRs to main or pushes to dev/fieldfix-mvp, not direct main pushes; zero remote checks must not be reported as passed CI. The final delivery-evidence commit changes documentation only.
+
 ## Earlier private-code Meta Cloudflare demo — 2026-11-05 UTC
 
 Runtime `ebf4d0a05ab033ebc20ab4a6c07f6eb8972661f7` passed a genuine public-browser investigation through Cloudflare: **3 successful Meta responses, 6 tool calls, exact technician approval, and resolved recovery with 3/3 fresh samples**. Actual usage: **8,340 prompt + 1,291 completion = 9,631 tokens**; monetary cost was not returned. [Sanitized full evidence](hosted-live-results.json), [actual recovery screenshot](evidence/hosted-live-recovery.png).
